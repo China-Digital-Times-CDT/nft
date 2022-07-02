@@ -31,11 +31,18 @@ import HeaderMain from './components/common/HeaderMain.vue';
 import ButtonGroup from './components/common/ButtonGroup.vue';
 import Footer from './pages/Footer.vue';
 import FooterSection from './components/section/FooterSection.vue';
+import LoginSection from './components/section/LoginSection.vue';
+import RegisterSection from './components/section/RegisterSection.vue';
+
+
 
 // Global page components register
 app.component('HeaderMain', HeaderMain);
 app.component('ButtonGroup', ButtonGroup)
 app.component('Footer', Footer)
 app.component('FooterSection', FooterSection)
+app.component('LoginSection', LoginSection)
+app.component('RegisterSection', RegisterSection)
+
 // vue app
 app.use(router).mount('#app')

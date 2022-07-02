@@ -108,6 +108,26 @@ let SectionData = {
       }
     ]
   },
+  loginData: {
+    img: require('@/images/thumb/remote.png'),
+    title: 'Welcome!',
+    subTitle: '',
+    btnText: 'Login Now',
+    haveAccountText: "Don't have an account",
+    btnTextTwo: 'Sign Up',
+    btnTextLink: 'register',
+  },
+  // register data
+  registerData: {
+    img: require('@/images/thumb/remote-2.png'),
+    title: 'Sign Up',
+    subTitle: 'Fill up the below fields to create an account',
+    termText: 'By signing up, you agree to our Terms and conditions and Privacy Policy',
+    btnText: 'Create an Account',
+    haveAccountText: "Already have an account",
+    btnTextTwo: 'Login',
+    btnTextLink: 'login',
+  },
 }
 
 export default SectionData
