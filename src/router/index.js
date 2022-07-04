@@ -6,7 +6,16 @@ const routes = [
     name: "Home",
     component: () => import('../pages/Home-v2.vue'),
   },
-
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('../pages/Login.vue')
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: () => import('../pages/Register.vue')
+  },
 ];
 
 const router = createRouter({
