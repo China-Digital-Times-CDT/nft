@@ -16,6 +16,11 @@ const routes = [
     name: 'Register',
     component: () => import('../pages/Register.vue')
   },
+  {
+    path: '/create-single',
+    name: 'create-single',
+    component: () => import('../pages/CreateSingle.vue')
+  },
 ];
 
 const router = createRouter({

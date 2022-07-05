@@ -3,7 +3,7 @@ let SectionData = {
 
   // Hero data three
   heroDataThree: {
-    title: 'CDToken discover rare artworks by world class',
+    title: 'CDToken discover rare artworks',
     content: 'CDToken, NFT Marketplace without any technical knowledge'
   },
   copyTitle: 'Copyright © 2022 CDToken.',
@@ -43,7 +43,7 @@ let SectionData = {
     {
       btnClass: 'btn-lg btn-outline-dark',
       title: 'Create Store',
-      path: 'create'
+      path: 'create-single'
     }
   ],
   // footer data
@@ -116,6 +116,13 @@ let SectionData = {
     haveAccountText: "Don't have an account",
     btnTextTwo: 'Sign Up',
     btnTextLink: 'register',
+    btns: [
+      {
+        title: 'Github',
+        btnClass: 'bg-cyan-100 text-cyan t-btn',
+        icon: 'ni-github',
+        path: 'github.com/login/oauth/'
+      },]
   },
   // register data
   registerData: {
@@ -127,6 +134,71 @@ let SectionData = {
     haveAccountText: "Already have an account",
     btnTextTwo: 'Login',
     btnTextLink: 'login',
+    btns: [
+      {
+        title: 'Github',
+        btnClass: 'bg-cyan-100 text-cyan t-btn',
+        icon: 'ni-github',
+        path: 'github.com/login/oauth/'
+      },]
+  },
+  userActivityItems: {
+    mainTitle: 'Activity',
+    allData: [
+      {  //Adam received upvote in github issues #2343,   Bob just minted a new NFT based on github discussion #5343,Alice purchased a listing #A2CE3 for CDT 3000
+        id: 1,
+        title: 'Adam',
+        subTitle1: 'received upvote in github issues',
+        subTitle2: '',
+        newNFT: '',
+        issueLink: '#2343',
+        nftItem: '',
+        repoLink: '',
+        img: require('@/images/thumb/avatar.jpg'),
+        timeText: '05/07/2022, 12:40'
+      },
+      {
+        id: 2,
+        title: 'Bob',
+        subTitle1: 'just minted',
+        subTitle2: 'based on github discussion',
+        newNFT: 'a new NFT',
+        issueLink: '#5343',
+        nftItem: '',
+        repoLink: '',
+        img: require('@/images/thumb/avatar-2.jpg'),
+        timeText: '05/05/2022, 11:34'
+      },
+      {
+        id: 3,
+        title: 'Alice',
+        subTitle1: 'purchased a listing',
+        subTitle2: 'for CDT 3000',
+        newNFT: '',
+        issueLink: '',
+        nftItem: '#A2CE3',
+        repoLink: '',
+        img: require('@/images/thumb/avatar-3.jpg'),
+        timeText: '05/05/2022, 11:31'
+      },
+      {
+        id: 4,
+        title: 'Carol',
+        subTitle1: 'Carol’s commit merged into repo',
+        subTitle2: '',
+        newNFT: '',
+        issueLink: '',
+        nftItem: '',
+        repoLink: '#7234',
+        img: require('@/images/thumb/avatar-3.jpg'),
+        timeText: '05/04/2022, 11:34'
+      },
+    ],
+  },
+  createSingleData: {
+    btnText: 'Manage collectible type',
+    path: 'create',
+    title: 'Create single collectible'
   },
 }
 

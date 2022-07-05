@@ -64,6 +64,21 @@
             <button class="btn btn-primary w-100" type="submit">
               {{ SectionData.loginData.btnText }}
             </button>
+            <span class="d-block my-4">— or login with —</span>
+            <ul class="btns-group d-flex">
+              <li
+                class="flex-grow-1"
+                v-for="(list, i) in SectionData.loginData.btns"
+                :key="i"
+              >
+                <router-link
+                  :to="list.path"
+                  class="btn d-block btn-primary w-100"
+                  :class="list.btnClass"
+                  ><em class="ni" :class="list.icon"></em> {{ list.title }}
+                </router-link>
+              </li>
+            </ul>
             <p class="mt-3 form-text">
               {{ SectionData.loginData.haveAccountText }}
               <router-link
