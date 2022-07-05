@@ -4,9 +4,11 @@
       <div
         class="row flex-lg-row-reverse justify-content-between align-items-center align-items-xl-start"
       >
-        <div class="col-lg-5"></div>
+        <div class="col-lg-8">
+          <UserActivitySection></UserActivitySection>
+        </div>
         <!-- end col-lg-5 -->
-        <div class="col-lg-6">
+        <div class="col-lg-4">
           <div class="hero-content pt-xl-3 pb-0">
             <h1 class="hero-title hero-title-s1 mb-3">
               {{ SectionData.heroDataThree.title }}

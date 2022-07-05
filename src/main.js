@@ -33,6 +33,7 @@ import Footer from './pages/Footer.vue';
 import FooterSection from './components/section/FooterSection.vue';
 import LoginSection from './components/section/LoginSection.vue';
 import RegisterSection from './components/section/RegisterSection.vue';
+import UserActivitySection from './components/section/UserActivitySection.vue'
 
 
 
@@ -43,6 +44,6 @@ app.component('Footer', Footer)
 app.component('FooterSection', FooterSection)
 app.component('LoginSection', LoginSection)
 app.component('RegisterSection', RegisterSection)
-
+app.component('UserActivitySection', UserActivitySection)
 // vue app
 app.use(router).mount('#app')
