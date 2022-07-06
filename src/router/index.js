@@ -21,6 +21,11 @@ const routes = [
     name: 'create-single',
     component: () => import('../pages/CreateSingle.vue')
   },
+  {
+    path: '/dashboard',
+    name: 'dashboard',
+    component: () => import('../pages/Dashboard.vue')
+  },
 ];
 
 const router = createRouter({

@@ -27,6 +27,18 @@ let SectionData = {
     },
     menuList3: {
       title: 'Pages',
+      navList: [
+        {
+          id: 1,
+          title: 'Dashboard',
+          path: '/dashboard'
+        },
+        {
+          id: 2,
+          title: 'Create single',
+          path: '/create-single'
+        },
+      ]
     },
     menuList4: {
       title: 'User Panel',
@@ -199,6 +211,99 @@ let SectionData = {
     btnText: 'Manage collectible type',
     path: 'create',
     title: 'Create single collectible'
+  },
+  // payment method data
+  paymentMethodData: {
+    title: 'Dashboard',
+    paymentMethodTabNav: [
+      {
+        id: 1,
+        isActive: 'active',
+        title: 'Balances',
+        slug: 'balances-tab',
+        bsTarget: '#balances'
+      },
+
+    ],
+    // edit profile tab mobile
+    paymentMethodTabNavMobile: [
+      {
+        id: 1,
+        isActive: 'active',
+        title: 'Balances',
+        slug: 'balances-tab-mobile',
+        bsTarget: '#balances-mobile'
+      },
+    ],
+  },
+
+
+  // prepaid-eth data
+  prepaidData: {
+    title: 'ETH Balance',
+    content: 'Balances can be withdrawn in ETH at anytime',
+    contentTwo: 'To increase your balance, send ETH to your deposit address below. ETH will be valued at USD market value at time of purchase. Gas fees will be subtracted from withdrawal amounts.',
+    balances: [
+      {
+        id: 1,
+        title: 'Balance',
+        price: '2 ETH',
+        priceTwo: '$330.00 USD'
+      },
+      {
+        id: 2,
+        title: 'Holds',
+        price: '2 ETH',
+        priceTwo: '$330.00 USD'
+      }
+    ]
+  },
+  // purchases and sale data
+  purchaseAndSaleData: {
+    mainTitle: 'Your Activity',
+    purchaseData: [
+      {
+        id: 1,
+        title: 'You received <a href="item-details" class="btn-link fw-medium">issue #2343</a> from github',
+        dateText: '4d ago'
+      },
+      {
+        id: 2,
+        title: 'You just minted <a href="item-details" class="btn-link fw-medium">a new NFT</a> github discusstion<a href="#" class="btn-link fw-medium">#5343</a>',
+        dateText: '5d ago'
+      },
+      {
+        id: 3,
+        title: 'You purchased a listing <a href="item-details" class="btn-link fw-medium">#A2E3</a> for CDT 3000',
+        dateText: '5d ago'
+      },
+      {
+        id: 4,
+        title: 'You raied Pull Request <a href="item-details" class="btn-link fw-medium">#3653</a>',
+        dateText: '5d ago'
+      },
+      {
+        id: 5,
+        title: 'You purchased a listing <a href="item-details" class="btn-link fw-medium">#A2D6</a> for CDT 3000',
+        dateText: '6d ago'
+      },
+      {
+        id: 6,
+        title: 'You just minted <a href="item-details" class="btn-link fw-medium">a new NFT</a> github discusstion<a href="#" class="btn-link fw-medium">#5343</a>',
+        dateText: '6d ago'
+      },
+      {
+        id: 7,
+        title: 'You bought <a href="item-details" class="btn-link fw-medium">Le Anime</a> from <a href="#" class="btn-link fw-medium">Alex</a> for <span class="fw-medium">$12.00</span>',
+        dateText: '6d ago'
+      },
+      {
+        id: 8,
+        title: 'You just minted <a href="item-details" class="btn-link fw-medium">a new NFT</a> github discusstion<a href="#" class="btn-link fw-medium">#5343</a>',
+        dateText: '7d ago'
+      },
+
+    ],
   },
 }
 
