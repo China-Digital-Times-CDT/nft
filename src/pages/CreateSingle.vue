@@ -99,6 +99,8 @@
     </section>
     <!-- create-section -->
     <!-- Footer  -->
+    <!-- Collections -->
+    <Collections></Collections>
     <Footer></Footer>
   </div>
   <!-- end page-wrap -->

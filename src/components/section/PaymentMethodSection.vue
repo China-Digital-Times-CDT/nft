@@ -59,6 +59,9 @@
             </p>
             <button class="btn btn-primary mt-3" type="button">Withdraw</button>
           </div>
+          <button class="btn btn-primary mt-3">
+            <router-link to="/create-single">Mint new work</router-link>
+          </button>
           <!-- end profile-setting-panel -->
         </div>
         <!-- end tab-pane -->

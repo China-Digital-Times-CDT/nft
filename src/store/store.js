@@ -3,7 +3,7 @@ let SectionData = {
 
   // Hero data three
   heroDataThree: {
-    title: 'CDToken discover rare artworks',
+    title: '404 Economy: Preserve valuable information that censors dont want us to see',
     content: 'CDToken, NFT Marketplace without any technical knowledge'
   },
   copyTitle: 'Copyright © 2022 CDToken.',
@@ -13,49 +13,66 @@ let SectionData = {
     inputPlaceholderText: 'Search item here...',
     menuList: {
       title: 'Home',
+    },
+    menuList2: {
+      title: 'How it works',
+
+    },
+    menuList3: {
+      title: 'Collections',
       navList: [
         {
           id: 1,
-          title: 'Welcome',
+          title: 'Top valued',
+          path: '/explore'
+        },
+        {
+          id: 2,
+          title: 'New art',
+          path: '/create-single'
+        },
+        {
+          id: 3,
+          title: 'Most voted',
           path: '/'
         },
       ]
     },
-    menuList2: {
-      title: 'CDToken',
-
-    },
-    menuList3: {
-      title: 'Pages',
+    menuList4: {
+      title: 'Login/My Panel',
       navList: [
         {
           id: 1,
-          title: 'Dashboard',
+          title: 'My wallet*',
           path: '/dashboard'
         },
         {
           id: 2,
-          title: 'Create single',
-          path: '/create-single'
+          title: 'My collections*',
+          path: '/dashboard'
+        },
+        {
+          id: 2,
+          title: 'My works*',
+          path: '/dashboard'
         },
       ]
-    },
-    menuList4: {
-      title: 'User Panel',
-
     }
   },
   // Hero btn data
   btnDataFour: [
     {
       btnClass: 'btn-lg btn-grad',
-      title: 'Register Now',
-      path: 'register'
+      title: 'Contribute',
+      path: 'login',
+      external: false
     },
     {
       btnClass: 'btn-lg btn-outline-dark',
-      title: 'Create Store',
-      path: 'create-single'
+      title: 'Community',
+      path: 'https://github.com/China-Digital-Times-CDT/nft/discussions',
+      external: true
+
     }
   ],
   // footer data
@@ -157,6 +174,18 @@ let SectionData = {
   userActivityItems: {
     mainTitle: 'Activity',
     allData: [
+      {  //Adam received upvote in github issues #2343,   Bob just minted a new NFT based on github discussion #5343,Alice purchased a listing #A2CE3 for CDT 3000
+        id: 1,
+        title: 'Adam',
+        subTitle1: 'received upvote in github issues',
+        subTitle2: '',
+        newNFT: '',
+        issueLink: '#5343',
+        nftItem: '',
+        repoLink: '',
+        img: require('@/images/thumb/avatar.jpg'),
+        timeText: '07/06/2022, 12:40'
+      },
       {  //Adam received upvote in github issues #2343,   Bob just minted a new NFT based on github discussion #5343,Alice purchased a listing #A2CE3 for CDT 3000
         id: 1,
         title: 'Adam',
@@ -304,6 +333,35 @@ let SectionData = {
       },
 
     ],
+  },
+  // collection data
+  collectionData: {
+    title: 'Most Collections',
+    collectionList: [
+      {
+        id: 1,
+        title: 'Uprooted: Beijing Evicts “Low-end Population”',
+        price: '$26,220',
+        img: require('@/images/thumb/collection1.jpg'),
+        path: '',
+        bidding: '<a class="btn-link fw-medium">Current Bidding:</a> 2000 CDT (or 0.01 BTC, or 200 USD) (?)',
+        created: '<a class="btn-link fw-medium">Created:</a> 2021-07-06by(<a class="btn-link fw-medium">Adam</a>)',
+        distribution: '<a class="btn-link fw-medium">Distribution:</a> (10% to marketers, 20% CDT, 30% to community, 40% authors fund)',
+        description: '<a class="btn-link fw-medium">Description:</a> On December 30th, 2019, before the world was aware of the threat of COVID-19, a Chinese doctor Li Wenliang issued the first warning about the deadly coronavirus and then received a letter of admonition from the police...'
+      },
+      {
+        id: 2,
+        title: '“Chinese Wailing Wall” on Weibo for Dr. Li Wenliang',
+        price: '$24,497',
+        img: require('@/images/thumb/collection2.jpg'),
+        path: '',
+        bidding: '<a class="btn-link fw-medium">Current Bidding:</a> 2000 CDT (or 0.01 BTC, or 200 USD) (?)',
+        created: '<a class="btn-link fw-medium">Created:</a> 2021-07-06by(<a class="btn-link fw-medium">Adam</a>)',
+        distribution: '<a class="btn-link fw-medium">Distribution:</a> (10% to marketers, 20% CDT, 30% to community, 40% authors fund)',
+        description: '<a class="btn-link fw-medium">Description:</a> On December 30th, 2019, before the world was aware of the threat of COVID-19, a Chinese doctor Li Wenliang issued the first warning about the deadly coronavirus and then received a letter of admonition from the police...'
+      },
+
+    ]
   },
 }
 
