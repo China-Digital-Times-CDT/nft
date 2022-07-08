@@ -34,7 +34,11 @@ import FooterSection from './components/section/FooterSection.vue';
 import LoginSection from './components/section/LoginSection.vue';
 import RegisterSection from './components/section/RegisterSection.vue';
 import UserActivitySection from './components/section/UserActivitySection.vue'
-
+import PaymentMethodSection from './components/section/PaymentMethodSection.vue';
+import PurchasesSaleSection from './components/section/PurchasesSaleSection.vue';
+import Collections from './components/section/Collections.vue';
+import CollectionSlider from './components/common/CollectionSlider.vue';
+import ExploreSection from './components/section/ExploreSection.vue';
 
 
 // Global page components register
@@ -45,5 +49,11 @@ app.component('FooterSection', FooterSection)
 app.component('LoginSection', LoginSection)
 app.component('RegisterSection', RegisterSection)
 app.component('UserActivitySection', UserActivitySection)
+app.component('PaymentMethodSection', PaymentMethodSection)
+app.component('PurchasesSaleSection', PurchasesSaleSection)
+app.component('Collections', Collections)
+app.component('CollectionSlider', CollectionSlider)
+app.component('ExploreSection', ExploreSection)
+
 // vue app
 app.use(router).mount('#app')

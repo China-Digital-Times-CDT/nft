@@ -55,7 +55,40 @@
               </div>
 
               <!-- end form-item -->
-              <button class="btn btn-primary" type="button">Create Item</button>
+              <div class="form-item mb-4">
+                <div class="mb-4">
+                  <label class="mb-2 form-label">Title</label>
+                  <input
+                    type="text"
+                    class="form-control form-control-s1"
+                    placeholder="title"
+                  />
+                </div>
+                <div class="mb-4">
+                  <label class="mb-2 form-label">Description</label>
+                  <textarea
+                    name="message"
+                    class="form-control form-control-s1"
+                    placeholder="Description"
+                  ></textarea>
+                </div>
+                <div class="mb-3">
+                  <label class="mb-2 form-label">Royalties</label>
+                  <input
+                    type="text"
+                    class="form-control form-control-s1"
+                    placeholder="Royalties"
+                  />
+                  <p class="form-text mt-1">
+                    Suggested: 0, 10%, 20%, 30%. Maximum is 70%
+                  </p>
+                </div>
+              </div>
+              <!-- end form-item -->
+              <!-- end form-item -->
+              <button class="btn btn-primary" type="button">
+                Create new NFT collection
+              </button>
             </form>
           </div>
           <!-- endn col -->
@@ -66,6 +99,8 @@
     </section>
     <!-- create-section -->
     <!-- Footer  -->
+    <!-- Collections -->
+    <Collections></Collections>
     <Footer></Footer>
   </div>
   <!-- end page-wrap -->

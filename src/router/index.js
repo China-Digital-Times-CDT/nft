@@ -21,6 +21,22 @@ const routes = [
     name: 'create-single',
     component: () => import('../pages/CreateSingle.vue')
   },
+  {
+    path: '/dashboard',
+    name: 'dashboard',
+    component: () => import('../pages/Dashboard.vue')
+  },
+  {
+    path: '/explore',
+    name: 'explore',
+    component: () => import('../pages/Explore.vue')
+  },
+  {
+    path: '/product-details-v1-:id',
+    name: 'ProductDetail',
+    component: () => import('../pages/ProductDetail.vue'),
+    props: true
+  },
 ];
 
 const router = createRouter({
