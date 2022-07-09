@@ -6459,6 +6459,11 @@ pinkie@^2.0.0:
   resolved "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
   integrity sha512-MnUuEycAemtSaeFSjXKW/aroV7akBbY+Sv+RkyqFjgAe73F+MR0TBWKBRDkmfWq/HiFmdavfZ1G7h4SPZXaCSg==
 
+pizzly-js@^0.2.8:
+  version "0.2.8"
+  resolved "https://registry.yarnpkg.com/pizzly-js/-/pizzly-js-0.2.8.tgz#5fb118c9e0faaf5716b3de5ab76aa276c06faf1c"
+  integrity sha512-770xh/dunk7034B5C0EZChRd9gIhhrDTvol5rt0EspM5Ny69kaluenjoh+jbu9HNJUZw019Iayqh9vTpItAFGA==
+
 pkg-dir@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/pkg-dir/-/pkg-dir-1.0.0.tgz#7a4b508a8d5bb2d629d447056ff4e9c9314cf3d4"

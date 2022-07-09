@@ -37,6 +37,21 @@ const routes = [
     component: () => import('../pages/ProductDetail.vue'),
     props: true
   },
+  {
+    path: '/how',
+    name: 'how',
+    component: () => import('../pages/Howit.vue')
+  },
+  {
+    path: '/mintnft',
+    name: 'mintnft',
+    component: () => import('../pages/MintNFT.vue')
+  },
+  {
+    path: '/topvalued',
+    name: 'topvalued',
+    component: () => import('../pages/TopValued.vue')
+  },
 ];
 
 const router = createRouter({

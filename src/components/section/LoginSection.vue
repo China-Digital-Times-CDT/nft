@@ -62,11 +62,13 @@
               >
             </div>
             <button class="btn btn-primary w-100" type="submit">
-              {{ SectionData.loginData.btnText }}
+              <router-link to="/dashboard"
+                >{{ SectionData.loginData.btnText }}
+              </router-link>
             </button>
             <span class="d-block my-4">— or login with —</span>
             <ul class="btns-group d-flex">
-              <li
+              <!-- <li
                 class="flex-grow-1"
                 v-for="(list, i) in SectionData.loginData.btns"
                 :key="i"
@@ -77,7 +79,18 @@
                   :class="list.btnClass"
                   ><em class="ni" :class="list.icon"></em> {{ list.title }}
                 </router-link>
-              </li>
+              </li> -->
+              <button
+                class="btn btn-primary w-100"
+                type="submit"
+                v-on:click="say()"
+              >
+                <em class="ni ni-github"></em>
+                Github
+                <!-- <router-link to="/dashboard"
+                  >{{ SectionData.loginData.btnText }}
+                </router-link> -->
+              </button>
             </ul>
             <p class="mt-3 form-text">
               {{ SectionData.loginData.haveAccountText }}
@@ -99,6 +112,8 @@
 <script>
 // Import component data. You can change the data in the store to reflect in all component
 import SectionData from "@/store/store.js";
+import Pizzly from "pizzly-js";
+
 export default {
   name: "LoginSection",
   data() {
@@ -128,6 +143,31 @@ export default {
     }
 
     showHidePassword(".password-toggle");
+    this.$pizzly = new Pizzly({
+      host: "https://customoauth.herokuapp.com/",
+    });
+  },
+  methods: {
+    say: function () {
+      this.connect();
+    },
+    connect: function () {
+      // Here, we create a new method
+      // that "connect" a user to GitHub
+      this.$pizzly
+        .integration("github")
+        .connect()
+        .then(this.connectSuccess)
+        .catch(this.connectError);
+    },
+    connectSuccess: function (data) {
+      this.user = data.authId;
+      console.log("Successfully logged in!");
+    },
+    connectError: function (err) {
+      console.error(err);
+      alert("Something went wrong. Look at the logs.");
+    },
   },
 };
 </script>

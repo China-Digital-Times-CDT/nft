@@ -13,28 +13,24 @@ let SectionData = {
     inputPlaceholderText: 'Search item here...',
     menuList: {
       title: 'Home',
+      path: '/',
     },
     menuList2: {
       title: 'How it works',
-
+      path: '/how'
     },
     menuList3: {
       title: 'Collections',
       navList: [
         {
           id: 1,
-          title: 'Top valued',
+          title: 'Newly listed',
           path: '/explore'
         },
         {
           id: 2,
-          title: 'New art',
-          path: '/create-single'
-        },
-        {
-          id: 3,
-          title: 'Most voted',
-          path: '/'
+          title: 'Top valued',
+          path: '/topvalued'
         },
       ]
     },
@@ -48,13 +44,8 @@ let SectionData = {
         },
         {
           id: 2,
-          title: 'My collections*',
-          path: '/dashboard'
-        },
-        {
-          id: 2,
-          title: 'My works*',
-          path: '/dashboard'
+          title: 'Mint NFT*',
+          path: '/mintnft'
         },
       ]
     }
@@ -150,7 +141,7 @@ let SectionData = {
         title: 'Github',
         btnClass: 'bg-cyan-100 text-cyan t-btn',
         icon: 'ni-github',
-        path: 'github.com/login/oauth/'
+        path: 'dashboard'
       },]
   },
   // register data
@@ -183,7 +174,7 @@ let SectionData = {
         issueLink: '#5343',
         nftItem: '',
         repoLink: '',
-        img: require('@/images/thumb/avatar.jpg'),
+        img: require('@/images/thumb/avatar-1.jpg'),
         timeText: '07/06/2022, 12:40'
       },
       {  //Adam received upvote in github issues #2343,   Bob just minted a new NFT based on github discussion #5343,Alice purchased a listing #A2CE3 for CDT 3000
@@ -195,7 +186,7 @@ let SectionData = {
         issueLink: '#2343',
         nftItem: '',
         repoLink: '',
-        img: require('@/images/thumb/avatar.jpg'),
+        img: require('@/images/thumb/avatar-1.jpg'),
         timeText: '05/07/2022, 12:40'
       },
       {
