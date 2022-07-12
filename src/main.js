@@ -39,7 +39,7 @@ import PurchasesSaleSection from './components/section/PurchasesSaleSection.vue'
 import Collections from './components/section/Collections.vue';
 import CollectionSlider from './components/common/CollectionSlider.vue';
 import ExploreSection from './components/section/ExploreSection.vue';
-
+import HowItSection from './components/section/HowItSection.vue';
 
 // Global page components register
 app.component('HeaderMain', HeaderMain);
@@ -54,6 +54,7 @@ app.component('PurchasesSaleSection', PurchasesSaleSection)
 app.component('Collections', Collections)
 app.component('CollectionSlider', CollectionSlider)
 app.component('ExploreSection', ExploreSection)
+app.component('HowItSection', HowItSection)
 
 // vue app
 app.use(router).mount('#app')

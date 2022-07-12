@@ -2,6 +2,7 @@
   <div class="col-lg-9 ps-xl-5">
     <div class="user-panel-title-box">
       <h3>{{ SectionData.userActivityItems.mainTitle }}</h3>
+      <!-- <h1>{{ localTime }}</h1> -->
     </div>
     <!-- end user-panel-title-box -->
     <div class="profile-setting-panel-wrap pt-2">
@@ -34,7 +35,7 @@
           <div class="activity-tab-wrap">
             <div
               class="card card-creator-s1 mb-4"
-              v-for="item in SectionData.userActivityItems.allData"
+              v-for="item in displayData"
               :key="item.id"
             >
               <div class="card-body d-flex align-items-center">
@@ -42,6 +43,11 @@
                   <img :src="item.img" alt="avatar" />
                 </div>
                 <div class="flex-grow-1">
+                  <h6 class="card-s1-title" v-html="item.name"></h6>
+                  <p class="card-s1-text" v-html="item.title"></p>
+                  <p class="card-s1-text" v-html="item.dateText"></p>
+                </div>
+                <!-- <div class="flex-grow-1">
                   <h6 class="card-s1-title">{{ item.title }}</h6>
                   <p class="card-s1-text">
                     {{ item.subTitle1 }}
@@ -68,12 +74,10 @@
                     }}</router-link>
                   </p>
                   <p class="card-s1-text">{{ item.timeText }}</p>
-                </div>
+                </div>-->
               </div>
             </div>
-            <!-- end card -->
           </div>
-          <!-- end activity-tab-wrap -->
         </div>
 
         <!-- end tab-pane -->
@@ -93,7 +97,92 @@ export default {
   data() {
     return {
       SectionData,
+      localTime: " ",
+      row: [],
+      displayData: [],
+      streamData: [
+        {
+          id: 4,
+          name: "Adam",
+          img: require("@/images/thumb/avatar-1.jpg"),
+          title:
+            'received upvote in github issues <a href="item-details" class="btn-link fw-medium">#5543</a>',
+          dateText: "4d ago",
+        },
+        {
+          id: 3,
+          name: "Bob",
+          img: require("@/images/thumb/avatar-2.jpg"),
+          title:
+            'just minted <a href="item-details" class="btn-link fw-medium">a new NFT</a>based on github discussion <a href="item-details" class="btn-link fw-medium">#5543</a>',
+          dateText: "4d ago",
+        },
+        {
+          id: 2,
+          name: "Alice",
+          img: require("@/images/thumb/avatar-3.jpg"),
+          title:
+            'purchased a listing <a href="item-details" class="btn-link fw-medium">#A2CE3</a> for CDT 3000',
+          dateText: "4d ago",
+        },
+        {
+          id: 1,
+          name: "Carol",
+          img: require("@/images/thumb/avatar-3.jpg"),
+          title:
+            'Carl commit merged into repo <a href="item-details" class="btn-link fw-medium">#7243</a>',
+          dateText: "4d ago",
+        },
+      ],
     };
   },
+  methods: {
+    showLocaleTime: function () {
+      var time = this;
+      setInterval(function () {
+        time.localTime = new Date().toLocaleString("en-GB", {
+          timeZone: "UTC",
+        });
+        // var ass = [];
+        // ass.id = "5";
+        // ass.img = require("@/images/thumb/avatar-2.jpg");
+        // ass.title =
+        //   'Carl commit merged into repo <a href="item-details" class="btn-link fw-medium">#7243</a>';
+        // ass.dateText = "today";
+        var imgSrc = require("@/images/thumb/avatar-" +
+          time.generateRandom(3).toString() +
+          ".jpg");
+
+        time.streamData.push({
+          id: time.streamData.length + 1,
+          name: "Carol",
+          img: imgSrc,
+          title:
+            'just minted <a href="item-details" class="btn-link fw-medium">a new NFT</a>based on github discussion <a href="item-details" class="btn-link fw-medium">#5543</a>',
+          dateText: "today",
+        });
+        time.streamData.sort((a, b) => (a.id < b.id ? 1 : -1));
+        time.displayData = time.streamData.slice(0, 10);
+        console.log("time.streamData", time.streamData);
+        console.log("time.displayData", time.displayData);
+      }, 10000);
+    },
+    generateRandom: function (maxLimit = 3) {
+      let rand = Math.random() * maxLimit;
+      console.log(rand);
+      rand = Math.floor(rand);
+
+      return rand;
+    },
+  },
+  mounted() {
+    this.showLocaleTime();
+    this.displayData = this.streamData;
+  },
+  // computed: {
+  //   sortedArray: function () {
+  //     return this.streamData.sort(compare);
+  //   },
+  // },
 };
 </script>
