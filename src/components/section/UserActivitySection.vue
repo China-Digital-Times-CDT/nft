@@ -35,7 +35,7 @@
           <div class="activity-tab-wrap">
             <div
               class="card card-creator-s1 mb-4"
-              v-for="item in streamData"
+              v-for="item in displayData"
               :key="item.id"
             >
               <div class="card-body d-flex align-items-center">
@@ -99,6 +99,7 @@ export default {
       SectionData,
       localTime: " ",
       row: [],
+      displayData: [],
       streamData: [
         {
           id: 4,
@@ -153,7 +154,7 @@ export default {
           ".jpg");
 
         time.streamData.push({
-          id: time.generateRandom(100000).toString(),
+          id: time.streamData.length + 1,
           name: "Carol",
           img: imgSrc,
           title:
@@ -161,6 +162,9 @@ export default {
           dateText: "today",
         });
         time.streamData.sort((a, b) => (a.id < b.id ? 1 : -1));
+        time.displayData = time.streamData.slice(0, 10);
+        console.log("time.streamData", time.streamData);
+        console.log("time.displayData", time.displayData);
       }, 10000);
     },
     generateRandom: function (maxLimit = 3) {
@@ -173,6 +177,7 @@ export default {
   },
   mounted() {
     this.showLocaleTime();
+    this.displayData = this.streamData;
   },
   // computed: {
   //   sortedArray: function () {

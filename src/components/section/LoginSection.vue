@@ -83,7 +83,7 @@
               <button
                 class="btn btn-primary w-100"
                 type="submit"
-                v-on:click="say()"
+                @click.prevent="connect"
               >
                 <em class="ni ni-github"></em>
                 Github
@@ -145,15 +145,11 @@ export default {
     showHidePassword(".password-toggle");
     this.$pizzly = new Pizzly({
       host: "https://customoauth.herokuapp.com/",
+      publishableKey: "eXeRtYc3izPTavUJyuTwsuhm8iXhrQZVQfo4kG",
     });
   },
   methods: {
-    say: function () {
-      this.connect();
-    },
     connect: function () {
-      // Here, we create a new method
-      // that "connect" a user to GitHub
       this.$pizzly
         .integration("github")
         .connect()
@@ -161,8 +157,8 @@ export default {
         .catch(this.connectError);
     },
     connectSuccess: function (data) {
-      this.user = data.authId;
-      console.log("Successfully logged in!");
+      console.log("Successfully logged in!", data.authId);
+      this.$router.replace("/dashboard");
     },
     connectError: function (err) {
       console.error(err);
