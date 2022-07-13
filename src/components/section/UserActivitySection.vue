@@ -163,13 +163,12 @@ export default {
         });
         time.streamData.sort((a, b) => (a.id < b.id ? 1 : -1));
         time.displayData = time.streamData.slice(0, 10);
-        console.log("time.streamData", time.streamData);
-        console.log("time.displayData", time.displayData);
+        // console.log("time.streamData", time.streamData);
+        // console.log("time.displayData", time.displayData);
       }, 10000);
     },
     generateRandom: function (maxLimit = 3) {
       let rand = Math.random() * maxLimit;
-      console.log(rand);
       rand = Math.floor(rand);
 
       return rand;
@@ -178,6 +177,7 @@ export default {
   mounted() {
     this.showLocaleTime();
     this.displayData = this.streamData;
+    localStorage.setItem("authId", null);
   },
   // computed: {
   //   sortedArray: function () {

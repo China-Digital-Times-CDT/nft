@@ -1,7 +1,7 @@
 <template>
   <div class="col-lg-9 ps-xl-5">
     <div class="user-panel-title-box mb-5">
-      <h3>{{ SectionData.paymentMethodData.title }}</h3>
+      <h3>{{ this.userName }}'s {{ SectionData.paymentMethodData.title }}</h3>
     </div>
     <!-- end user-panel-title-box -->
     <div class="profile-setting-panel-wrap">
@@ -79,12 +79,14 @@
 <script>
 // Import component data. You can change the data in the store to reflect in all component
 import SectionData from "@/store/store.js";
+import Pizzly from "pizzly-js";
 
 export default {
   name: "PaymentMethodSection",
   data() {
     return {
       SectionData,
+      userName: "",
     };
   },
   setup() {
@@ -98,6 +100,31 @@ export default {
       }, 1000);
     };
     return { message, onCopy };
+  },
+  mounted() {
+    var authId = localStorage.getItem("authId");
+    this.$pizzly = new Pizzly({
+      host: "https://customoauth.herokuapp.com/",
+      publishableKey: "eXeRtYc3izPTavUJyuTwsuhm8iXhrQZVQfo4kG",
+    });
+    this.fetchProfile(authId);
+  },
+  methods: {
+    fetchProfile: async function (authId) {
+      await this.$pizzly
+        .integration("github")
+        .auth(authId)
+        .get("/user")
+        .then((response) => {
+          const res = response.clone().json();
+          return res;
+        })
+        .then((user) => {
+          this.userName = user.name;
+        })
+        .then((data) => data)
+        .catch(this.fetchError);
+    },
   },
 };
 </script>

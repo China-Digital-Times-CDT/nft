@@ -35,7 +35,7 @@ let SectionData = {
       ]
     },
     menuList4: {
-      title: 'Login/My Panel',
+      title: 'Login',
       navList: [
         {
           id: 1,
@@ -46,6 +46,26 @@ let SectionData = {
           id: 2,
           title: 'Mint NFT*',
           path: '/mintnft'
+        },
+      ]
+    },
+    menuList5: {
+      title: 'My Panel',
+      navList: [
+        {
+          id: 1,
+          title: 'My wallet*',
+          path: '/dashboard'
+        },
+        {
+          id: 2,
+          title: 'Mint NFT*',
+          path: '/mintnft'
+        },
+        {
+          id: 3,
+          title: 'Log out',
+          path: '/'
         },
       ]
     }

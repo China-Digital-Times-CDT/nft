@@ -119,6 +119,7 @@ export default {
   data() {
     return {
       SectionData,
+      user: null,
     };
   },
   mounted() {
@@ -157,13 +158,38 @@ export default {
         .catch(this.connectError);
     },
     connectSuccess: function (data) {
-      console.log("Successfully logged in!", data.authId);
+      this.user = data.authId;
+      localStorage.setItem("authId", this.user);
+      console.log("Successfully logged in!", this.user);
+      this.printAddress();
+
       this.$router.replace("/dashboard");
     },
     connectError: function (err) {
       console.error(err);
       alert("Something went wrong. Look at the logs.");
     },
+    fetchProfile: async function () {
+      await this.$pizzly
+        .integration("github")
+        .auth(this.user)
+        .get("/user")
+        .then((response) => {
+          const res = response.clone().json();
+          return res;
+        })
+        .then((user) => console.log("username", user.name))
+        .then((data) => console.log("data", data))
+        .catch(this.fetchError);
+    },
+    printAddress: async function () {
+      console.log(this.fetchProfile());
+    },
   },
+  // watch: {
+  //   input: function () {
+  //     localStorage.setItem("authId", this.user);
+  //   },
+  // },
 };
 </script>
