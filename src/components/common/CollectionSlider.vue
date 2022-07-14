@@ -41,7 +41,7 @@
             <span v-html="item.description"></span>
           </div>
           <button class="btn btn-primary w-100" type="submit">
-            <router-link to="/product-detail">Bid </router-link>
+            <router-link to="/product-details">Bid </router-link>
           </button>
         </div>
         <!-- end card-body --> </router-link

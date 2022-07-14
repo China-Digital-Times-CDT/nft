@@ -9,21 +9,36 @@
         </div>
         <!-- end col-lg-5 -->
         <div class="col-lg-4">
-          <div class="hero-content pt-xl-3 pb-0">
+          <!-- <div class="hero-content pt-xl-3 pb-0">
             <h1 class="hero-title hero-title-s1 mb-3">
               {{ SectionData.heroDataThree.title }}
             </h1>
             <p class="hero-text mb-4 pb-1">
               {{ SectionData.heroDataThree.content }}
             </p>
-            <!-- button group -->
             <ButtonGroup
               :btns="SectionData.btnDataFour"
               classname="hero-btns"
             ></ButtonGroup>
+          </div> -->
+          <div class="cards-details mt-4">
+            <div class="card">
+              <router-link to="/product-details">
+                <img
+                  src="../../images/thumb/collection2.jpg"
+                  alt=""
+                  class="w-100 rounded-3"
+                />
+              </router-link>
+            </div>
           </div>
-          <!-- hero-content -->
+          <ButtonGroup
+            :btns="SectionData.btnDataHome"
+            classname="hero-btns mt-4"
+            style="margin-left: 40px"
+          ></ButtonGroup>
         </div>
+
         <!-- col-lg-6 -->
       </div>
       <!-- end row -->

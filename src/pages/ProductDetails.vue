@@ -8,21 +8,47 @@
     <section class="item-detail-section section-space">
       <div class="container">
         <div class="row">
-          <div class="col-lg-6 pe-xl-5">
+          <div class="col-lg-12 pe-xl-5">
             <div class="item-detail-content">
               <div class="item-detail-img-container mb-4">
                 <h3>Cover(by Damie Herst)</h3>
-                <img
+                <!-- <img
                   src="../images/thumb/collection2.jpg"
                   alt=""
                   class="w-100 rounded-3"
-                />
+                /> -->
+                <div class="cards-details mt-4">
+                  <div class="card">
+                    <h1><a href="#0">Title1</a></h1>
+                    <img
+                      src="../images/thumb/collection2.jpg"
+                      alt=""
+                      class="w-100 rounded-3"
+                    />
+                  </div>
+                  <div class="card">
+                    <h1><a href="#0">Title2</a></h1>
+                    <img
+                      src="../images/thumb/collection3.jpg"
+                      alt=""
+                      class="w-100 rounded-3"
+                    />
+                  </div>
+                  <div class="card">
+                    <h1><a href="#0">Title3</a></h1>
+                    <img
+                      src="../images/thumb/collection4.jpg"
+                      alt=""
+                      class="w-100 rounded-3"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-6 pe-xl-5">
+          <div class="col-lg-12 pe-xl-5">
             <div class="item-detail-content">
-              <div class="item-detail-img-container mb-4">
+              <div class="item-detail-img-container mb-4 mt-4">
                 <a href="#" style="text-decoration: revert"
                   ><h3>Chinese Wailing Wall for Doctor Li</h3></a
                 >

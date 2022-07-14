@@ -40,6 +40,7 @@ import Collections from './components/section/Collections.vue';
 import CollectionSlider from './components/common/CollectionSlider.vue';
 import ExploreSection from './components/section/ExploreSection.vue';
 import HowItSection from './components/section/HowItSection.vue';
+import LogoLink from './components/common/LogoLink.vue';
 
 // Global page components register
 app.component('HeaderMain', HeaderMain);
@@ -55,6 +56,7 @@ app.component('Collections', Collections)
 app.component('CollectionSlider', CollectionSlider)
 app.component('ExploreSection', ExploreSection)
 app.component('HowItSection', HowItSection)
+app.component('LogoLink', LogoLink)
 
 // vue app
 app.use(router).mount('#app')

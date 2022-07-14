@@ -9,6 +9,8 @@
     <!-- Explore section  -->
     <ExploreSection></ExploreSection>
 
+    <Collections></Collections>
+
     <!-- Footer  -->
     <Footer></Footer>
   </div>
