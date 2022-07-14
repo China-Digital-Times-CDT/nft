@@ -21,21 +21,22 @@ let SectionData = {
     },
     menuList3: {
       title: 'Collections',
-      navList: [
-        {
-          id: 1,
-          title: 'Newly listed',
-          path: '/explore'
-        },
-        {
-          id: 2,
-          title: 'Top valued',
-          path: '/topvalued'
-        },
-      ]
+      path: 'explore'
+      // navList: [
+      //   {
+      //     id: 1,
+      //     title: 'Newly listed',
+      //     path: '/explore'
+      //   },
+      //   {
+      //     id: 2,
+      //     title: 'Top valued',
+      //     path: '/topvalued'
+      //   },
+      // ]
     },
     menuList4: {
-      title: 'Login/My Panel',
+      title: 'Login',
       navList: [
         {
           id: 1,
@@ -48,6 +49,26 @@ let SectionData = {
           path: '/mintnft'
         },
       ]
+    },
+    menuList5: {
+      title: 'My Panel',
+      navList: [
+        {
+          id: 1,
+          title: 'My wallet*',
+          path: '/dashboard'
+        },
+        {
+          id: 2,
+          title: 'Mint NFT*',
+          path: '/mintnft'
+        },
+        {
+          id: 3,
+          title: 'Log out',
+          path: '/'
+        },
+      ]
     }
   },
   // Hero btn data
@@ -56,6 +77,21 @@ let SectionData = {
       btnClass: 'btn-lg btn-grad',
       title: 'Contribute',
       path: 'login',
+      external: false
+    },
+    {
+      btnClass: 'btn-lg btn-outline-dark',
+      title: 'Community',
+      path: 'https://github.com/China-Digital-Times-CDT/nft/discussions',
+      external: true
+
+    }
+  ],
+  btnDataHome: [
+    {
+      btnClass: 'btn-lg btn-grad',
+      title: 'Bid it',
+      path: '/product-details',
       external: false
     },
     {
@@ -354,6 +390,20 @@ let SectionData = {
 
     ]
   },
+  logoData: [
+    {
+      imgClass: 'logo-dark',
+      style: "width:500px; height:200px",
+      logoImg: require('@/images/logo-black.jpg'),
+      path: '/home'
+    },
+    {
+      imgClass: 'logo-light',
+      logoImg: require('@/images/logo-white.png'),
+      style: "width: 500px; height:200px;",
+      path: '/home'
+    }
+  ],
 }
 
 export default SectionData

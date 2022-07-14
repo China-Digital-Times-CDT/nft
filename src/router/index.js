@@ -52,6 +52,18 @@ const routes = [
     name: 'topvalued',
     component: () => import('../pages/TopValued.vue')
   },
+  {
+    path: '/product-details',
+    name: 'ProductDetails',
+    component: () => import('../pages/ProductDetails.vue'),
+    props: true
+  },
+  {
+    path: '/create-invoice',
+    name: 'CreateInvoice',
+    component: () => import('../pages/CreateInvoice.vue'),
+    props: true
+  },
 ];
 
 const router = createRouter({

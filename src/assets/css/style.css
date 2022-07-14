@@ -1113,6 +1113,9 @@ hr {
   display: inline-block;
   align-items: center; }
 
+
+  
+
 .logo-dark {
   opacity: 1; }
   .on-dark:not(.has-fixed) .logo-dark {
@@ -1124,11 +1127,11 @@ hr {
     opacity: 1; }
 
 .logo-img {
-  height: 29px; }
+  height: 159px; }
   .logo-img-lg {
-    height: 60px; }
+    height: 160px; }
   .logo-img-sm {
-    height: 28px; }
+    height: 158px; }
   .logo-img:not(:first-child) {
     position: absolute;
     left: 0;
