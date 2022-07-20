@@ -1,5 +1,5 @@
 <template>
-  <div class="hero-wrap hero-wrap-2 section-space">
+  <div class="hero-wrap">
     <div class="container">
       <div
         class="row flex-lg-row-reverse justify-content-between align-items-center align-items-xl-start"

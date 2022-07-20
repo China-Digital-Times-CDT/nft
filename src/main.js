@@ -15,6 +15,8 @@ app.component('v-select', vSelect)
 
 // clipboard
 import VueClipboard from 'vue3-clipboard'
+import plugin from '@serializedowen/vue-img-watermark'
+app.use(plugin)
 app.use(VueClipboard, {
     autoSetContainer: true,
     appendToBody: true,

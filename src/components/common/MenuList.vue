@@ -25,27 +25,17 @@
         >{{ SectionData.headerData.menuList3.title }}</router-link
       >
     </li>
-    <li v-if="authId == null" class="menu-item has-sub">
-      <a href="#" class="menu-link menu-toggle">{{
+    <li v-if="this.authId.length == 0" class="menu-item">
+      <!-- <a href="#" class="menu-link menu-toggle">{{
         SectionData.headerData.menuList4.title
-      }}</a>
-      <div class="menu-sub menu-mega">
-        <div class="menu-mega-row">
-          <ul class="menu-list menu-list-mega">
-            <li
-              class="menu-item"
-              v-for="nav in SectionData.headerData.menuList4.navList"
-              :key="nav.id"
-            >
-              <router-link :to="nav.path" class="menu-link">{{
-                nav.title
-              }}</router-link>
-            </li>
-          </ul>
-        </div>
-      </div>
+      }}</a> -->
+      <router-link
+        :to="SectionData.headerData.menuList4.path"
+        class="menu-link menu-item"
+        >{{ SectionData.headerData.menuList4.title }}</router-link
+      >
     </li>
-    <li v-if="authId" class="menu-item has-sub">
+    <li v-if="this.authId.length > 0" class="menu-item has-sub">
       <a href="#" class="menu-link menu-toggle">{{
         SectionData.headerData.menuList5.title
       }}</a>
@@ -80,7 +70,7 @@ export default {
   data() {
     return {
       SectionData,
-      authId: null,
+      authId: "",
     };
   },
   mounted() {
@@ -92,15 +82,15 @@ export default {
     menuClick: function (title) {
       var str = title.toString();
       if (str.includes("out")) {
-        localStorage.setItem("authId", null);
-        this.authId = null;
+        localStorage.setItem("authId", "");
+        this.authId = "";
       }
     },
   },
-  watch: {
-    functin() {
-      this.authId = localStorage.getItem("authId");
-    },
-  },
+  // watch: {
+  //   functin() {
+  //     this.authId = localStorage.getItem("authId");
+  //   },
+  // },
 };
 </script>

@@ -163,7 +163,10 @@ export default {
       console.log("Successfully logged in!", this.user);
       this.printAddress();
 
-      this.$router.replace("/dashboard");
+      this.$router.replace({
+        path: "/dashboard",
+        query: { authId: this.user },
+      });
     },
     connectError: function (err) {
       console.error(err);

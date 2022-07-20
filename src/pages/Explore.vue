@@ -6,10 +6,10 @@
       <HeaderMain></HeaderMain>
       <!-- hero -->
     </header>
+    <Collections></Collections>
+
     <!-- Explore section  -->
     <ExploreSection></ExploreSection>
-
-    <Collections></Collections>
 
     <!-- Footer  -->
     <Footer></Footer>
