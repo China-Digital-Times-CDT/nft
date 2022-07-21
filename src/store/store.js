@@ -37,18 +37,20 @@ let SectionData = {
     },
     menuList4: {
       title: 'Login',
-      navList: [
-        {
-          id: 1,
-          title: 'My wallet*',
-          path: '/dashboard'
-        },
-        {
-          id: 2,
-          title: 'Mint NFT*',
-          path: '/mintnft'
-        },
-      ]
+      path: '/login'
+
+      // navList: [
+      //   {
+      //     id: 1,
+      //     title: 'My wallet*',
+      //     path: '/dashboard'
+      //   },
+      //   {
+      //     id: 2,
+      //     title: 'Mint NFT*',
+      //     path: '/mintnft'
+      //   },
+      // ]
     },
     menuList5: {
       title: 'My Panel',
@@ -363,7 +365,7 @@ let SectionData = {
   },
   // collection data
   collectionData: {
-    title: 'Most Collections',
+    title: 'Top Valued',
     collectionList: [
       {
         id: 1,

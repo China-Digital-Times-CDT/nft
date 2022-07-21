@@ -1,5 +1,5 @@
 <template>
-  <section class="collection-section section-space">
+  <section class="collection-section">
     <div class="container">
       <div class="section-head-sm">
         <h2 class="mb-3 text-center">How it works</h2>

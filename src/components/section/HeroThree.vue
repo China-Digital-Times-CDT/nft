@@ -1,5 +1,5 @@
 <template>
-  <div class="hero-wrap hero-wrap-2 section-space">
+  <div class="hero-wrap">
     <div class="container">
       <div
         class="row flex-lg-row-reverse justify-content-between align-items-center align-items-xl-start"
@@ -22,20 +22,21 @@
             ></ButtonGroup>
           </div> -->
           <div class="cards-details mt-4">
-            <div class="card">
-              <router-link to="/product-details">
-                <img
-                  src="../../images/thumb/collection2.jpg"
-                  alt=""
-                  class="w-100 rounded-3"
-                />
+            <div class="card1">
+              <router-link to="/product-details" class="hover">
+                <div class="img">
+                  <img
+                    src="../../images/thumb/collection2.jpg"
+                    alt=""
+                    class="w-100 rounded-3"
+                  />
+                </div>
               </router-link>
             </div>
           </div>
           <ButtonGroup
             :btns="SectionData.btnDataHome"
             classname="hero-btns mt-4"
-            style="margin-left: 40px"
           ></ButtonGroup>
         </div>
 

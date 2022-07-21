@@ -3,7 +3,7 @@
     <div class="container">
       <!-- filter -->
       <div class="filter-box">
-        <h3 class="mb-4">NFT Listings</h3>
+        <h3 class="mb-4">Newly Listed</h3>
         <div class="filter-box-filter m-0">
           <ul class="nav nav-pills nav-pills-s1" id="pills-tab" role="tablist">
             <li class="nav-item" role="presentation">

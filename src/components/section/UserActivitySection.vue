@@ -177,7 +177,7 @@ export default {
   mounted() {
     this.showLocaleTime();
     this.displayData = this.streamData;
-    localStorage.setItem("authId", null);
+    localStorage.setItem("authId", "");
   },
   // computed: {
   //   sortedArray: function () {

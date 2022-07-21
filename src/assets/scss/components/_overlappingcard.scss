@@ -19,16 +19,16 @@ html {
         box-shadow: 4px 4px 12px 2px rgba(0, 0, 0, 0.6);
         transition: 0.2s;
       }
-      .card .fa-stack {
-        color: var(--color-fun);
-      }
-      .card a {
-        text-decoration: none;
-        color: var(--color-headings);
-      }
-      .card p {
-        color: var(--color-text);
-      }
+    //   .card .fa-stack {
+    //     color: var(--color-fun);
+    //   }
+    //   .card a {
+    //     text-decoration: none;
+    //     color: var(--color-headings);
+    //   }
+    //   .card p {
+    //     color: var(--color-text);
+    //   }
       
       .card:not(:first-child) {
         margin-left: calc(var(--distance)*-1);
@@ -36,12 +36,15 @@ html {
       
       .card:hover,
       .card:focus-within {
-        transform: translatey(-1rem);
+        transform: translatey(-4em);
+        z-index: 10;
       }
       
       .card:hover ~ .card,
       .card:focus-within ~ .card {
-        transform: translatex(var(--distance));
+       // transform: translatex(var(--distance));
+        //transform: translatey(var(--distance));
+
       }
       
       .fa-stack {
@@ -87,4 +90,33 @@ html {
 
   .logo-img {
     height: 63px;
+}
+
+.card1{
+    .hover .img {
+        overflow: hidden;
+        transform: rotate(0.0001deg);
+        transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+      .hover img {
+        transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+      .hover:hover .img {
+        transform: scale(0.95);
+      }
+      .hover:hover img {
+        transform: scale(1.15);
+      }
+}
+
+.rotingtxt{
+	font-size: 1.5em;
+	color: rgba(255, 5, 5, 0.17);
+	position: absolute;
+	font-family: 'Denk One', sans-serif;
+	text-transform:uppercase;
+    margin-top: 70px;
+    padding-right: 50px;
+    padding-left: 20px;
+    word-break: break-word;
 }
