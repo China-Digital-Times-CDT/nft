@@ -83,8 +83,9 @@
               <button
                 class="btn btn-primary w-100"
                 type="submit"
-                @click.prevent="connect"
+                @click.prevent="connect()"
               >
+                <!-- <a :href="link()">{{ 111 }} </a> -->
                 <em class="ni ni-github"></em>
                 Github
                 <!-- <router-link to="/dashboard"
@@ -113,6 +114,7 @@
 // Import component data. You can change the data in the store to reflect in all component
 import SectionData from "@/store/store.js";
 import Pizzly from "pizzly-js";
+import axios from "axios";
 
 export default {
   name: "LoginSection",
@@ -150,12 +152,24 @@ export default {
     });
   },
   methods: {
+    link: function () {
+      return "https://github.com/login/oauth/authorize?client_id=811f5a35b787b8b4e767&scope=repo";
+    },
     connect: function () {
-      this.$pizzly
-        .integration("github")
-        .connect()
-        .then(this.connectSuccess)
-        .catch(this.connectError);
+      // this.$pizzly
+      //   .integration("github")
+      //   .connect()
+      //   .then(this.connectSuccess)
+      //   .catch(this.connectError);
+
+      axios
+        .get("http://34.84.155.121:8081/")
+        .then((response) => {
+          console.log("api--response---", response.data);
+          window.location = response.data.url;
+          this.userName = response.data.name;
+        })
+        .catch((error) => console.log(error));
     },
     connectSuccess: function (data) {
       this.user = data.authId;

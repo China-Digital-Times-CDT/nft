@@ -104,7 +104,7 @@ export default {
     var authId = localStorage.getItem("authId");
     console.log("authId------", authId);
     await axios
-      .post("http://34.84.155.121:8081/user", { authId: authId })
+      .get("http://34.84.155.121:8081/user?token=" + authId)
       .then((response) => {
         console.log("api--response---", response.data);
         this.userName = response.data.name;

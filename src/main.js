@@ -16,6 +16,12 @@ app.component('v-select', vSelect)
 // clipboard
 import VueClipboard from 'vue3-clipboard'
 import plugin from '@serializedowen/vue-img-watermark'
+// const cors = require('cors');
+// const corsConfig = {
+//     credentials: true,
+//     origin: true,
+// };
+// app.use(cors(corsConfig));
 app.use(plugin)
 app.use(VueClipboard, {
     autoSetContainer: true,
