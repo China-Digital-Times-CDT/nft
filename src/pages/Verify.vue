@@ -29,7 +29,7 @@ export default {
     console.log("code---", this.$route.query.code);
     await axios
       .get(
-        "http://34.84.155.121:8081/oauth-callback?code=" +
+        "https://gem.chinadigitaltimes.net/api/oauth-callback?code=" +
           this.$route.query.code
       )
       .then((response) => {

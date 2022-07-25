@@ -70,7 +70,7 @@ export default {
     // const route = useRoute();
     console.log("The amount is: " + this.$route.query.amount);
     await axios
-      .post("http://34.84.155.121:8081/invoice", {
+      .post("https://gem.chinadigitaltimes.net/api/invoice", {
         amount: this.$route.query.amount,
       })
       .then((response) => {

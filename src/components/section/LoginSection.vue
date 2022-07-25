@@ -163,7 +163,7 @@ export default {
       //   .catch(this.connectError);
 
       axios
-        .get("http://34.84.155.121:8081/")
+        .get("https://gem.chinadigitaltimes.net/api/ath2")
         .then((response) => {
           console.log("api--response---", response.data);
           window.location = response.data.url;
