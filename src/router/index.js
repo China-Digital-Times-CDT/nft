@@ -64,6 +64,12 @@ const routes = [
     component: () => import('../pages/CreateInvoice.vue'),
     props: true
   },
+  {
+    path: '/verify',
+    name: 'Verify',
+    component: () => import('../pages/Verify.vue'),
+    props: true
+  },
 ];
 
 const router = createRouter({

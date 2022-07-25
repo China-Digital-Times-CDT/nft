@@ -15,6 +15,12 @@ app.component('v-select', vSelect)
 
 // clipboard
 import VueClipboard from 'vue3-clipboard'
+// const cors = require('cors');
+// const corsConfig = {
+//     credentials: true,
+//     origin: true,
+// };
+// app.use(cors(corsConfig));
 app.use(VueClipboard, {
     autoSetContainer: true,
     appendToBody: true,

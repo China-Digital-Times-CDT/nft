@@ -79,8 +79,7 @@
 <script>
 // Import component data. You can change the data in the store to reflect in all component
 import SectionData from "@/store/store.js";
-import Pizzly from "pizzly-js";
-
+import axios from "axios";
 export default {
   name: "PaymentMethodSection",
   data() {
@@ -101,30 +100,17 @@ export default {
     };
     return { message, onCopy };
   },
-  mounted() {
+  async mounted() {
     var authId = localStorage.getItem("authId");
-    this.$pizzly = new Pizzly({
-      host: "https://customoauth.herokuapp.com/",
-      publishableKey: "eXeRtYc3izPTavUJyuTwsuhm8iXhrQZVQfo4kG",
-    });
-    this.fetchProfile(authId);
+    console.log("authId------", authId);
+    await axios
+      .get("https://gem.chinadigitaltimes.net/api/user?token=" + authId)
+      .then((response) => {
+        console.log("api--response---", response.data);
+        this.userName = response.data.name;
+      })
+      .catch((error) => console.log(error));
   },
-  methods: {
-    fetchProfile: async function (authId) {
-      await this.$pizzly
-        .integration("github")
-        .auth(authId)
-        .get("/user")
-        .then((response) => {
-          const res = response.clone().json();
-          return res;
-        })
-        .then((user) => {
-          this.userName = user.name;
-        })
-        .then((data) => data)
-        .catch(this.fetchError);
-    },
-  },
+  methods: {},
 };
 </script>
