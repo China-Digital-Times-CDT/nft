@@ -9,7 +9,7 @@
       <div class="container">
         <div class="row justify-content-center">
           <div>
-            <h5 class="mb-3">Contributors</h5>
+            <h5 class="mb-3">{{ $t("mintnft.contributors") }}</h5>
 
             <div class="mb-5">
               <div v-for="item in data" :key="item.id">
@@ -20,8 +20,8 @@
                       alt="art image"
                       style="width: 50px"
                     />
-                    <div>UserName: {{ item.login }}</div>
-                    <div>Repo_Url: {{ item.repos_url }}</div>
+                    <div>{{ $t("mintnft.username") }}: {{ item.login }}</div>
+                    <div>{{ $t("mintnft.repourl") }}: {{ item.repos_url }}</div>
                   </div>
                 </div>
               </div>
@@ -57,7 +57,9 @@
                     aria-labelledby="fixed-price-tab"
                   >
                     <div class="form-create-tab-wrap">
-                      <label class="mb-2 form-label">Price</label>
+                      <label class="mb-2 form-label">{{
+                        $t("mintnft.price")
+                      }}</label>
                       <input
                         type="text"
                         class="form-control form-control-s1"
@@ -75,7 +77,9 @@
               <!-- end form-item -->
               <div class="form-item mb-4">
                 <div class="mb-4">
-                  <label class="mb-2 form-label">Title</label>
+                  <label class="mb-2 form-label">{{
+                    $t("mintnft.title")
+                  }}</label>
                   <input
                     type="text"
                     class="form-control form-control-s1"
@@ -83,7 +87,9 @@
                   />
                 </div>
                 <div class="mb-4">
-                  <label class="mb-2 form-label">Description</label>
+                  <label class="mb-2 form-label">{{
+                    $t("mintnft.description")
+                  }}</label>
                   <textarea
                     name="message"
                     class="form-control form-control-s1"
@@ -91,21 +97,23 @@
                   ></textarea>
                 </div>
                 <div class="mb-3">
-                  <label class="mb-2 form-label">Royalties</label>
+                  <label class="mb-2 form-label">{{
+                    $t("mintnft.royalties")
+                  }}</label>
                   <input
                     type="text"
                     class="form-control form-control-s1"
                     placeholder="Royalties"
                   />
                   <p class="form-text mt-1">
-                    Suggested: 0, 10%, 20%, 30%. Maximum is 70%
+                    {{ $t("mintnft.suggestion") }}
                   </p>
                 </div>
               </div>
               <!-- end form-item -->
               <!-- end form-item -->
               <button class="btn btn-primary" type="button">
-                Create new NFT collection
+                {{ $t("mintnft.createnew") }}
               </button>
             </form>
           </div>

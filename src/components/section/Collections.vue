@@ -2,7 +2,7 @@
   <section class="collection-section section-space">
     <div class="container">
       <div class="section-head-sm">
-        <h2 class="mb-3">{{ SectionData.collectionData.title }}</h2>
+        <h2 class="mb-3">{{ $t("collectionData.title") }}</h2>
       </div>
       <!-- collection slider -->
       <CollectionSlider></CollectionSlider>

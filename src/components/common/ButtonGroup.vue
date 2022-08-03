@@ -8,7 +8,7 @@
         :class="btn.btnClass"
         target="_blank"
       >
-        {{ btn.title }}
+        {{ $t("btnDataHome[" + i + "].title") }}
         <span class="d-none d-xl-inline-block" v-if="istext">{{
           btn.titleTwo
         }}</span>
@@ -19,7 +19,7 @@
         class="btn"
         :class="btn.btnClass"
       >
-        {{ btn.title }}
+        {{ $t("btnDataHome[" + i + "].title") }}
         <span class="d-none d-xl-inline-block" v-if="istext">{{
           btn.titleTwo
         }}</span>

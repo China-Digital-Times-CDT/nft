@@ -3,7 +3,7 @@
     <div class="container">
       <!-- filter -->
       <div class="filter-box">
-        <h3 class="mb-4">Newly Listed</h3>
+        <h3 class="mb-4">{{ $t("newlylisted") }}</h3>
         <div class="filter-box-filter m-0">
           <ul class="nav nav-pills nav-pills-s1" id="pills-tab" role="tablist">
             <li class="nav-item" role="presentation">
@@ -17,7 +17,7 @@
                 aria-controls="pills-all"
                 aria-selected="true"
               >
-                All
+                {{ $t("all") }}
               </button>
             </li>
           </ul>
@@ -38,7 +38,7 @@
           <div class="row g-gs">
             <div
               class="col-xl-3 col-lg-4 col-sm-6"
-              v-for="product in products"
+              v-for="product in $tm('products')"
               :key="product.id"
             >
               <div class="card card-product mb-0">
@@ -54,7 +54,7 @@
                     {{ product.title }}
                   </h5>
                   <div class="card-author mb-1 d-flex align-items-center">
-                    <span class="me-1 card-author-by">By</span>
+                    <span class="me-1 card-author-by">{{ $t("By") }}</span>
                     <div class="custom-tooltip-wrap">
                       <router-link
                         :to="product.authorLink"
@@ -69,22 +69,24 @@
                     class="card-price-wrap d-flex align-items-center justify-content-sm-between mb-3"
                   >
                     <div class="me-5 me-sm-2">
-                      <span class="card-price-title">Price</span>
+                      <span class="card-price-title"> {{ $t("Price") }}</span>
                       <span class="card-price-number"
                         >&dollar; {{ product.price }}</span
                       >
                     </div>
                     <div class="text-sm-end">
-                      <span class="card-price-title">Current bid</span>
+                      <span class="card-price-title">{{
+                        $t("CurrentBid")
+                      }}</span>
                       <span class="card-price-number"
                         >{{ product.priceTwo }} ETH</span
                       >
                     </div>
                   </div>
                   <!-- end card-price-wrap -->
-                  <router-link to="product" class="btn btn-sm btn-primary"
-                    >Place Bid</router-link
-                  >
+                  <router-link to="product" class="btn btn-sm btn-primary">{{
+                    $t("PlaceBid")
+                  }}</router-link>
                 </div>
                 <!-- end card-body -->
                 <router-link
@@ -132,177 +134,6 @@ export default {
   data() {
     return {
       SectionData,
-      categoryMenu: [
-        {
-          id: 1,
-          title: "All",
-          options: [
-            {
-              category: "artworks",
-            },
-            {
-              category: "music",
-            },
-            {
-              category: "collectibles",
-            },
-            {
-              category: "games",
-            },
-            {
-              category: "metaverses",
-            },
-          ],
-        },
-      ],
-      products: [
-        {
-          id: 1,
-          img: require("@/images/thumb/nft-1.png"),
-          imgLg: require("@/images/thumb/nft-lg2.jpg"),
-          title: "One Tribe Black Edition",
-          content:
-            'Digital-only* "CB Galaxy" style Coke Boys LA sneakers wearable in the Decentraland metaverse',
-          author: "ZeniconStudio",
-          authorLink: "author",
-          name: "art",
-          price: "14.20",
-          metaText: "Not for sale",
-          metaTextTwo: "500 editions",
-          metaTextThree:
-            'Highest bid <span class="text-primary fw-semibold">0.072 wETH</span>',
-          currentPrice: "1.32 ETH",
-          category: "artworks",
-        },
-        {
-          id: 2,
-          img: require("@/images/thumb/nft-22.png"),
-          imgLg: require("@/images/thumb/nft-lg2.jpg"),
-          title: "Operation Jade Fury",
-          content:
-            'Digital-only* "CB Galaxy" style Coke Boys LA sneakers wearable in the Decentraland metaverse',
-          author: "CanvaNetwork",
-          authorLink: "author",
-          name: "art",
-          price: "10.00",
-          metaText: "Not for sale",
-          metaTextTwo: "500 editions",
-          metaTextThree:
-            'Highest bid <span class="text-primary fw-semibold">0.072 wETH</span>',
-          currentPrice: "0.32 ETH",
-          category: "artworks",
-        },
-        {
-          id: 3,
-          img: require("@/images/thumb/nft-4.png"),
-          imgLg: require("@/images/thumb/nft-lg2.jpg"),
-          title: "Unboxing The Compass",
-          content:
-            'Digital-only* "CB Galaxy" style Coke Boys LA sneakers wearable in the Decentraland metaverse',
-          author: "MoveNetwork",
-          authorLink: "author",
-          name: "music",
-          price: "10.00",
-          metaText: "Not for sale",
-          metaTextTwo: "500 editions",
-          metaTextThree:
-            'Highest bid <span class="text-primary fw-semibold">0.072 wETH</span>',
-          currentPrice: "1.30 ETH",
-          category: "music",
-        },
-        {
-          id: 4,
-          img: require("@/images/thumb/nft-5.png"),
-          imgLg: require("@/images/thumb/nft-lg2.jpg"),
-          title: "Rendering by the Water",
-          content:
-            'Digital-only* "CB Galaxy" style Coke Boys LA sneakers wearable in the Decentraland metaverse',
-          author: "RukiStudio",
-          authorLink: "author",
-          name: "music",
-          price: "13.00",
-          metaText: "Not for sale",
-          metaTextTwo: "500 editions",
-          metaTextThree:
-            'Highest bid <span class="text-primary fw-semibold">0.072 wETH</span>',
-          currentPrice: "2.30 ETH",
-          category: "music",
-        },
-        {
-          id: 5,
-          sort: "recent",
-          img: require("@/images/thumb/nft-6.png"),
-          imgLg: require("@/images/thumb/nft-lg2.jpg"),
-          title: "Divine Opulence",
-          content:
-            'Digital-only* "CB Galaxy" style Coke Boys LA sneakers wearable in the Decentraland metaverse',
-          author: "DvisionNetwork",
-          authorLink: "author",
-          name: "collectibles",
-          price: "8.00",
-          metaText: "Not for sale",
-          metaTextTwo: "500 editions",
-          metaTextThree:
-            'Highest bid <span class="text-primary fw-semibold">0.072 wETH</span>',
-          currentPrice: "1.44 ETH",
-          category: "collectibles",
-        },
-        {
-          id: 6,
-          img: require("@/images/thumb/nft-7.png"),
-          imgLg: require("@/images/thumb/nft-lg2.jpg"),
-          title: "Sacral Metatron Cube",
-          content:
-            'Digital-only* "CB Galaxy" style Coke Boys LA sneakers wearable in the Decentraland metaverse',
-          author: "KamranMedia",
-          authorLink: "author",
-          name: "collectibles",
-          price: "11.00",
-          metaText: "Not for sale",
-          metaTextTwo: "500 editions",
-          metaTextThree:
-            'Highest bid <span class="text-primary fw-semibold">0.072 wETH</span>',
-          currentPrice: "1.33 ETH",
-          category: "collectibles",
-        },
-        {
-          id: 7,
-          img: require("@/images/thumb/nft-8.png"),
-          imgLg: require("@/images/thumb/nft-lg2.jpg"),
-          title: "Girl warming up to a bed acrobat",
-          content:
-            'Digital-only* "CB Galaxy" style Coke Boys LA sneakers wearable in the Decentraland metaverse',
-          author: "JisanMedia",
-          authorLink: "author",
-          name: "metaverses",
-          price: "10.00",
-          metaText: "Not for sale",
-          metaTextTwo: "500 editions",
-          metaTextThree:
-            'Highest bid <span class="text-primary fw-semibold">0.072 wETH</span>',
-          currentPrice: "2.33 ETH",
-          category: "metaverses",
-        },
-        {
-          id: 8,
-          img: require("@/images/thumb/nft-3.png"),
-          imgLg: require("@/images/thumb/nft-lg2.jpg"),
-          title: "Women Eyes Modern Art",
-          content:
-            'Digital-only* "CB Galaxy" style Coke Boys LA sneakers wearable in the Decentraland metaverse',
-          author: "RifiUnited",
-          authorLink: "author",
-          name: "metaverses",
-          price: "12.00",
-          metaText: "Not for sale",
-          metaTextTwo: "500 editions",
-          metaTextThree:
-            'Highest bid <span class="text-primary fw-semibold">0.072 wETH</span>',
-          currentPrice: "3.33 ETH",
-          category: "metaverses",
-        },
-      ],
-
       isFIlter: false,
       selectedTab: null,
       currentPage: 1,
@@ -320,12 +151,12 @@ export default {
       this.currentPage += 1;
       this.isFIlter = false;
     },
-    sorting() {
-      this.products.sort((a, b) => (a.price < b.price ? 1 : -1));
-    },
-    sorting2() {
-      this.products.sort((a, b) => (a.price > b.price ? 1 : -1));
-    },
+    // sorting() {
+    //   this.products.sort((a, b) => (a.price < b.price ? 1 : -1));
+    // },
+    // sorting2() {
+    //   this.products.sort((a, b) => (a.price > b.price ? 1 : -1));
+    // },
 
     // set active class on button
     getActiveClass(id) {
@@ -336,17 +167,17 @@ export default {
       }
     },
   },
-  computed: {
-    filteredData() {
-      // if(this.isFIlter == false) {
-      //   return this.products.slice(0, this.currentPage * this.maxPerPage);
-      // }
-      return this.products.filter((data) => {
-        const opts = this.selectedTab.options.map((opt) => opt.category);
-        return opts.includes(data.category);
-      });
-    },
-  },
+  // computed: {
+  //   filteredData() {
+  //     // if(this.isFIlter == false) {
+  //     //   return this.products.slice(0, this.currentPage * this.maxPerPage);
+  //     // }
+  //     return this.products.filter((data) => {
+  //       const opts = this.selectedTab.options.map((opt) => opt.category);
+  //       return opts.includes(data.category);
+  //     });
+  //   },
+  // },
 };
 </script>
 

@@ -3,13 +3,14 @@
     <div class="container">
       <div class="row align-items-center justify-content-center">
         <div class="col-lg-6 mb-5 mb-lg-0 d-none d-lg-block">
-          <img :src="SectionData.loginData.img" alt="" class="img-fluid" />
+          <img :src="$t('loginData.img')" alt="" class="img-fluid" />
         </div>
         <!-- end col-lg-6 -->
         <div class="col-lg-6">
           <div class="section-head-sm">
-            <h2 class="mb-1">{{ SectionData.loginData.title }}</h2>
-            <p>{{ SectionData.loginData.subTitle }}</p>
+            <h2 class="mb-1">{{ $t("loginData.title") }}</h2>
+
+            <p>{{ $t("loginData.subTitle") }}</p>
           </div>
           <form action="#">
             <div class="form-floating mb-4">
@@ -19,7 +20,9 @@
                 id="emailAddress"
                 placeholder="name@example.com"
               />
-              <label for="emailAddress">Email address</label>
+              <label for="emailAddress">{{
+                $t("loginData.emailaddress")
+              }}</label>
             </div>
             <!-- end form-floating -->
             <div class="form-floating mb-4">
@@ -29,7 +32,7 @@
                 id="password"
                 placeholder="Password"
               />
-              <label for="password">Password</label>
+              <label for="password">{{ $t("loginData.password") }}</label>
               <a
                 href="password"
                 class="password-toggle"
@@ -54,19 +57,19 @@
                   class="form-check-label form-check-label-s1"
                   for="logMeIn"
                 >
-                  Remember me
+                  {{ $t("loginData.rememberme") }}
                 </label>
               </div>
-              <router-link to="login" class="btn-link form-forget-password"
-                >Forgot Password</router-link
+              <router-link to="login" class="btn-link form-forget-password">
+                {{ $t("loginData.forgotpassword") }}</router-link
               >
             </div>
             <button class="btn btn-primary w-100" type="submit">
               <router-link to="/dashboard"
-                >{{ SectionData.loginData.btnText }}
+                >{{ $t("loginData.btnText") }}
               </router-link>
             </button>
-            <span class="d-block my-4">— or login with —</span>
+            <span class="d-block my-4">{{ $t("loginData.orloginwidth") }}</span>
             <ul class="btns-group d-flex">
               <!-- <li
                 class="flex-grow-1"
@@ -94,12 +97,10 @@
               </button>
             </ul>
             <p class="mt-3 form-text">
-              {{ SectionData.loginData.haveAccountText }}
-              <router-link
-                :to="SectionData.loginData.btnTextLink"
-                class="btn-link"
-                >{{ SectionData.loginData.btnTextTwo }}</router-link
-              >
+              {{ $t("loginData.haveAccountText") }}
+              <router-link :to="$t('loginData.btnTextLink')" class="btn-link">{{
+                $t("loginData.btnTextTwo")
+              }}</router-link>
             </p>
           </form>
         </div>

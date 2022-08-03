@@ -35,7 +35,7 @@
             </div>
           </div>
           <ButtonGroup
-            :btns="SectionData.btnDataHome"
+            :btns="SData.btnDataHome"
             classname="hero-btns mt-4"
           ></ButtonGroup>
         </div>
@@ -52,12 +52,14 @@
 <script>
 // Import component data. You can change the data in the store to reflect in all component
 import SectionData from "@/store/store.js";
+import SData from "@/store/sdata.js";
 
 export default {
   name: "HeroThree",
   data() {
     return {
       SectionData,
+      SData,
     };
   },
 };

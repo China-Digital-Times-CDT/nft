@@ -5,27 +5,28 @@
       <!-- Header main -->
       <HeaderMain></HeaderMain>
     </header>
-    <h3>Your order number</h3>
+    <h3>{{ $t("invoicedetails.ordernumber") }}</h3>
     <h3 style="text-align: center; width: 100%">
       c2db514b-20d4-41f2-98ef-a70cbf1921ab
     </h3>
     <h4 class="mt-4">
-      Your order total is
+      {{ $t("invoicedetails.total") }}
       <u
         ><b>{{ this.$route.query.amount }} Satoshis</b></u
-      >, and will be valid for
-      <u><b id="order_expiry_description">9 minutes</b></u>
+      >{{ $t("invoicedetails.valid") }}
+      <u
+        ><b id="order_expiry_description">{{ $t("invoicedetails.time") }}</b></u
+      >
     </h4>
     <h4 class="mt-4">
-      ⚠ Once paid, please stay on this page until we confirm your order and
-      present you with your vouchers
+      {{ $t("invoicedetails.des1") }}
     </h4>
-    <h4 class="mt-4">You may want to bookmark this page for your records</h4>
+    <h4 class="mt-4">{{ $t("invoicedetails.des2") }}</h4>
     <fieldset
       style="max-width: 25rem; margin-left: 50px; border: double; padding: 11px"
       class="mt-4 text-center mb-4"
     >
-      <legend>Pay with Lightning</legend>
+      <legend>{{ $t("invoicedetails.paywith") }}</legend>
       <div id="lightning-svg">
         <textarea
           id="lightning-uri"
@@ -45,9 +46,9 @@
           id="lightning-uri-button"
           onclick="copy_to_clipboard('lightning-uri')"
         >
-          📋 Copy to Clipboard
+          {{ $t("invoicedetails.copyclipboard") }}
         </button>
-        <button type="button">📤 Open in Wallet</button>
+        <button type="button">{{ $t("invoicedetails.openwallet") }}</button>
       </div>
     </fieldset>
     <!-- Footer  -->

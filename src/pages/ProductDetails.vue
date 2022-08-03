@@ -18,7 +18,9 @@
                 /> -->
                 <div class="cards-details mt-4">
                   <div class="card">
-                    <h1><a href="#0">Certificates</a></h1>
+                    <h1>
+                      <a href="#0">{{ $t("productdetails.certificate") }}</a>
+                    </h1>
                     <p class="rotingtxt">{{ hashValue }}</p>
                     <img
                       src="../images/thumb/collection3.jpg"
@@ -27,7 +29,9 @@
                     />
                   </div>
                   <div class="card">
-                    <h1><a href="#0">Artifacts(Files)</a></h1>
+                    <h1>
+                      <a href="#0">{{ $t("productdetails.artifact") }}</a>
+                    </h1>
                     <img
                       src="../images/thumb/collection4.jpg"
                       alt=""
@@ -35,7 +39,9 @@
                     />
                   </div>
                   <div class="card">
-                    <h1><a href="#0">Cover</a></h1>
+                    <h1>
+                      <a href="#0">{{ $t("productdetails.cover") }}</a>
+                    </h1>
                     <img
                       src="../images/thumb/collection2.jpg"
                       alt=""
@@ -50,7 +56,7 @@
             <div class="item-detail-content">
               <div class="item-detail-img-container mb-4 mt-4">
                 <a href="#" style="text-decoration: revert">
-                  <h3>Chinese Wailing Wall for Doctor Li</h3></a
+                  <h3>{{ $t("productdetails.title") }}</h3></a
                 >
                 <h3 class="mt-4">#23433</h3>
                 <div class="d-flex">
@@ -68,20 +74,20 @@
                     style="margin-left: 40px"
                     @click.prevent="offer"
                   >
-                    Offer
+                    {{ $t("productdetails.offer") }}
                     <!-- <router-link to="/create-invoice">Offer </router-link> -->
                   </button>
                 </div>
                 <div class="mt-5">
-                  <h2>History offers:</h2>
+                  <h2>{{ $t("productdetails.historyoffer") }}</h2>
                   <div style="margin-left: 40px; margin-top: 50px" class="lead">
-                    -2022/05/01 Listed by XXXX for 8000
+                    -{{ $t("productdetails.history1") }}
                   </div>
                   <div style="margin-left: 40px" class="lead">
-                    -2022/03/28 Transfered to XXXX with 7000 Sat
+                    -{{ $t("productdetails.history2") }}
                   </div>
                   <div style="margin-left: 40px" class="lead">
-                    -2021/08/01 Minted with 1000 Sat
+                    -{{ $t("productdetails.history3") }}
                   </div>
                 </div>
               </div>

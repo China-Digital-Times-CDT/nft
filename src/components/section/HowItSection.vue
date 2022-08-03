@@ -2,9 +2,9 @@
   <section class="collection-section">
     <div class="container">
       <div class="section-head-sm">
-        <h2 class="mb-3 text-center">How it works</h2>
+        <h2 class="mb-3 text-center">{{ $t("howitworks") }}</h2>
 
-        <h4 class="mb-3 text-center">Because we make it work</h4>
+        <h4 class="mb-3 text-center">{{ $t("becausetxt") }}</h4>
       </div>
     </div>
     <!-- .container -->

@@ -19,7 +19,7 @@
     class="swiper-container-space"
   >
     <swiper-slide
-      v-for="item in SectionData.collectionData.collectionList"
+      v-for="item in $tm('collectionData.collectionList')"
       :key="item.id"
       class="h-auto"
     >
@@ -41,7 +41,9 @@
             <span v-html="item.description"></span>
           </div>
           <button class="btn btn-primary w-100" type="submit">
-            <router-link to="/product-details">Bid </router-link>
+            <router-link to="/product-details"
+              >{{ $t("CurrentBid") }}
+            </router-link>
           </button>
         </div>
         <!-- end card-body --> </router-link
