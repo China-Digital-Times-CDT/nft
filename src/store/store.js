@@ -10,7 +10,7 @@ let SectionData = {
     CurrentBid: 'Current Bid',
     PlaceBid: 'Place Bid',
     howitworks: 'How it works',
-    becausetxt: 'We create archives for the valuable content from Chinese internet especially those content being <a>censored</a>.',
+    becausetxt: "We create archives for the valuable content from Chinese internet especially those content being <a href='#'>censored</a>. <p> <h1>Birth of a collectible work</h1> We won't regard everything as valuable work unless it's proved to have artistic and engineering values, and get approved by the community",
     mintnft: {
       contributors: 'Contributors',
       artimage: 'art image',
@@ -651,7 +651,7 @@ let SectionData = {
     CurrentBid: '現價投標',
     PlaceBid: '招標',
     howitworks: '工作原理',
-    becausetxt: '我们的社区邀请、收集和整理在中国互联网上被审查的内容',
+    becausetxt: '我们的社区邀请、收集和整理在中国互联网上被审查的<a href="#">内容</a>',
     mintnft: {
       contributors: '貢獻者',
       artimage: '藝術形象',
