@@ -10,7 +10,7 @@ let SectionData = {
     CurrentBid: 'Current Bid',
     PlaceBid: 'Place Bid',
     howitworks: 'How it works',
-    becausetxt: 'Because we make it work',
+    becausetxt: 'We create archives for the valuable content from Chinese internet especially those content being <a>censored</a>.',
     mintnft: {
       contributors: 'Contributors',
       artimage: 'art image',
@@ -651,7 +651,7 @@ let SectionData = {
     CurrentBid: '現價投標',
     PlaceBid: '招標',
     howitworks: '工作原理',
-    becausetxt: '因爲我們讓它成功',
+    becausetxt: '我们的社区邀请、收集和整理在中国互联网上被审查的内容',
     mintnft: {
       contributors: '貢獻者',
       artimage: '藝術形象',
