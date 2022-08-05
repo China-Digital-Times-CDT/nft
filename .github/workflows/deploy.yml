@@ -16,13 +16,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Copy file via scp
-        uses: appleboy/scp-action@main
+        uses: appleboy/scp-action@master
         with:
           source: "."
           target: "cdtoken_fe"
 
       - name: Executing remote  command
-        uses: appleboy/ssh-action@main
+        uses: appleboy/ssh-action@master
         with:
           script: |
             cd cdtoken_fe
