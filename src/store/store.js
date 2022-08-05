@@ -10,7 +10,29 @@ let SectionData = {
     CurrentBid: 'Current Bid',
     PlaceBid: 'Place Bid',
     howitworks: 'How it works',
-    becausetxt: 'Because we make it work',
+    becausetxt: `
+
+    <p>We create archives for the valuable content from Chinese internet especially those content being <a href='#'>censored</a>.   We won&#39;t regard everything as valuable work unless it&#39;s proved to have artistic and engineering values, and get appraised by the community. </p>
+    <h2 id="remuneration-pie">Remuneration Pie</h2>
+    <p>We have proposed a general structure to distribute the income of a work into different groups of participants. </p>
+    <p>Infrastructure: 10%
+    Marketers: 20%
+    Contributors: 30%
+    Authors: 40%</p>
+    <p>The reference can be adjusted depends on different projects. </p>
+    <h2 id="types-of-projects">Types of projects</h2>
+    <ol>
+    <li>Evergreen: projects will never end but keep growing, we will have patrons to be named and present certificates</li>
+    <li>NFT: projects generates a one-time work for publication</li>
+    <li>Version-by-version: projects that release different version</li>
+    </ol>
+    <h2 id="why-using-git-">Why using Git?</h2>
+    <p>We use Github.com or other similar versioning service(together with community) to engage engineering-savvy people 
+    to particpate different projects because they tend to use such tools with consensus. Every work in our gallery will
+    have a github repository(repo) as an open source to invite community memebers to witness or directly participate.</p>
+
+    `
+    ,
     mintnft: {
       contributors: 'Contributors',
       artimage: 'art image',
@@ -651,7 +673,7 @@ let SectionData = {
     CurrentBid: '現價投標',
     PlaceBid: '招標',
     howitworks: '工作原理',
-    becausetxt: '因爲我們讓它成功',
+    becausetxt: '我们的社区邀请、收集和整理在中国互联网上被审查的<a href="#">内容</a>',
     mintnft: {
       contributors: '貢獻者',
       artimage: '藝術形象',
