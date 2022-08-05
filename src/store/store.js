@@ -247,6 +247,10 @@ let SectionData = {
               title: 'Contact',
               path: 'contact'
             },
+            {
+              title: 'Career',
+              path: 'career'
+            },
           ]
         }
       ],
@@ -888,6 +892,10 @@ let SectionData = {
             {
               title: '聯絡人',
               path: 'contact'
+            },
+            {
+              title: 'Career',
+              path: '職業'
             },
           ]
         }
