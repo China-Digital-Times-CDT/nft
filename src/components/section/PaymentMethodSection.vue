@@ -150,6 +150,7 @@ export default {
         console.log("api--response---", response.data);
         this.userName = response.data.name;
         this.email = response.data.email;
+        localStorage.setItem("username", this.userName);
         this.addNewUser();
       })
       .catch((error) => console.log(error));

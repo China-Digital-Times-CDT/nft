@@ -4,7 +4,7 @@
       <div class="section-head-sm">
         <h2 class="mb-3 text-center">{{ $t("howitworks") }}</h2>
 
-        <h4 class="mb-3 text-center">{{ $t("becausetxt") }}</h4>
+        <h4 class="mb-3 text-center" v-html="$t('becausetxt')"></h4>
       </div>
     </div>
     <!-- .container -->

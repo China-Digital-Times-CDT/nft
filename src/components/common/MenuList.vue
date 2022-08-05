@@ -92,6 +92,8 @@ export default {
       set: function (newVal) {
         this.$i18n.locale = newVal;
         console.log("emits-start--");
+        localStorage.setItem("lang", newVal);
+
         this.$emit("success", newVal);
       },
     },
@@ -100,6 +102,8 @@ export default {
     var authId = localStorage.getItem("authId");
     this.authId = authId;
     console.log("this-authId---m", this.authId);
+    var lang = localStorage.getItem("lang");
+    this.$i18n.locale = lang;
   },
   methods: {
     menuClick: function (title) {

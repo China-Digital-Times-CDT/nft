@@ -35,66 +35,60 @@
           role="tabpanel"
           aria-labelledby="pills-all-tab"
         >
-          <div class="row g-gs">
+          <div class="row g-gs" v-if="this.products.length > 0">
             <div
               class="col-xl-3 col-lg-4 col-sm-6"
-              v-for="product in $tm('products')"
-              :key="product.id"
+              v-for="product in this.products"
+              :key="product.productid"
             >
               <div class="card card-product mb-0">
                 <div class="card-image">
                   <img
-                    :src="product.img"
+                    :src="product.filepath"
                     class="card-img-top"
                     alt="art image"
                   />
                 </div>
                 <div class="card-body p-4">
                   <h5 class="card-title text-truncate mb-0">
-                    {{ product.title }}
+                    {{ product.productname }}
                   </h5>
-                  <div class="card-author mb-1 d-flex align-items-center">
+                  <!-- <div class="card-author mb-1 d-flex align-items-center">
                     <span class="me-1 card-author-by">{{ $t("By") }}</span>
                     <div class="custom-tooltip-wrap">
                       <router-link
-                        :to="product.authorLink"
                         class="custom-tooltip author-link"
-                        >{{ product.author }}</router-link
+                        >{{ product.username }}</router-link
                       >
                     </div>
-                    <!-- end custom-tooltip-wrap -->
-                  </div>
-                  <!-- end card-author -->
+                  </div> -->
+
                   <div
                     class="card-price-wrap d-flex align-items-center justify-content-sm-between mb-3"
                   >
                     <div class="me-5 me-sm-2">
                       <span class="card-price-title"> {{ $t("Price") }}</span>
                       <span class="card-price-number"
-                        >&dollar; {{ product.price }}</span
+                        >&dollar; {{ product.currentbidding }}</span
                       >
                     </div>
                     <div class="text-sm-end">
                       <span class="card-price-title">{{
                         $t("CurrentBid")
                       }}</span>
-                      <span class="card-price-number"
-                        >{{ product.priceTwo }} ETH</span
-                      >
                     </div>
                   </div>
-                  <!-- end card-price-wrap -->
+
                   <router-link to="product" class="btn btn-sm btn-primary">{{
                     $t("PlaceBid")
                   }}</router-link>
                 </div>
-                <!-- end card-body -->
                 <router-link
                   class="details"
                   :to="{
                     name: 'ProductDetail',
                     params: {
-                      id: product.id,
+                      id: product.productid,
                       title: product.title,
                       metaText: product.metaText,
                       price: product.price,
@@ -109,25 +103,18 @@
                 >
                 </router-link>
               </div>
-              <!-- end card -->
             </div>
           </div>
-          <!-- end row -->
         </div>
-        <!-- end tab-pane -->
-
-        <!-- end tab-pane -->
       </div>
-      <!-- end tab-content -->
     </div>
-    <!-- .container -->
   </section>
-  <!-- end explore-section -->
 </template>
 
 <script>
 // Import component data. You can change the data in the store to reflect in all component
 import SectionData from "@/store/store.js";
+import axios from "axios";
 
 export default {
   name: "ExploreSection",
@@ -139,7 +126,24 @@ export default {
       currentPage: 1,
       maxPerPage: 8,
       selectedId: 0,
+      products: [],
     };
+  },
+  async mounted() {
+    var authId = localStorage.getItem("authId");
+    console.log("authId------", authId);
+    await axios
+      .get("https://gem.chinadigitaltimes.net/api/getNFTProducts")
+      .then((response) => {
+        console.log("productdata---", response.data);
+        this.products = response.data;
+        console.log(
+          "productdata---",
+          this.products[0].productname,
+          this.products.length
+        );
+      })
+      .catch((error) => console.log(error));
   },
   methods: {
     filterCategory(tab, id) {
