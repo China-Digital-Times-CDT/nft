@@ -692,8 +692,7 @@ let SectionData = {
 </ol>
 <h2 id="why-using-git-">为何使用Git?</h2>
 <p>Git是有史以来在有效的开源系统版本管理工具，我们使用基于Git的公开服务（首先是 Github.com，还有有类似的平台加入 ），帮助社区参与者更容易参与和协作，并最终把自己的贡献写入永久的存储作品中</p>
-    `
-    ,
+    `,
     mintnft: {
       contributors: '貢獻者',
       artimage: '藝術形象',
