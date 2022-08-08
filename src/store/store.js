@@ -11,7 +11,6 @@ let SectionData = {
     PlaceBid: 'Place Bid',
     howitworks: 'How it works',
     becausetxt: `
-
     <p>We create archives for the valuable content from Chinese internet especially those content being <a href='#'>censored</a>.   We won&#39;t regard everything as valuable work unless it&#39;s proved to have artistic and engineering values, and get appraised by the community. </p>
     <h2 id="remuneration-pie">Remuneration Pie</h2>
     <p>We have proposed a general structure to distribute the income of a work into different groups of participants. </p>
@@ -30,7 +29,6 @@ let SectionData = {
     <p>We use Github.com or other similar versioning service(together with community) to engage engineering-savvy people 
     to particpate different projects because they tend to use such tools with consensus. Every work in our gallery will
     have a github repository(repo) as an open source to invite community memebers to witness or directly participate.</p>
-
     `
     ,
     mintnft: {
@@ -248,6 +246,10 @@ let SectionData = {
             {
               title: 'Contact',
               path: 'contact'
+            },
+            {
+              title: 'Career',
+              path: 'career'
             },
           ]
         }
@@ -765,7 +767,7 @@ let SectionData = {
         category: "artworks",
       },
       {
-        id: 3,
+        id: 3,and did you create team on oragmization ?
         img: require("@/images/thumb/nft-4.png"),
         imgLg: require("@/images/thumb/nft-lg2.jpg"),
         title: "打開指南針",
@@ -908,6 +910,10 @@ let SectionData = {
             {
               title: '聯絡人',
               path: 'contact'
+            },
+            {
+              title: 'Career',
+              path: '職業'
             },
           ]
         }

@@ -21,7 +21,7 @@
               classname="hero-btns"
             ></ButtonGroup>
           </div> -->
-          <div class="cards-details mt-4">
+          <!-- <div class="cards-details mt-4">
             <div class="card1">
               <router-link to="/product-details" class="hover">
                 <div class="img">
@@ -33,6 +33,33 @@
                 </div>
               </router-link>
             </div>
+          </div> -->
+          <div class="tilt-effect mt-5">
+            <router-link to="/product-details" class="hover">
+              <div class="dcard">
+                <div class="trigger"></div>
+                <div class="trigger"></div>
+                <div class="trigger"></div>
+                <div class="trigger"></div>
+                <div class="trigger"></div>
+                <div class="trigger"></div>
+                <div class="trigger"></div>
+                <div class="trigger"></div>
+                <div class="trigger"></div>
+
+                <div class="card" style="background-size: cover">
+                  <img
+                    src="../../images/thumb/collection2.jpg"
+                    alt=""
+                    class="frame"
+                    style="height: 433px"
+                  />
+                  <div class="frame">
+                    <p>The Chinese Wailing Wall</p>
+                  </div>
+                </div>
+              </div>
+            </router-link>
           </div>
           <ButtonGroup
             :btns="SData.btnDataHome"

@@ -207,6 +207,7 @@ export default {
   },
   mounted() {
     console.log("local-------", this.$i18n.locale);
+    localStorage.setItem("lang", this.$i18n.locale);
     //  this.$i18n.locale = "ja";
     this.showLocaleTime();
     this.displayData = this.streamData;

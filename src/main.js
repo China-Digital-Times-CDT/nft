@@ -28,7 +28,7 @@ app.component('v-select', vSelect)
 // }
 
 const i18n = createI18n({
-    locale: 'ja', // set locale
+    locale: 'en', // set locale
     fallbackLocale: 'en', // set fallback locale
     messages
 })

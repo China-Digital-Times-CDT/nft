@@ -2,7 +2,7 @@ name: Production
 
 on:
   push:
-    branches: [master]
+    branches: [main]
 
 jobs:
   devlopment:
@@ -26,7 +26,7 @@ jobs:
         with:
           script: |
             cd cdtoken_fe
-            git pull origin master
+            git pull origin main
             git status
             npm install
             npm run build
