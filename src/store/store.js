@@ -767,7 +767,7 @@ let SectionData = {
         category: "artworks",
       },
       {
-        id: 3,and did you create team on oragmization ?
+        id: 3,
         img: require("@/images/thumb/nft-4.png"),
         imgLg: require("@/images/thumb/nft-lg2.jpg"),
         title: "打開指南針",
