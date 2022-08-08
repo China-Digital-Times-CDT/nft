@@ -675,25 +675,7 @@ let SectionData = {
     CurrentBid: '現價投標',
     PlaceBid: '招標',
     howitworks: '工作原理',
-    becausetxt: `
-    <p>我们的社区邀请、收集和整理在中国互联网上被审查的<a href="#">内容</a>并制作为高质量的作品收藏和提供历史研究</p>
-<h2 id="remuneration-pie">贡献回报分配机制</h2>
-<p>我们设计并提议给社区以下方式的贡献报酬机制 </p>
-<p>基础设施服务留存（保存到Web3等服务）: 10%
-推广者收益: 20%
-制作、设计和代码贡献: 30%
-内容创作者: 40%</p>
-<p>这种收益方式作为一般性参考，针对不同的项目会有不同的调整方式，但是大致原则如此。 </p>
-<h2 id="types-of-projects">项目类别</h2>
-<ol>
-<li>常青藤项目: 这类项目会持续开发发展, 任何贡献者或赞助人都会有历史记录和证书</li>
-<li>孤立或限量版本: 一次性项目，会进行市场交易和拍卖</li>
-<li>版本项目: 每个不同的版本都有独立的发行</li>
-</ol>
-<h2 id="why-using-git-">为何使用Git?</h2>
-<p>Git是有史以来在有效的开源系统版本管理工具，我们使用基于Git的公开服务（首先是 Github.com，还有有类似的平台加入 ），帮助社区参与者更容易参与和协作，并最终把自己的贡献写入永久的存储作品中</p>
-    `
-    ,
+    becausetxt: '我们的社区邀请、收集和整理在中国互联网上被审查的内容',
     mintnft: {
       contributors: '貢獻者',
       artimage: '藝術形象',
@@ -767,7 +749,7 @@ let SectionData = {
         category: "artworks",
       },
       {
-        id: 3,and did you create team on oragmization ?
+        id: 3,
         img: require("@/images/thumb/nft-4.png"),
         imgLg: require("@/images/thumb/nft-lg2.jpg"),
         title: "打開指南針",
