@@ -335,7 +335,7 @@ let SectionData = {
         path: '/how'
       },
       menuList3: {
-        title: 'Collections',
+        title: 'Gallery',
         path: 'explore'
         // navList: [
         //   {
@@ -627,9 +627,10 @@ let SectionData = {
       collectionList: [
         {
           id: 1,
-          title: 'Uprooted: Beijing Evicts “Low-end Population”',
+          title: 'Save Hong Kong Online',
           price: '$26,220',
-          img: require('@/images/thumb/collection1.jpg'),
+          img: require('@/images/thumb/nft-item1.png'),
+          itemNum: '23445',
           path: '',
           bidding: '<a class="btn-link fw-medium">Current Bidding:</a> 2000 CDT (or 0.01 BTC, or 200 USD) (?)',
           created: '<a class="btn-link fw-medium">Created:</a> 2021-07-06by(<a class="btn-link fw-medium">Adam</a>)',
@@ -638,16 +639,28 @@ let SectionData = {
         },
         {
           id: 2,
-          title: '“Chinese Wailing Wall” on Weibo for Dr. Li Wenliang',
+          title: 'Censorship Graph',
           price: '$24,497',
-          img: require('@/images/thumb/collection2.jpg'),
+          img: require('@/images/thumb/nft-item2.png'),
+          itemNum: '23446',
           path: '',
           bidding: '<a class="btn-link fw-medium">Current Bidding:</a> 2000 CDT (or 0.01 BTC, or 200 USD) (?)',
           created: '<a class="btn-link fw-medium">Created:</a> 2021-07-06by(<a class="btn-link fw-medium">Adam</a>)',
           distribution: '<a class="btn-link fw-medium">Distribution:</a> (10% to marketers, 20% CDT, 30% to community, 40% authors fund)',
           description: '<a class="btn-link fw-medium">Description:</a> On December 30th, 2019, before the world was aware of the threat of COVID-19, a Chinese doctor Li Wenliang issued the first warning about the deadly coronavirus and then received a letter of admonition from the police...'
         },
-
+        {
+          id: 3,
+          title: 'The Voices of May',
+          price: '$24,497',
+          img: require('@/images/thumb/nft-item3.png'),
+          itemNum: '23447',
+          path: '',
+          bidding: '<a class="btn-link fw-medium">Current Bidding:</a> 2000 CDT (or 0.01 BTC, or 200 USD) (?)',
+          created: '<a class="btn-link fw-medium">Created:</a> 2021-07-06by(<a class="btn-link fw-medium">Adam</a>)',
+          distribution: '<a class="btn-link fw-medium">Distribution:</a> (10% to marketers, 20% CDT, 30% to community, 40% authors fund)',
+          description: '<a class="btn-link fw-medium">Description:</a> On December 30th, 2019, before the world was aware of the threat of COVID-19, a Chinese doctor Li Wenliang issued the first warning about the deadly coronavirus and then received a letter of admonition from the police...'
+        },
       ]
     },
     logoData: [
@@ -946,7 +959,7 @@ let SectionData = {
         path: '/how'
       },
       menuList3: {
-        title: '收藏品目',
+        title: '畫廊',
         path: 'explore'
         // navList: [
         //   {
@@ -1240,9 +1253,10 @@ let SectionData = {
       collectionList: [
         {
           id: 1,
-          title: '被連根拔起: 北京驅逐"低端人口"',
+          title: '香港档案',
           price: '$26,220',
-          img: require('@/images/thumb/collection1.jpg'),
+          img: require('@/images/thumb/nft-item1.png'),
+          itemNum: '23445',
           path: '',
           bidding: '<a class="btn-link fw-medium">現正招標:</a> 2000 CDT (或 0.01 BTC,或 200 USD) (?)',
           created: '<a class="btn-link fw-medium">創建:</a> 2021-07-06憑(<a class="btn-link fw-medium">Adam</a>)',
@@ -1251,16 +1265,28 @@ let SectionData = {
         },
         {
           id: 2,
-          title: '李文亮博士微博"中國哭牆"',
+          title: '审查地图',
           price: '$24,497',
-          img: require('@/images/thumb/collection2.jpg'),
+          img: require('@/images/thumb/nft-item2.png'),
+          itemNum: '23446',
           path: '',
           bidding: '<a class="btn-link fw-medium">現正招標:</a> 2000 CDT (或 0.01 BTC,或 200 USD) (?)',
           created: '<a class="btn-link fw-medium">創建:</a> 2021-07-06憑(<a class="btn-link fw-medium">Adam</a>)',
           distribution: '<a class="btn-link fw-medium">分佈 :</a> (10%給市場營銷人員，20%給CDT，30%給社區，40%給作者基金)',
           description: '<a class="btn-link fw-medium">說明:</a> 在全世界都知道新冠肺炎威脅的2019年12月30日,中國醫生李文亮首次對致命的新冠肺炎發出警告後,接到了警方的訓誡信。'
         },
-
+        {
+          id: 3,
+          title: '五月之声',
+          price: '$24,497',
+          img: require('@/images/thumb/nft-item3.png'),
+          itemNum: '23447',
+          path: '',
+          bidding: '<a class="btn-link fw-medium">現正招標:</a> 2000 CDT (或 0.01 BTC,或 200 USD) (?)',
+          created: '<a class="btn-link fw-medium">創建:</a> 2021-07-06憑(<a class="btn-link fw-medium">Adam</a>)',
+          distribution: '<a class="btn-link fw-medium">分佈 :</a> (10%給市場營銷人員，20%給CDT，30%給社區，40%給作者基金)',
+          description: '<a class="btn-link fw-medium">說明:</a> 在全世界都知道新冠肺炎威脅的2019年12月30日,中國醫生李文亮首次對致命的新冠肺炎發出警告後,接到了警方的訓誡信。'
+        },
       ]
     },
     logoData: [

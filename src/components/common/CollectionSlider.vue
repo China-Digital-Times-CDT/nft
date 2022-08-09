@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 <template>
-  <swiper
+  <!-- <swiper
     :modules="modules"
     :slides-per-view="3"
     :breakpoints="{
@@ -17,13 +17,22 @@
     :loop="true"
     :pagination="{ clickable: true }"
     class="swiper-container-space"
-  >
-    <swiper-slide
+  > -->
+  <div class="row">
+    <div
+      class="col-xl-4 col-lg-4 col-sm-6 h-auto"
       v-for="item in $tm('collectionData.collectionList')"
       :key="item.id"
-      class="h-auto"
     >
-      <router-link :to="item.path" class="card card-full card-collection">
+      <router-link
+        class="details"
+        :to="{
+          name: 'ProductDetail',
+          params: {
+            id: item.id,
+          },
+        }"
+      >
         <h3 class="card-title mt-4 mb-2 pt-1 text-center">{{ item.title }}</h3>
 
         <img :src="item.img" class="card-img-top" alt="birds art image" />
@@ -46,10 +55,11 @@
             </router-link>
           </button>
         </div>
-        <!-- end card-body --> </router-link
-      ><!-- end card -->
-    </swiper-slide>
-  </swiper>
+        <!-- end card-body -->
+      </router-link>
+      <!-- end card -->
+    </div>
+  </div>
 </template>
 <script>
 // Import component data. You can change the data in the store to reflect in all component
@@ -62,13 +72,13 @@ import SwiperCore, { Pagination } from "swiper";
 SwiperCore.use([Pagination]);
 
 // Import Swiper Vue.js components
-import { Swiper, SwiperSlide } from "swiper/vue";
+// import { Swiper, SwiperSlide } from "swiper/vue";
 
 export default {
   name: "CollectionSlider",
   components: {
-    Swiper,
-    SwiperSlide,
+    // Swiper,
+    // SwiperSlide,
   },
   data() {
     return {

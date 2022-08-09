@@ -5,7 +5,98 @@
       <!-- Header main -->
       <HeaderMain></HeaderMain>
     </header>
-
+    <section class="item-detail-section" style="margin-top: 113px">
+      <div v-for="item in $tm('collectionData.collectionList')" :key="item.id">
+        <div class="container1" v-if="item.id == this.id">
+          <div class="row">
+            <div class="col-lg-6 pe-xl-5">
+              <div class="item-detail-content">
+                <div class="item-detail-img-container mb-4">
+                  <!-- <img
+                  src="../images/thumb/collection2.jpg"
+                  alt=""
+                  class="w-100 rounded-3"
+                /> -->
+                  <div class="cards-details mt-4">
+                    <div class="card">
+                      <h1>
+                        <a href="#0">{{ $t("productdetails.certificate") }}</a>
+                      </h1>
+                      <p class="rotingtxt">{{ hashValue }}</p>
+                      <img
+                        src="../images/thumb/collection3.jpg"
+                        alt=""
+                        class="w-100 rounded-3"
+                      />
+                    </div>
+                    <div class="card">
+                      <h1>
+                        <a href="#0">{{ $t("productdetails.artifact") }}</a>
+                      </h1>
+                      <img
+                        src="../images/thumb/collection4.jpg"
+                        alt=""
+                        class="w-100 rounded-3"
+                      />
+                    </div>
+                    <div class="card">
+                      <h1>
+                        <a href="#0">{{ $t("productdetails.cover") }}</a>
+                      </h1>
+                      <img :src="item.img" alt="" class="w-100 rounded-3" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 pe-xl-5">
+              <div class="item-detail-content">
+                <div class="item-detail-img-container mb-4 mt-4">
+                  <a href="#" style="text-decoration: revert">
+                    <h3>{{ item.title }}</h3></a
+                  >
+                  <h3 class="mt-4">{{ item.itemNum }}</h3>
+                  <div class="d-flex">
+                    <input
+                      class="h4"
+                      type="number"
+                      min="8000"
+                      max="1000000"
+                      style="margin-left: 70px; margin-top: 20px"
+                      v-model.number="amount"
+                    />
+                    <button
+                      class="btn btn-secondary mt-3"
+                      type="submit"
+                      style="margin-left: 40px"
+                      @click.prevent="offer"
+                    >
+                      {{ $t("productdetails.offer") }}
+                      <!-- <router-link to="/create-invoice">Offer </router-link> -->
+                    </button>
+                  </div>
+                  <div class="mt-5">
+                    <h2>{{ $t("productdetails.historyoffer") }}</h2>
+                    <div
+                      style="margin-left: 40px; margin-top: 50px"
+                      class="lead"
+                    >
+                      -{{ $t("productdetails.history1") }}
+                    </div>
+                    <div style="margin-left: 40px" class="lead">
+                      -{{ $t("productdetails.history2") }}
+                    </div>
+                    <div style="margin-left: 40px" class="lead">
+                      -{{ $t("productdetails.history3") }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- Footer  -->
     <Footer></Footer>
   </div>
@@ -16,6 +107,7 @@
 //import ProductDetailSection from '@/components/section/Products'
 // Import component data. You can change the data in the store to reflect in all component
 import SectionData from "@/store/store.js";
+import md5 from "md5";
 
 export default {
   name: "ProductDetail",
@@ -29,19 +121,22 @@ export default {
       metaTextTwo: "",
       metaTextThree: "",
       content: "",
+      hashValue: "",
+      amount: 8000,
     };
   },
   mounted() {
-    SectionData.productData.products.forEach((element) => {
-      if (this.id == element.id) {
-        this.imgLg = element.imgLg;
-        this.title = element.title;
-        this.metaText = element.metaText;
-        this.metaTextTwo = element.metaTextTwo;
-        this.metaTextThree = element.metaTextThree;
-        this.content = element.content;
-      }
-    });
+    console.log("id----------", this.id);
+    this.hashValue = md5("cerfificate1");
+  },
+  methods: {
+    offer: function () {
+      console.log("this---", this.amount);
+      this.$router.push({
+        path: "/create-invoice",
+        query: { amount: this.amount },
+      });
+    },
   },
 };
 </script>
