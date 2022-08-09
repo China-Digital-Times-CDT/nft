@@ -49,11 +49,7 @@
           <div class="card-title mt-4 mb-2 pt-1 d-flex">
             <span v-html="item.description"></span>
           </div>
-          <button class="btn btn-primary w-100" type="submit">
-            <router-link to="/product-details"
-              >{{ $t("CurrentBid") }}
-            </router-link>
-          </button>
+          <button class="btn btn-primary w-100" type="submit"></button>
         </div>
         <!-- end card-body -->
       </router-link>
