@@ -550,9 +550,9 @@ let SectionData = {
 
     // prepaid-eth data
     prepaidData: {
-      title: 'ETH Balance',
+      title: 'CDT Balance',
       content: 'Balances can be withdrawn in ETH at anytime',
-      contentTwo: 'To increase your balance, send ETH to your deposit address below. ETH will be valued at USD market value at time of purchase. Gas fees will be subtracted from withdrawal amounts.',
+      contentTwo: 'To increase your balance, send CDT to your deposit address below. CDT will be valued at USD market value at time of purchase. Gas fees will be subtracted from withdrawal amounts.',
       depositaddress: 'Deposit Address',
       donotsend: 'Do not send Nifties to this address',
       copy: 'copy',
@@ -563,14 +563,14 @@ let SectionData = {
         {
           id: 1,
           title: 'Balance',
-          price: '2 ETH',
-          priceTwo: '$330.00 USD'
+          price: '2 CDT',
+          priceTwo: '$3.00 USD'
         },
         {
           id: 2,
           title: 'Holds',
-          price: '2 ETH',
-          priceTwo: '$330.00 USD'
+          price: '2 CDT',
+          priceTwo: '$3.00 USD'
         }
       ]
     },
@@ -1180,11 +1180,11 @@ let SectionData = {
 
     // prepaid-eth data
     prepaidData: {
-      title: 'ETH餘額',
-      content: '餘額可隨時在ETH內提取',
-      contentTwo: '爲了增加餘額,請將ETH寄到下面的存款地址。 ETH在購買時將按美元市價估值。 煤氣費將從提取金額中扣除。',
+      title: 'CDT 餘額',
+      content: '餘額可隨時在 CDT 內提取',
+      contentTwo: '爲了增加餘額,請將 CDT 寄到下面的存款地址。 CDT 在購買時將按美元市價估值。 煤氣費將從提取金額中扣除。',
       depositaddress: '存款地址',
-      donotsend: '別把五十多歲的人送到這個地址',
+      donotsend: '別把多額送到這個地址',
       copy: '抄寫',
       newdeposits: '新存款經6次確認後會被記入貸方帳戶',
       withdraw: '撤消',
@@ -1193,13 +1193,13 @@ let SectionData = {
         {
           id: 1,
           title: '餘額',
-          price: '2 ETH',
-          priceTwo: '$330.00 USD'
+          price: '2 CDT',
+          priceTwo: '$3.00 USD'
         },
         {
           id: 2,
           title: '持倉位',
-          price: '2 ETH',
+          price: '2 CDT',
           priceTwo: '$330.00 USD'
         }
       ]
