@@ -21,41 +21,50 @@
   <div class="row">
     <div
       class="col-xl-4 col-lg-4 col-sm-6 h-auto"
-      v-for="item in $tm('collectionData.collectionList')"
-      :key="item.id"
+      v-for="item in this.featuredProducts"
+      :key="item.productid"
     >
       <router-link
         class="details"
         :to="{
           name: 'ProductDetail',
           params: {
-            id: item.id,
+            id: item.productid,
           },
         }"
       >
-        <h3 class="card-title mt-4 mb-2 pt-1 text-center">{{ item.title }}</h3>
+        <h3 class="card-title mt-4 mb-2 pt-1 text-center">
+          {{ item.productname }}
+        </h3>
 
-        <img :src="item.img" class="card-img-top" alt="birds art image" />
+        <img
+          :src="require(`../../images/thumb/${item.coverfile}`)"
+          class="card-img-top"
+          alt="birds art image"
+        />
         <div class="card-body card-body-s1">
           <div class="card-title mt-4 mb-2 pt-1 d-flex">
-            <span v-html="item.bidding"></span>
+            <a class="btn-link fw-medium">{{ $t("currentbidding") }}:</a>
+            <span class="mx-2" v-html="item.amount"></span>
+            <span>{{ $t("satosis") }}</span>
           </div>
-          <div class="card-title mt-4 mb-2 pt-1 d-flex">
-            <span v-html="item.created"></span>
+          <!-- <div class="card-title mt-4 mb-2 pt-1 d-flex">
+          <span v-html="item.created"></span>
+        </div> -->
+          <div class="mt-2">
+            <a class="btn-link fw-medium">{{ $t("distribution") }}:</a>
+            <span class="mx-2" v-html="item.distribution"></span>
           </div>
-          <div class="card-title mt-4 mb-2 pt-1 d-flex">
-            <span v-html="item.distribution"></span>
-          </div>
-          <div class="card-title mt-4 mb-2 pt-1 d-flex">
-            <span v-html="item.description"></span>
+          <div class="mt-2 mb-4">
+            <a class="btn-link fw-medium">{{ $t("description") }}:</a>
+
+            <span class="mx-2" v-html="item.description"></span>
           </div>
           <button class="btn btn-primary w-100" type="submit">
             {{ $t("CurrentBid") }}
           </button>
         </div>
-        <!-- end card-body -->
       </router-link>
-      <!-- end card -->
     </div>
   </div>
 </template>
@@ -65,6 +74,7 @@ import SectionData from "@/store/store.js";
 
 // core version + navigation, pagination modules:
 import SwiperCore, { Pagination } from "swiper";
+import axios from "axios";
 
 // configure Swiper to use modules
 SwiperCore.use([Pagination]);
@@ -81,12 +91,26 @@ export default {
   data() {
     return {
       SectionData,
+      featuredProducts: [],
     };
   },
   setup() {
     return {
       modules: [Pagination],
     };
+  },
+  async mounted() {
+    await axios
+      .get("https://gem.chinadigitaltimes.net/api/getNFTFeaturedProducts")
+      .then((response) => {
+        console.log("productfeatureddata---", response.data);
+        this.featuredProducts = response.data;
+        console.log(
+          "productfeatueddata---",
+          this.featuredProducts[0].productname
+        );
+      })
+      .catch((error) => console.log(error));
   },
 };
 </script>

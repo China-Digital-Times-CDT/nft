@@ -10,6 +10,10 @@ let SectionData = {
     CurrentBid: 'Current Bid',
     PlaceBid: 'Place Bid',
     howitworks: 'How it works',
+    currentbidding: 'Current Bidding',
+    distribution: 'Distribution',
+    description: 'Description',
+    satosis: 'Satosis',
     becausetxt: `
     <p>We create archives for the valuable content from Chinese internet especially those content being <a href='#'>censored</a>.   We won&#39;t regard everything as valuable work unless it&#39;s proved to have artistic and engineering values, and get appraised by the community. </p>
     <h2 id="remuneration-pie">Remuneration Pie</h2>
@@ -688,6 +692,10 @@ let SectionData = {
     CurrentBid: '現價投標',
     PlaceBid: '招標',
     howitworks: '工作原理',
+    currentbidding: '現行投標書',
+    distribution: '分配',
+    description: '記述',
+    satosis: '飽腹感',
     becausetxt: `
     <p>我们的社区邀请、收集和整理在中国互联网上被审查的<a href="#">内容</a>并制作为高质量的作品收藏和提供历史研究</p>
 <h2 id="remuneration-pie">贡献回报分配机制</h2>
