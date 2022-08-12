@@ -62,13 +62,20 @@
                     <h3>{{ item.productname }}</h3></a
                   >
                   <h3 class="mt-4">2323-2323-3454-4545-4545</h3>
+                  <input
+                    type="text"
+                    class="mt-3 form-control form-control-s1"
+                    placeholder="Enter a invoice description"
+                    style="width: 300px"
+                    v-model="description"
+                  />
                   <div class="d-flex">
                     <input
-                      class="h4"
+                      class="h4 form-control form-control-s1"
                       type="number"
-                      min="8000"
+                      min="0"
                       max="1000000"
-                      style="margin-left: 70px; margin-top: 20px"
+                      style="margin-top: 20px; width: 300px"
                       v-model.number="amount"
                     />
                     <button
@@ -131,6 +138,7 @@ export default {
       hashValue: "",
       amount: 8000,
       featuredProducts: [],
+      description: "",
     };
   },
   async mounted() {
@@ -150,10 +158,10 @@ export default {
   },
   methods: {
     offer: function () {
-      console.log("this---", this.amount);
+      console.log("this---", this.amount, this.description);
       this.$router.push({
         path: "/create-invoice",
-        query: { amount: this.amount },
+        query: { amount: this.amount, description: this.description },
       });
     },
   },

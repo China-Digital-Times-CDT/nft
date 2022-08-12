@@ -69,14 +69,19 @@ export default {
   },
   async mounted() {
     // const route = useRoute();
-    console.log("The amount is: " + this.$route.query.amount);
+    console.log(
+      "The amount is: " + this.$route.query.amount,
+      this.$route.query.description
+    );
     await axios
-      .post("https://gem.chinadigitaltimes.net/api/invoice", {
+      .post("https://gem.chinadigitaltimes.net/api/create-invoice", {
         amount: this.$route.query.amount,
+        description: this.$route.query.description,
       })
       .then((response) => {
-        console.log("api--response---", response.data);
-        this.invoiceValue = response.data;
+        console.log("api--response---", response.data.payment_request);
+
+        this.invoiceValue = response.data.payment_request;
       })
       .catch((error) => console.log(error));
   },
