@@ -35,31 +35,44 @@
             </div>
           </div> -->
           <div class="tilt-effect mt-5">
-            <router-link to="/product-details" class="hover">
-              <div class="dcard">
-                <div class="trigger"></div>
-                <div class="trigger"></div>
-                <div class="trigger"></div>
-                <div class="trigger"></div>
-                <div class="trigger"></div>
-                <div class="trigger"></div>
-                <div class="trigger"></div>
-                <div class="trigger"></div>
-                <div class="trigger"></div>
+            <div v-for="item in this.featuredProducts" :key="item.featured">
+              <div v-if="item.featured">
+                <!-- <router-link to="/product-details" class="hover"> -->
+                <router-link
+                  class="details hover"
+                  :to="{
+                    name: 'ProductDetail',
+                    params: {
+                      id: item.productid,
+                    },
+                  }"
+                >
+                  <div class="dcard">
+                    <div class="trigger"></div>
+                    <div class="trigger"></div>
+                    <div class="trigger"></div>
+                    <div class="trigger"></div>
+                    <div class="trigger"></div>
+                    <div class="trigger"></div>
+                    <div class="trigger"></div>
+                    <div class="trigger"></div>
+                    <div class="trigger"></div>
 
-                <div class="card" style="background-size: cover">
-                  <img
-                    src="../../images/thumb/collection2.jpg"
-                    alt=""
-                    class="frame"
-                    style="height: 433px"
-                  />
-                  <div class="frame">
-                    <p>The Chinese Wailing Wall</p>
+                    <div class="card" style="background-size: cover">
+                      <img
+                        :src="require(`../../images/thumb/${item.coverfile}`)"
+                        alt=""
+                        class="frame"
+                        style="height: 433px"
+                      />
+                      <div class="frame">
+                        <p>{{ item.productname }}</p>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                </router-link>
               </div>
-            </router-link>
+            </div>
           </div>
           <ButtonGroup
             :btns="SData.btnDataHome"
@@ -80,6 +93,7 @@
 // Import component data. You can change the data in the store to reflect in all component
 import SectionData from "@/store/store.js";
 import SData from "@/store/sdata.js";
+import axios from "axios";
 
 export default {
   name: "HeroThree",
@@ -87,7 +101,17 @@ export default {
     return {
       SectionData,
       SData,
+      featuredProducts: [],
     };
+  },
+  async mounted() {
+    await axios
+      .get("https://gem.chinadigitaltimes.net/api/getNFTFeaturedProducts")
+      .then((response) => {
+        console.log("productfeatureddata---", response.data);
+        this.featuredProducts = response.data;
+      })
+      .catch((error) => console.log(error));
   },
 };
 </script>
