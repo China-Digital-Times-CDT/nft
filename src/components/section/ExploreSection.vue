@@ -44,7 +44,7 @@
               <div class="card card-product mb-0">
                 <div class="card-image">
                   <img
-                    :src="product.filepath"
+                    :src="product.coverfile"
                     class="card-img-top"
                     alt="art image"
                   />
@@ -64,21 +64,25 @@
                   </div> -->
 
                   <div
-                    class="card-price-wrap d-flex align-items-center justify-content-sm-between mb-3"
+                    class="card-price-wrap d-flex align-items-center justify-content-sm-between"
                   >
                     <div class="me-5 me-sm-2">
                       <span class="card-price-title"> {{ $t("Price") }}</span>
                       <span class="card-price-number"
-                        >&dollar; {{ product.currentbidding }}</span
+                        >&dollar; {{ product.price }}</span
                       >
                     </div>
-                    <div class="text-sm-end">
-                      <span class="card-price-title">{{
-                        $t("CurrentBid")
+                  </div>
+                  <div
+                    class="card-price-wrap d-flex align-items-center justify-content-sm-between mb-3"
+                  >
+                    <div class="me-5 me-sm-2">
+                      <span class="card-price-title"> Shares: </span>
+                      <span class="card-price-number">{{
+                        product.shares
                       }}</span>
                     </div>
                   </div>
-
                   <router-link to="product" class="btn btn-sm btn-primary">{{
                     $t("PlaceBid")
                   }}</router-link>
@@ -144,6 +148,8 @@ export default {
         );
       })
       .catch((error) => console.log(error));
+
+    this.products.sort((a, b) => (a.timestamp < b.timestamp ? 1 : -1));
   },
   methods: {
     filterCategory(tab, id) {

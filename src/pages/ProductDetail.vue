@@ -46,7 +46,7 @@
                         <a href="#0">{{ $t("productdetails.cover") }}</a>
                       </h1>
                       <img
-                        :src="require(`../images/thumb/${item.coverfile}`)"
+                        :src="item.coverfile"
                         alt=""
                         class="w-100 rounded-3"
                       />
@@ -145,7 +145,7 @@ export default {
     console.log("id----------", this.id);
     this.hashValue = md5("cerfificate1");
     await axios
-      .get("https://gem.chinadigitaltimes.net/api/getNFTFeaturedProducts")
+      .get("https://gem.chinadigitaltimes.net/api/getNFTProducts")
       .then((response) => {
         console.log("productfeatureddata---", response.data);
         this.featuredProducts = response.data;

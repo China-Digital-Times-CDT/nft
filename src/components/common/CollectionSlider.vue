@@ -21,7 +21,7 @@
   <div class="row">
     <div
       class="col-xl-4 col-lg-4 col-sm-6 h-auto"
-      v-for="item in this.featuredProducts"
+      v-for="item in this.topProducts"
       :key="item.productid"
     >
       <router-link
@@ -37,16 +37,12 @@
           {{ item.productname }}
         </h3>
 
-        <img
-          :src="require(`../../images/thumb/${item.coverfile}`)"
-          class="card-img-top"
-          alt="birds art image"
-        />
+        <img :src="item.coverfile" class="card-img-top" alt="birds art image" />
         <div class="card-body card-body-s1">
           <div class="card-title mt-4 mb-2 pt-1 d-flex">
             <a class="btn-link fw-medium">{{ $t("currentbidding") }}:</a>
-            <span class="mx-2" v-html="item.amount"></span>
-            <span>{{ $t("satosis") }}</span>
+            <span class="mx-2" v-html="item.price"></span>
+            <span>$</span>
           </div>
           <!-- <div class="card-title mt-4 mb-2 pt-1 d-flex">
           <span v-html="item.created"></span>
@@ -92,6 +88,7 @@ export default {
     return {
       SectionData,
       featuredProducts: [],
+      topProducts: [],
     };
   },
   setup() {
@@ -101,7 +98,7 @@ export default {
   },
   async mounted() {
     await axios
-      .get("https://gem.chinadigitaltimes.net/api/getNFTFeaturedProducts")
+      .get("https://gem.chinadigitaltimes.net/api/getNFTProducts")
       .then((response) => {
         console.log("productfeatureddata---", response.data);
         this.featuredProducts = response.data;
@@ -111,6 +108,11 @@ export default {
         );
       })
       .catch((error) => console.log(error));
+
+    this.featuredProducts.sort((a, b) =>
+      a.price * a.shares < b.price * b.shares ? 1 : -1
+    );
+    this.topProducts = this.featuredProducts.slice(0, 3);
   },
 };
 </script>
