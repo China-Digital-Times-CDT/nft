@@ -60,7 +60,7 @@
 
                     <div class="card" style="background-size: cover">
                       <img
-                        :src="require(`../../images/thumb/${item.coverfile}`)"
+                        :src="item.coverfile"
                         alt=""
                         class="frame"
                         style="height: 433px"
@@ -106,7 +106,7 @@ export default {
   },
   async mounted() {
     await axios
-      .get("https://gem.chinadigitaltimes.net/api/getNFTFeaturedProducts")
+      .get("https://gem.chinadigitaltimes.net/api/getNFTProducts")
       .then((response) => {
         console.log("productfeatureddata---", response.data);
         this.featuredProducts = response.data;
