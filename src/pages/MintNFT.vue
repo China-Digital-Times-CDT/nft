@@ -60,10 +60,32 @@
                   >
                     <div class="form-create-tab-wrap">
                       <label class="mb-2 form-label">{{
+                        $t("mintnft.shares")
+                      }}</label>
+                      <input
+                        type="number"
+                        class="form-control form-control-s1"
+                        placeholder="Enter shares for item"
+                        v-model="shares"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-item mb-4">
+                <div class="tab-content mt-4" id="myTabContent">
+                  <div
+                    class="tab-pane fade show active"
+                    id="fixed-price"
+                    role="tabpanel"
+                    aria-labelledby="fixed-price-tab"
+                  >
+                    <div class="form-create-tab-wrap">
+                      <label class="mb-2 form-label">{{
                         $t("mintnft.price")
                       }}</label>
                       <input
-                        type="text"
+                        type="number"
                         class="form-control form-control-s1"
                         placeholder="Enter a price for item"
                         v-model="price"
@@ -83,7 +105,7 @@
                     <div class="form-create-tab-wrap">
                       <label class="mb-2 form-label">Product ID</label>
                       <input
-                        type="text"
+                        type="number"
                         class="form-control form-control-s1"
                         placeholder="Enter a id for item"
                         v-model="id"
@@ -165,7 +187,8 @@ export default {
       ordernumber: 0,
       title: "",
       description: "",
-      price: 0,
+      price: 1,
+      shares: 1984,
       id: 0,
       file: null,
       uploadedPath: null,
@@ -223,7 +246,7 @@ export default {
           }
         )
         .then((response) => {
-          console.log("added new product", response.data);
+          console.log("added new file", response.data);
           this.uploadedPath = response.data.path;
         })
         .catch((error) => console.log(error));
@@ -241,16 +264,21 @@ export default {
           .post("https://gem.chinadigitaltimes.net/api/addNFTProduct", {
             productid: this.id,
             productname: this.title,
-            currentbidding: this.price,
+            shares: this.shares,
+            price: this.price,
+            coverfile: this.uploadedPath,
+            artifactfile: "collection4.jpg",
+            certificatefile: "collection3.jpg",
             description: this.description,
-            filepath: this.uploadedPath,
             username: username,
+            featured: false,
           })
           .then((response) => {
             console.log("added new product", response.data);
             this.title = "";
             this.description = "";
-            this.price = 0;
+            this.price = 1;
+            this.shares = 1984;
             this.id = 0;
             this.file = null;
             this.uploadedPath = null;
