@@ -262,7 +262,13 @@ export default {
       this.amount = optionText;
       console.log(optionText);
     },
-    offer: async function () {
+    gotoInvoice() {
+      this.$router.push({
+        path: "/create-invoice",
+        query: { amount: this.amount, description: this.description },
+      });
+    },
+    async offer() {
       console.log("this---shares---", this.shares);
       console.log("this---", this.amount, this.description);
       var uname = localStorage.getItem("username");
@@ -275,10 +281,8 @@ export default {
           console.log("api--response---", response.data);
         })
         .catch((error) => console.log(error));
-      this.$router.push({
-        path: "/create-invoice",
-        query: { amount: this.amount, description: this.description },
-      });
+
+      this.gotoInvoice();
     },
   },
 };
