@@ -154,7 +154,7 @@ export default {
     offer: function () {
       console.log("this---", this.amount, this.description);
       this.$router.push({
-        path: "/product-details-v1-" + this.id + "/trade",
+        path: "/details-v1-" + this.id + "/trade",
       });
     },
   },
