@@ -151,13 +151,12 @@ export default {
     return { message, onCopy };
   },
   async mounted() {
-    var authId = localStorage.getItem("authId");
     var username = localStorage.getItem("username");
 
-    console.log("authId------", authId);
+    console.log("authId------", username);
     await axios
       .post("https://gem.chinadigitaltimes.net/api/getUser", {
-        uarename: username,
+        username: username,
       })
       .then((response) => {
         console.log("api--response---", response.data);
