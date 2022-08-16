@@ -18,7 +18,7 @@
             <p class="mb-3 fs-14">{{ $t("prepaidData.content") }}</p>
             <p class="mb-3 fs-14">{{ $t("prepaidData.contentTwo") }}</p>
             <div class="d-flex align-items-center">
-              <div
+              <!-- <div
                 class="me-5 text-black"
                 v-for="item in $tm('prepaidData.balances')"
                 :key="item.id"
@@ -26,8 +26,16 @@
                 <span class="fw-semibold fs-12 d-block mb-2">{{
                   item.title
                 }}</span>
-                <span class="fw-medium fs-9 mb-2">{{ item.price }}</span>
-                <span class="d-block">{{ item.priceTwo }}</span>
+                <span class="fw-medium fs-9 mb-2">{{ this.tokenAmount }}</span>
+                <span class="d-block">{{ this.shares }}</span>
+              </div> -->
+              <div class="me-5 text-black">
+                <span class="fw-semibold fs-12 d-block mb-2">Tokens: 0</span>
+              </div>
+              <div class="me-5 text-black">
+                <span class="fw-semibold fs-12 d-block mb-2"
+                  >Shares: {{ this.shares }}</span
+                >
               </div>
             </div>
             <p class="mb-2 fw-medium">{{ $t("prepaidData.depositaddress") }}</p>
@@ -85,7 +93,7 @@
 <script>
 // Import component data. You can change the data in the store to reflect in all component
 import SectionData from "@/store/store.js";
-//import axios from "axios";
+import axios from "axios";
 //import { get } from "lodash";
 
 export default {
@@ -96,6 +104,7 @@ export default {
       userName: "",
       email: "",
       tokenAmount: 0,
+      shares: 0,
       // prepaidData: {
       //   title: get(
       //     this.$i18n.messages[this.$i18n.locale],
@@ -142,18 +151,22 @@ export default {
     return { message, onCopy };
   },
   async mounted() {
-    // var authId = localStorage.getItem("authId");
-    // console.log("authId------", authId);
-    // await axios
-    //   .get("https://gem.chinadigitaltimes.net/api/user?token=" + authId)
-    //   .then((response) => {
-    //     console.log("api--response---", response.data);
-    //     this.userName = response.data.name;
-    //     this.email = response.data.email;
-    //     localStorage.setItem("username", this.userName);
-    //     this.addNewUser();
-    //   })
-    //   .catch((error) => console.log(error));
+    var authId = localStorage.getItem("authId");
+    var username = localStorage.getItem("username");
+
+    console.log("authId------", authId);
+    await axios
+      .post("https://gem.chinadigitaltimes.net/api/getUser", {
+        uarename: username,
+      })
+      .then((response) => {
+        console.log("api--response---", response.data);
+        this.userName = response.data[0].name;
+        this.email = response.data[0].email;
+        this.shares = response.data[0].shares;
+        console.log("api--response---shares", this.shares);
+      })
+      .catch((error) => console.log(error));
   },
   // methods: {
   //   async addNewUser() {
