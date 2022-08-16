@@ -160,7 +160,7 @@ export default {
       })
       .then((response) => {
         console.log("api--response---", response.data);
-        this.userName = response.data[0].name;
+        this.userName = response.data[0].username;
         this.email = response.data[0].email;
         this.shares = response.data[0].shares;
         console.log("api--response---shares", this.shares);

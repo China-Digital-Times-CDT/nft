@@ -262,9 +262,19 @@ export default {
       this.amount = optionText;
       console.log(optionText);
     },
-    offer: function () {
+    offer: async function () {
       console.log("this---shares---", this.shares);
       console.log("this---", this.amount, this.description);
+      var username = localStorage.getItem("username");
+      await axios
+        .post("https://gem.chinadigitaltimes.net/api/updateUser", {
+          username: username,
+          shares: this.amount,
+        })
+        .then((response) => {
+          console.log("api--response---", response.data);
+        })
+        .catch((error) => console.log(error));
       this.$router.push({
         path: "/create-invoice",
         query: { amount: this.amount, description: this.description },
