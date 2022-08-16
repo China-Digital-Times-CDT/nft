@@ -18,7 +18,7 @@
                   class="w-100 rounded-3"
                 /> -->
                   <div class="cards-details mt-4">
-                    <div class="card">
+                    <!-- <div class="card">
                       <h1>
                         <a href="#0">{{ $t("productdetails.certificate") }}</a>
                       </h1>
@@ -40,7 +40,7 @@
                         alt=""
                         class="w-100 rounded-3"
                       />
-                    </div>
+                    </div> -->
                     <div class="card">
                       <h1>
                         <a href="#0">{{ $t("productdetails.cover") }}</a>
@@ -269,18 +269,18 @@ export default {
       });
     },
     async offer() {
-      // console.log("this---shares---", this.shares);
-      // console.log("this---", this.amount, this.description);
-      // var uname = localStorage.getItem("username");
-      // await axios
-      //   .post("https://gem.chinadigitaltimes.net/api/updateUser", {
-      //     username: uname,
-      //     shares: parseInt(this.amount),
-      //   })
-      //   .then((response) => {
-      //     console.log("api--response---", response.data);
-      //   })
-      //   .catch((error) => console.log(error));
+      console.log("this---shares---", this.shares);
+      console.log("this---", this.amount, this.description);
+      var uname = localStorage.getItem("username");
+      await axios
+        .post("https://gem.chinadigitaltimes.net/api/updateUser", {
+          username: uname,
+          shares: parseInt(this.amount),
+        })
+        .then((response) => {
+          console.log("api--response---", response.data);
+        })
+        .catch((error) => console.log(error));
 
       this.gotoInvoice();
     },
