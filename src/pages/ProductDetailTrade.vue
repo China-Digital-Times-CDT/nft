@@ -41,7 +41,7 @@
                         class="w-100 rounded-3"
                       />
                     </div> -->
-                    <div class="card">
+                    <!-- <div class="card">
                       <h1>
                         <a href="#0">{{ $t("productdetails.cover") }}</a>
                       </h1>
@@ -50,7 +50,7 @@
                         alt=""
                         class="w-100 rounded-3"
                       />
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </div>
