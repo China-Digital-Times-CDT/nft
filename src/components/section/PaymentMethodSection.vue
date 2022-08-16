@@ -85,7 +85,7 @@
 <script>
 // Import component data. You can change the data in the store to reflect in all component
 import SectionData from "@/store/store.js";
-import axios from "axios";
+//import axios from "axios";
 //import { get } from "lodash";
 
 export default {
@@ -142,32 +142,32 @@ export default {
     return { message, onCopy };
   },
   async mounted() {
-    var authId = localStorage.getItem("authId");
-    console.log("authId------", authId);
-    await axios
-      .get("https://gem.chinadigitaltimes.net/api/user?token=" + authId)
-      .then((response) => {
-        console.log("api--response---", response.data);
-        this.userName = response.data.name;
-        this.email = response.data.email;
-        localStorage.setItem("username", this.userName);
-        this.addNewUser();
-      })
-      .catch((error) => console.log(error));
+    // var authId = localStorage.getItem("authId");
+    // console.log("authId------", authId);
+    // await axios
+    //   .get("https://gem.chinadigitaltimes.net/api/user?token=" + authId)
+    //   .then((response) => {
+    //     console.log("api--response---", response.data);
+    //     this.userName = response.data.name;
+    //     this.email = response.data.email;
+    //     localStorage.setItem("username", this.userName);
+    //     this.addNewUser();
+    //   })
+    //   .catch((error) => console.log(error));
   },
-  methods: {
-    async addNewUser() {
-      await axios
-        .post("https://gem.chinadigitaltimes.net/api/addUserManual", {
-          username: this.userName,
-          email: this.email,
-          tokenAmount: this.tokenAmount,
-        })
-        .then((response) => {
-          console.log("added new user", response.data);
-        })
-        .catch((error) => console.log(error));
-    },
-  },
+  // methods: {
+  //   async addNewUser() {
+  //     await axios
+  //       .post("https://gem.chinadigitaltimes.net/api/addUserManual", {
+  //         username: this.userName,
+  //         email: this.email,
+  //         tokenAmount: this.tokenAmount,
+  //       })
+  //       .then((response) => {
+  //         console.log("added new user", response.data);
+  //       })
+  //       .catch((error) => console.log(error));
+  //   },
+  // },
 };
 </script>

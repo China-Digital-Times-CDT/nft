@@ -62,24 +62,127 @@
                     <h3>{{ item.productname }}</h3></a
                   >
                   <h3 class="mt-4">2323-2323-3454-4545-4545</h3>
-                  <div class="d-flex mt-4">
-                    <h3 class="">
-                      {{ item.shares }}
-                    </h3>
-                    <div class="lead">&nbsp;shares</div>
-                    <div class="lead" style="margin-left: 50px">unit price</div>
-
-                    <h3>&nbsp;{{ item.price }}</h3>
-                    <div class="lead">&nbsp;$</div>
-                  </div>
                   <div class="d-flex">
+                    <div>
+                      <h3 class="mt-4">Amount(Shares): {{ shares }}</h3>
+                      <div>
+                        <input
+                          type="radio"
+                          id="20"
+                          value="20"
+                          v-model="shares"
+                          @change="onChange($event)"
+                        />
+                        <label for="one">20</label>
+                      </div>
+                      <div>
+                        <input
+                          type="radio"
+                          id="22"
+                          value="22"
+                          v-model="shares"
+                          @change="onChange($event)"
+                        />
+                        <label for="two">22</label>
+                      </div>
+                      <div>
+                        <input
+                          type="radio"
+                          id="2"
+                          value="2"
+                          v-model="shares"
+                          @change="onChange($event)"
+                        />
+                        <label for="three">2</label>
+                      </div>
+                      <div>
+                        <input
+                          type="radio"
+                          id="4"
+                          value="4"
+                          v-model="shares"
+                          @change="onChange($event)"
+                        />
+                        <label for="four">4</label>
+                      </div>
+                      <div>
+                        <input
+                          type="radio"
+                          id="12"
+                          value="12"
+                          v-model="shares"
+                          @change="onChange($event)"
+                        />
+                        <label for="five">12</label>
+                      </div>
+                    </div>
+                    <div style="margin-left: 40px">
+                      <h3 class="mt-4">Price(USD): {{ price }}</h3>
+                      <div>
+                        <input
+                          type="radio"
+                          id="50"
+                          value="50"
+                          v-model="price"
+                        />
+                        <label for="one">50</label>
+                      </div>
+                      <div>
+                        <input
+                          type="radio"
+                          id="48"
+                          value="48"
+                          v-model="price"
+                        />
+                        <label for="two">48</label>
+                      </div>
+                      <div>
+                        <input
+                          type="radio"
+                          id="44"
+                          value="44"
+                          v-model="price"
+                        />
+                        <label for="three">44</label>
+                      </div>
+
+                      <div>
+                        <input
+                          type="radio"
+                          id="42"
+                          value="42"
+                          v-model="price"
+                        />
+                        <label for="five">42</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <input
+                    type="text"
+                    class="mt-3 form-control form-control-s1"
+                    placeholder="Enter a invoice description"
+                    style="width: 300px"
+                    v-model="description"
+                  />
+                  <div class="d-flex">
+                    <input
+                      class="h4 form-control form-control-s1"
+                      type="number"
+                      min="0"
+                      max="1000000"
+                      style="margin-top: 20px; width: 300px"
+                      v-model.number="amount"
+                    />
+                    <div class="mt-4 pt-2 mx-2">USD</div>
                     <button
                       class="btn btn-secondary mt-3"
                       type="submit"
                       style="margin-left: 40px"
                       @click.prevent="offer"
                     >
-                      Buy shares
+                      {{ $t("productdetails.offer") }}
+                      <!-- <router-link to="/create-invoice">Offer </router-link> -->
                     </button>
                   </div>
                   <div class="mt-5">
@@ -130,9 +233,11 @@ export default {
       metaTextThree: "",
       content: "",
       hashValue: "",
-      amount: 8000,
+      amount: 0,
       featuredProducts: [],
       description: "",
+      shares: 20,
+      price: 1,
     };
   },
   async mounted() {
@@ -150,11 +255,19 @@ export default {
       })
       .catch((error) => console.log(error));
   },
+
   methods: {
+    onChange(event) {
+      var optionText = event.target.value;
+      this.amount = optionText;
+      console.log(optionText);
+    },
     offer: function () {
+      console.log("this---shares---", this.shares);
       console.log("this---", this.amount, this.description);
       this.$router.push({
-        path: "/product-details-v1-" + this.id + "/trade",
+        path: "/create-invoice",
+        query: { amount: this.amount, description: this.description },
       });
     },
   },

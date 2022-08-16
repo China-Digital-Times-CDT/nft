@@ -32,16 +32,44 @@ export default {
         "https://gem.chinadigitaltimes.net/api/oauth-callback?code=" +
           this.$route.query.code
       )
-      .then((response) => {
+      .then(async (response) => {
         console.log("api--response---", response.data.token);
         localStorage.setItem("authId", response.data.token);
         console.log("Successfully logged in--token!", response.token);
 
-        this.$router.replace({
-          path: "/dashboard",
-        });
+        await axios
+          .get(
+            "https://gem.chinadigitaltimes.net/api/user?token=" +
+              response.data.token
+          )
+          .then((response) => {
+            console.log("api--response---dashboard", response.data);
+            this.userName = response.data.name;
+            this.email = response.data.email;
+            localStorage.setItem("username", this.userName);
+            this.addNewUser();
+            this.$router.replace({
+              path: "/dashboard",
+            });
+          })
+          .catch((error) => console.log(error));
       })
       .catch((error) => console.log(error));
+  },
+
+  methods: {
+    async addNewUser() {
+      await axios
+        .post("https://gem.chinadigitaltimes.net/api/addUserManual", {
+          username: this.userName,
+          email: this.email,
+          tokenAmount: this.tokenAmount,
+        })
+        .then((response) => {
+          console.log("added new user", response.data);
+        })
+        .catch((error) => console.log(error));
+    },
   },
 };
 </script>
