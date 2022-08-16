@@ -269,18 +269,18 @@ export default {
       });
     },
     async offer() {
-      console.log("this---shares---", this.shares);
-      console.log("this---", this.amount, this.description);
-      var uname = localStorage.getItem("username");
-      await axios
-        .post("https://gem.chinadigitaltimes.net/api/updateUser", {
-          username: uname,
-          shares: parseInt(this.amount),
-        })
-        .then((response) => {
-          console.log("api--response---", response.data);
-        })
-        .catch((error) => console.log(error));
+      // console.log("this---shares---", this.shares);
+      // console.log("this---", this.amount, this.description);
+      // var uname = localStorage.getItem("username");
+      // await axios
+      //   .post("https://gem.chinadigitaltimes.net/api/updateUser", {
+      //     username: uname,
+      //     shares: parseInt(this.amount),
+      //   })
+      //   .then((response) => {
+      //     console.log("api--response---", response.data);
+      //   })
+      //   .catch((error) => console.log(error));
 
       this.gotoInvoice();
     },
