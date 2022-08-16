@@ -23,6 +23,10 @@ export default {
   data() {
     return {
       SectionData,
+      userName: "",
+      email: "",
+      tokenAmount: 0,
+      shares: 0,
     };
   },
   async mounted() {
@@ -64,6 +68,7 @@ export default {
           username: this.userName,
           email: this.email,
           tokenAmount: this.tokenAmount,
+          shares: this.shares,
         })
         .then((response) => {
           console.log("added new user", response.data);
