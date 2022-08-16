@@ -3,7 +3,7 @@
     <!-- header  -->
     <header class="header-section has-header-main">
       <!-- Header main -->
-      <HeaderMain></HeaderMain>
+      <!-- <HeaderMain></HeaderMain> -->
     </header>
     <section class="item-detail-section" style="margin-top: 113px">
       <div v-for="item in this.featuredProducts" :key="item.productid">
@@ -271,16 +271,16 @@ export default {
     async offer() {
       console.log("this---shares---", this.shares);
       console.log("this---", this.amount, this.description);
-      var uname = localStorage.getItem("username");
-      await axios
-        .post("https://gem.chinadigitaltimes.net/api/updateUser", {
-          username: uname,
-          shares: parseInt(this.amount),
-        })
-        .then((response) => {
-          console.log("api--response---", response.data);
-        })
-        .catch((error) => console.log(error));
+      // var uname = localStorage.getItem("username");
+      // await axios
+      //   .post("https://gem.chinadigitaltimes.net/api/updateUser", {
+      //     username: uname,
+      //     shares: parseInt(this.amount),
+      //   })
+      //   .then((response) => {
+      //     console.log("api--response---", response.data);
+      //   })
+      //   .catch((error) => console.log(error));
 
       this.gotoInvoice();
     },
