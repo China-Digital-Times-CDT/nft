@@ -50,8 +50,8 @@ import VueClipboard from 'vue3-clipboard'
 //     origin: true,
 // };
 // app.use(cors(corsConfig));
+//app.component('vue-confirm-dialog', VueConfirmDialog.default)
 app.use(i18n)
-
 app.use(VueClipboard, {
     autoSetContainer: true,
     appendToBody: true,

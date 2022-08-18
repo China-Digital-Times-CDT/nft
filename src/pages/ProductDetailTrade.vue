@@ -18,7 +18,7 @@
                   class="w-100 rounded-3"
                 /> -->
                   <div class="cards-details mt-4">
-                    <div class="card">
+                    <!-- <div class="card">
                       <h1>
                         <a href="#0">{{ $t("productdetails.certificate") }}</a>
                       </h1>
@@ -30,8 +30,8 @@
                         alt=""
                         class="w-100 rounded-3"
                       />
-                    </div>
-                    <div class="card">
+                    </div> -->
+                    <!-- <div class="card">
                       <h1>
                         <a href="#0">{{ $t("productdetails.artifact") }}</a>
                       </h1>
@@ -40,7 +40,7 @@
                         alt=""
                         class="w-100 rounded-3"
                       />
-                    </div>
+                    </div> -->
                     <div class="card">
                       <h1>
                         <a href="#0">{{ $t("productdetails.cover") }}</a>
@@ -118,6 +118,9 @@
                     </div>
                     <div style="margin-left: 40px">
                       <h3 class="mt-4">Price(USD): {{ price }}</h3>
+                    </div>
+                    <!-- <div style="margin-left: 40px">
+                      <h3 class="mt-4">Price(USD): {{ price }}</h3>
                       <div>
                         <input
                           type="radio"
@@ -155,7 +158,7 @@
                         />
                         <label for="five">42</label>
                       </div>
-                    </div>
+                    </div> -->
                   </div>
 
                   <input
