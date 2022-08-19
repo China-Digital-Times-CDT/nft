@@ -41,10 +41,13 @@
           readonly=""
           v-model="invoiceValue"
         ></textarea>
+        <div v-if="invoiceValue != null">
+          <QrcodeVue :value="this.invoiceValue" :size="300"></QrcodeVue>
+        </div>
         <button
           type="button"
           id="lightning-uri-button"
-          onclick="copy_to_clipboard('lightning-uri')"
+          @click.prevent="copy_to_clipboard"
         >
           {{ $t("invoicedetails.copyclipboard") }}
         </button>
@@ -59,6 +62,7 @@
 
 <script>
 import axios from "axios";
+import QrcodeVue from "qrcode.vue";
 
 export default {
   name: "ProductDetail",
@@ -69,6 +73,9 @@ export default {
       payment_status: "",
       statusShedule: null,
     };
+  },
+  components: {
+    QrcodeVue,
   },
   async mounted() {
     // alert(" file type not allowed, Please upload jpg, JPG, JPEG, or png file");
@@ -143,6 +150,11 @@ export default {
           console.log("api--response---update--user", response.data);
         })
         .catch((error) => console.log(error));
+    },
+    copy_to_clipboard() {
+      console.log("copied invoice--", this.invoiceValue);
+
+      navigator.clipboard.writeText(this.invoiceValue);
     },
   },
 };
