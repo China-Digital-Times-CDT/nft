@@ -15,7 +15,7 @@
         ><b>{{ this.$route.query.amount }} Satoshis</b></u
       >{{ $t("invoicedetails.valid") }}
       <u
-        ><b id="order_expiry_description">{{ $t("invoicedetails.time") }}</b></u
+        ><b id="order_expiry_description">{{ this.expiry }} minutes</b></u
       >
     </h4>
     <h4 class="mt-4">
@@ -51,7 +51,6 @@
         >
           {{ $t("invoicedetails.copyclipboard") }}
         </button>
-        <button type="button">{{ $t("invoicedetails.openwallet") }}</button>
       </div>
     </fieldset>
     <!-- Footer  -->
@@ -72,6 +71,7 @@ export default {
       r_hash: null,
       payment_status: "",
       statusShedule: null,
+      expiry: 180,
     };
   },
   components: {
@@ -95,6 +95,7 @@ export default {
 
         this.invoiceValue = response.data.payment_request;
         this.r_hash = response.data.r_hash;
+
         console.log("r_hash----", this.r_hash);
       })
       .catch((error) => console.log(error));
@@ -112,7 +113,9 @@ export default {
           console.log("api--response---", response.data);
 
           this.payment_status = response.data.body.state;
+          this.expiry = parseInt(response.data.body.expiry) / 60;
           console.log("status---", this.payment_status);
+          console.log("expiry---", this.expiry);
           //this.$alert(this.payment_status);
           if (
             this.payment_status == "SETTLED" ||
