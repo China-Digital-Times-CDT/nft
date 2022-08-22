@@ -50,6 +50,8 @@ export default {
       tokenAmount: 0,
       shares: 0,
       lnurlValue: null,
+      key: null,
+      statusShedule: null,
     };
   },
   components: {
@@ -66,6 +68,8 @@ export default {
         this.lnurlValue = response.data.encoded;
       })
       .catch((error) => console.log(error));
+
+    this.statusShedule = setInterval(this.getUStatus, 1000);
   },
 
   methods: {
@@ -73,6 +77,21 @@ export default {
       console.log("copied lnurl--", this.lnurlValue);
 
       navigator.clipboard.writeText(this.lnurlValue);
+    },
+    async getUStatus() {
+      await axios
+        .get("https://gem.chinadigitaltimes.net/api/user-auth-status")
+        .then(async (response) => {
+          console.log("api--response--auth-", response.data);
+          this.key = response.data.key;
+          console.log("key---auth", this.key);
+          if (this.key) clearInterval(this.statusShedule);
+          this.$router.push({
+            path: "/mainboard",
+            query: { key: this.key },
+          });
+        })
+        .catch((error) => console.log(error));
     },
   },
 };

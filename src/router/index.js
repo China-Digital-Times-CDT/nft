@@ -82,6 +82,12 @@ const routes = [
     component: () => import('../pages/LightningLogin.vue'),
     props: true
   },
+  {
+    path: '/mainboard',
+    name: 'MainBoard',
+    component: () => import('../pages/MainBoard.vue'),
+    props: true
+  }
 ];
 
 const router = createRouter({
