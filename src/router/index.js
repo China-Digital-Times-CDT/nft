@@ -76,6 +76,12 @@ const routes = [
     component: () => import('../pages/Verify.vue'),
     props: true
   },
+  {
+    path: '/lightning',
+    name: 'LightningLogin',
+    component: () => import('../pages/LightningLogin.vue'),
+    props: true
+  },
 ];
 
 const router = createRouter({

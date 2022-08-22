@@ -437,7 +437,14 @@ let SectionData = {
           btnClass: 'bg-cyan-100 text-cyan t-btn',
           icon: 'ni-github',
           path: 'dashboard'
-        },]
+        },
+        {
+          title: 'Lightning',
+          btnClass: 'bg-cyan-100 text-cyan t-btn',
+          icon: '',
+          path: 'dashboard'
+        }
+      ]
     },
     // register data
     registerData: {

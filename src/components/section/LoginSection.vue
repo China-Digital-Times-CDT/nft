@@ -95,6 +95,17 @@
                   >{{ SectionData.loginData.btnText }}
                 </router-link> -->
               </button>
+              <button
+                class="btn btn-primary w-100 mt-4"
+                type="submit"
+                @click.prevent="lightning()"
+              >
+                <!-- <a :href="link()">{{ 111 }} </a> -->
+                Lightning Login
+                <!-- <router-link to="/dashboard"
+                  >{{ SectionData.loginData.btnText }}
+                </router-link> -->
+              </button>
             </ul>
             <p class="mt-3 form-text">
               {{ $t("loginData.haveAccountText") }}
@@ -155,6 +166,11 @@ export default {
   methods: {
     link: function () {
       return "https://github.com/login/oauth/authorize?client_id=811f5a35b787b8b4e767&scope=repo";
+    },
+    lightning: function () {
+      this.$router.replace({
+        path: "/lightning",
+      });
     },
     connect: function () {
       // this.$pizzly
