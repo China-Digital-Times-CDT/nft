@@ -6,6 +6,7 @@ class SocketioService {
 
     setupSocketConnection() {
         this.socket = io();
+        this.socket.emit('my message', 'Hello there from Vue.');
     }
 }
 
