@@ -5,7 +5,7 @@ class SocketioService {
     constructor() { }
 
     setupSocketConnection() {
-        this.socket = io('http://localhost:8081');
+        this.socket = io();
     }
 }
 

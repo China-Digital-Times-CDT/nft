@@ -38,6 +38,7 @@
 import SectionData from "@/store/store.js";
 import axios from "axios";
 import QrcodeVue from "qrcode.vue";
+// import { io } from 'socket.io-client';
 
 export default {
   name: "Login",
