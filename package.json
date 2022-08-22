@@ -20,6 +20,7 @@
     "pizzly-js": "^0.2.8",
     "qrcode.vue": "^3.3.3",
     "serve": "^14.0.1",
+    "socket.io-client": "^4.5.1",
     "swiper": "^6.8.4",
     "v-pagination-3": "^0.1.7",
     "vue": "^3.2.24",
