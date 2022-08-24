@@ -76,12 +76,12 @@ const routes = [
     component: () => import('../pages/Verify.vue'),
     props: true
   },
-  {
-    path: '/lightning',
-    name: 'LightningLogin',
-    component: () => import('../pages/LightningLogin.vue'),
-    props: true
-  },
+  // {
+  //   path: '/lightning',
+  //   name: 'LightningLogin',
+  //   component: () => import('../pages/LightningLogin.vue'),
+  //   props: true
+  // },
   {
     path: '/mainboard',
     name: 'MainBoard',
@@ -89,7 +89,7 @@ const routes = [
     props: true
   },
   {
-    path: '/api',
+    path: '/lightning',
     name: 'Lightning',
     component: () => import('../pages/Lightning.vue'),
     props: true
