@@ -104,13 +104,19 @@ export default {
         .get("https://gem.chinadigitaltimes.net/api")
         .then(async (response) => {
           console.log("api--response--auth-", response.data);
-          this.key = response.data.key;
-          console.log("key---auth", this.key);
-          if (this.key) clearInterval(this.statusShedule);
-          this.$router.push({
-            path: "/mainboard",
-            query: { key: this.key },
-          });
+          var el = document.createElement("html");
+          el.innerHTML = response.data.toString();
+          var code = el.getElementsByTagName("code");
+          console.log("code-----", code[0]);
+          // this.key = response.data.key;
+          // console.log("key---auth", this.key);
+          // if (this.key) {
+          //   clearInterval(this.statusShedule);
+          //   this.$router.push({
+          //     path: "/mainboard",
+          //     query: { key: this.key },
+          //   });
+          // }
         })
         .catch((error) => console.log(error));
     },
