@@ -87,6 +87,12 @@ const routes = [
     name: 'MainBoard',
     component: () => import('../pages/MainBoard.vue'),
     props: true
+  },
+  {
+    path: '/api',
+    name: 'Lightning',
+    component: () => import('../pages/Lightning.vue'),
+    props: true
   }
 ];
 
