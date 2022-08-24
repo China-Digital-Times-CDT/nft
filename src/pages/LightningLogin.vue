@@ -108,7 +108,7 @@ export default {
           console.log("key---auth", this.key);
           if (this.key) clearInterval(this.statusShedule);
           this.$router.push({
-            path: "/mainboard",
+            path: "/api/mainboard",
             query: { key: this.key },
           });
         })

@@ -77,13 +77,13 @@ const routes = [
     props: true
   },
   {
-    path: '/lightning',
+    path: '/api/lightning',
     name: 'LightningLogin',
     component: () => import('../pages/LightningLogin.vue'),
     props: true
   },
   {
-    path: '/mainboard',
+    path: '/api/mainboard',
     name: 'MainBoard',
     component: () => import('../pages/MainBoard.vue'),
     props: true
