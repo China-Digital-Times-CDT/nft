@@ -73,7 +73,7 @@ export default {
 
     // this.statusShedule = setInterval(this.getUStatus, 1000);
     await axios
-      .get("https://gem.chinadigitaltimes.net/api/user/login")
+      .get("https://gem.chinadigitaltimes.net/api/lightning")
       .then(async (response) => {
         console.log("api--response---", response.data);
         //let html = response.data;
@@ -108,7 +108,7 @@ export default {
           console.log("key---auth", this.key);
           if (this.key) clearInterval(this.statusShedule);
           this.$router.push({
-            path: "/api/mainboard",
+            path: "/mainboard",
             query: { key: this.key },
           });
         })
