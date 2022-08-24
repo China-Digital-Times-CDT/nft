@@ -73,7 +73,7 @@ export default {
 
     // this.statusShedule = setInterval(this.getUStatus, 1000);
     await axios
-      .get("https://gem.chinadigitaltimes.net/api/lightning")
+      .get("https://gem.chinadigitaltimes.net/api/login")
       .then(async (response) => {
         console.log("api--response---", response.data);
         //let html = response.data;
@@ -90,7 +90,7 @@ export default {
       })
       .catch((error) => console.log(error));
 
-    //   this.statusShedule = setInterval(this.getUStatus, 1000);
+    this.statusShedule = setInterval(this.getUStatus, 1000);
   },
 
   methods: {
@@ -101,7 +101,7 @@ export default {
     },
     async getUStatus() {
       await axios
-        .get("https://gem.chinadigitaltimes.net/api/user-auth-status")
+        .get("https://gem.chinadigitaltimes.net/api")
         .then(async (response) => {
           console.log("api--response--auth-", response.data);
           this.key = response.data.key;
