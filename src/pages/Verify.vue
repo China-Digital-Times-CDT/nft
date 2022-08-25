@@ -47,13 +47,13 @@ export default {
               response.data.token
           )
           .then((response) => {
-            console.log("api--response---dashboard", response.data);
+            console.log("api--response---mainboard", response.data);
             this.userName = response.data.name;
             this.email = response.data.email;
             localStorage.setItem("username", this.userName);
             this.addNewUser();
             this.$router.replace({
-              path: "/dashboard",
+              path: "/mainboard",
             });
           })
           .catch((error) => console.log(error));

@@ -67,6 +67,7 @@ import './assets/scss/style.scss'
 // Global page components imported
 import HeaderMain from './components/common/HeaderMain.vue';
 import ButtonGroup from './components/common/ButtonGroup.vue';
+import UserSidebar from './components/common/UserSidebar.vue';
 import Footer from './pages/Footer.vue';
 import FooterSection from './components/section/FooterSection.vue';
 import LoginSection from './components/section/LoginSection.vue';
@@ -79,10 +80,17 @@ import CollectionSlider from './components/common/CollectionSlider.vue';
 import ExploreSection from './components/section/ExploreSection.vue';
 import HowItSection from './components/section/HowItSection.vue';
 import LogoLink from './components/common/LogoLink.vue';
+import ProfileSection from './components/section/ProfileSection.vue';
+import WalletSection from './components/section/WalletSection.vue';
+import CollectionSection from './components/section/CollectionSection.vue';
+import InvitationsSection from './components/section/InvitationsSection.vue';
+import SettingsSection from './components/section/SettingsSection.vue';
 
 // Global page components register
 app.component('HeaderMain', HeaderMain);
 app.component('ButtonGroup', ButtonGroup)
+app.component('UserSidebar', UserSidebar)
+
 app.component('Footer', Footer)
 app.component('FooterSection', FooterSection)
 app.component('LoginSection', LoginSection)
@@ -95,6 +103,11 @@ app.component('CollectionSlider', CollectionSlider)
 app.component('ExploreSection', ExploreSection)
 app.component('HowItSection', HowItSection)
 app.component('LogoLink', LogoLink)
+app.component('ProfileSection', ProfileSection)
+app.component('WalletSection', WalletSection)
+app.component('CollectionSection', CollectionSection)
+app.component('InvitationsSection', InvitationsSection)
+app.component('SettingsSection', SettingsSection)
 
 // vue app
 app.use(router).mount('#app')

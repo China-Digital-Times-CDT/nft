@@ -5,15 +5,7 @@
       <!-- Header main -->
       <HeaderMain></HeaderMain>
     </header>
-    <div class="text-center">
-      <div class="text-center w-full my-4">
-        <h3>
-          <h3 class="my-4">You are now known as:</h3>
 
-          <p>{{ this.$route.query.user_id }}</p>
-        </h3>
-      </div>
-    </div>
     <section class="user-panel-section section-space">
       <div class="container">
         <div class="row">
@@ -24,7 +16,7 @@
             :navs="$tm('offerTabNavMobile')"
           ></UserSidebar>
           <!-- offer -->
-          <ProfileSection></ProfileSection>
+          <SettingsSection></SettingsSection>
           <!-- end row -->
         </div>
         <!-- end row -->
@@ -46,21 +38,15 @@ import SectionData from "@/store/store.js";
 //import axios from "axios";
 
 export default {
-  name: "MainBoard",
+  name: "WalletBoard",
   data() {
     return {
       SectionData,
       userName: "",
-      email: "",
-      tokenAmount: 0,
-      shares: 0,
-      el: null,
     };
   },
 
-  async mounted() {
-    console.log("The key is: " + this.$route.query.user_id);
-  },
+  async mounted() {},
 
   methods: {},
 };

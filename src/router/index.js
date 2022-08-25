@@ -93,7 +93,37 @@ const routes = [
     name: 'Lightning',
     component: () => import('../pages/Lightning.vue'),
     props: true
-  }
+  },
+  {
+    path: '/wallet',
+    name: 'WalletBoard',
+    component: () => import('../pages/WalletBoard.vue'),
+    props: true
+  },
+  {
+    path: '/collection',
+    name: 'CollectionBoard',
+    component: () => import('../pages/CollectionBoard.vue'),
+    props: true
+  },
+  {
+    path: '/invitations',
+    name: 'InvitationsBoard',
+    component: () => import('../pages/InvitationsBoard.vue'),
+    props: true
+  },
+  {
+    path: '/collection',
+    name: 'CollectionBoard',
+    component: () => import('../pages/CollectionBoard.vue'),
+    props: true
+  },
+  {
+    path: '/settings',
+    name: 'SettingsBoard',
+    component: () => import('../pages/SettingsBoard.vue'),
+    props: true
+  },
 ];
 
 const router = createRouter({

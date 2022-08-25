@@ -691,6 +691,42 @@ let SectionData = {
     ],
 
 
+    offerSidebarData: {
+      title: 'Dashboard',
+      navList: [
+        {
+          id: 1,
+          class: 'active',
+          icon: 'ni-gift',
+          title: 'Profile',
+          path: 'mainboard'
+        },
+        {
+          id: 2,
+          icon: 'ni-file-text',
+          title: 'Wallet',
+          path: 'wallet'
+        },
+        {
+          id: 3,
+          icon: 'ni-money',
+          title: 'Collection',
+          path: 'collection'
+        },
+        {
+          id: 4,
+          icon: 'ni-exchange',
+          title: 'Invitations',
+          path: 'invitations'
+        },
+        {
+          id: 5,
+          icon: 'ni-camera',
+          title: 'Settings',
+          path: 'settings'
+        },
+      ]
+    },
   },
   ja: {
     newlylisted: '新上市',
@@ -1337,6 +1373,42 @@ let SectionData = {
         path: '/home'
       }
     ],
+    offerSidebarData: {
+      title: 'Dashboard',
+      navList: [
+        {
+          id: 1,
+          class: 'active',
+          icon: 'ni-gift',
+          title: 'Profile',
+          path: 'mainboard'
+        },
+        {
+          id: 2,
+          icon: 'ni-file-text',
+          title: 'Wallet',
+          path: 'wallet'
+        },
+        {
+          id: 3,
+          icon: 'ni-money',
+          title: 'Collection',
+          path: 'collection'
+        },
+        {
+          id: 4,
+          icon: 'ni-exchange',
+          title: 'Invitations',
+          path: 'invitations'
+        },
+        {
+          id: 5,
+          icon: 'ni-camera',
+          title: 'Settings',
+          path: 'settings'
+        },
+      ]
+    },
   }
 
 }
