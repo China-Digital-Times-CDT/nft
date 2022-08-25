@@ -11,7 +11,8 @@
             type="text"
             id="displayUserName"
             class="form-control form-control-s1"
-            value="user name"
+            placeholder="user name"
+            v-model="this.userName"
           />
         </div>
         <div class="col-lg-3">
@@ -28,7 +29,8 @@
             type="text"
             id="displayUserName"
             class="form-control form-control-s1"
-            value="wallet address"
+            placeholder="wallet address"
+            v-model="this.walletAddress"
           />
         </div>
       </div>
@@ -69,6 +71,9 @@ export default {
   data() {
     return {
       SectionData,
+      walletAddress: null,
+      githubName: "",
+      userName: "",
     };
   },
   methods: {
@@ -85,6 +90,10 @@ export default {
   },
   async mounted() {
     console.log("The key is: " + this.$route.query.user_id);
+    var usrId = this.$route.query.user_id.toString();
+    this.walletAddress = this.$route.query.user_id;
+    this.userName = "@" + usrId.substring(0, 6);
+    console.log("userName = ", this.userName);
     var username = localStorage.getItem("username");
 
     console.log("authId------", username);
@@ -95,9 +104,8 @@ export default {
         })
         .then((response) => {
           console.log("api--response---", response.data);
-          this.userName = response.data[0].username;
-          this.email = response.data[0].email;
-          this.shares = response.data[0].shares;
+          this.githubName = response.data[0].username;
+          console.log("githubName--githubName---", this.githubName);
         })
         .catch((error) => console.log(error));
   },
