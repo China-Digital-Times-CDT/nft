@@ -8,16 +8,7 @@
     <!-- login section -->
     <div class="text-center my-4">
       <div v-if="this.qrImg != null">
-        <!-- <QrcodeVue :value="this.lnurlValue" :size="300"></QrcodeVue>
-        <div class="text-center">
-          <input
-            type="text"
-            placeholder="title"
-            style="width: 700px; margin-top: 20px"
-            v-model="lnurlValue"
-          />
-        </div> -->
-        <a id="qrcode" href="#"><img v-bind:src="this.qrImg" /></a>
+        <!-- <a id="qrcode" href="#"><img v-bind:src="this.qrImg" /></a>
         <button
           type="button"
           id="lightning-uri-button"
@@ -25,8 +16,11 @@
           @click.prevent="copy_to_clipboard"
         >
           {{ $t("invoicedetails.copyclipboard") }}
-        </button>
+        </button> -->
       </div>
+    </div>
+    <div>
+      <p v-if="this.el.innerHTML != null" v-html="this.el.innerHTML"></p>
     </div>
     <!-- Blog  -->
     <Footer></Footer>
@@ -54,6 +48,7 @@ export default {
       key: null,
       statusShedule: null,
       qrImg: null,
+      el: null,
     };
   },
   components: {
@@ -79,14 +74,14 @@ export default {
         //let html = response.data;
         //console.log("href---", JSON.parse(response.data));
 
-        var el = document.createElement("html");
-        el.innerHTML = response.data.toString();
-        var aaa = el.getElementsByTagName("a");
-        var img = el.getElementsByTagName("img");
-        this.qrImg = img[0].src;
+        this.el = document.createElement("html");
+        this.el.innerHTML = response.data.toString();
+        // var aaa = el.getElementsByTagName("a");
+        // var img = el.getElementsByTagName("img");
+        // this.qrImg = img[0].src;
 
-        console.log("222222222", aaa[0].href);
-        console.log("333333333", this.qrImg);
+        // console.log("222222222", aaa[0].href);
+        // console.log("333333333", this.qrImg);
       })
       .catch((error) => console.log(error));
 
