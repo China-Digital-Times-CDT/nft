@@ -89,7 +89,7 @@ const routes = [
     props: true
   },
   {
-    path: '/lightning',
+    path: '/api/login',
     name: 'Lightning',
     component: () => import('../pages/Lightning.vue'),
     props: true
