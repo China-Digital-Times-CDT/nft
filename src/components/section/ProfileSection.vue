@@ -98,7 +98,7 @@ export default {
 
     console.log("usrname-----", username);
     console.log("authId------", username);
-    if (username != null) {
+    if (username != null && username != undefined) {
       await axios
         .post("https://gem.chinadigitaltimes.net/api/getUser", {
           username: username,
