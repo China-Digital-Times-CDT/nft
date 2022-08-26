@@ -28,25 +28,34 @@ export default {
   },
   async mounted() {
     //   location.reload();
-    await axios
-      .get("https://gem.chinadigitaltimes.net/api")
-      .then(async (response) => {
-        console.log("api--response--auth-", response.data);
-        this.el = document.createElement("html");
-        this.el.innerHTML = response.data.toString();
-        //var code = el.getElementsByTagName("code");
-        //console.log("code-----", code[0]);
-        // this.key = response.data.key;
-        // console.log("key---auth", this.key);
-        // if (this.key) {
-        //   clearInterval(this.statusShedule);
-        //   this.$router.push({
-        //     path: "/mainboard",
-        //     query: { key: this.key },
-        //   });
-        // }
-      })
-      .catch((error) => console.log(error));
+    var publickey = localStorage.getItem("publickey");
+    console.log("publickey--", publickey);
+    if (publickey)
+      this.$router.replace({
+        path: "/mainboard",
+        query: { user_id: publickey },
+      });
+    else {
+      await axios
+        .get("https://gem.chinadigitaltimes.net/api")
+        .then(async (response) => {
+          console.log("api--response--auth-", response.data);
+          this.el = document.createElement("html");
+          this.el.innerHTML = response.data.toString();
+          //var code = el.getElementsByTagName("code");
+          //console.log("code-----", code[0]);
+          // this.key = response.data.key;
+          // console.log("key---auth", this.key);
+          // if (this.key) {
+          //   clearInterval(this.statusShedule);
+          //   this.$router.push({
+          //     path: "/mainboard",
+          //     query: { key: this.key },
+          //   });
+          // }
+        })
+        .catch((error) => console.log(error));
+    }
   },
 
   methods: {},

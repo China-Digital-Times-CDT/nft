@@ -60,6 +60,7 @@ export default {
 
   async mounted() {
     console.log("The key is: " + this.$route.query.user_id);
+    localStorage.setItem("publickey", this.$route.query.user_id);
   },
 
   methods: {},
