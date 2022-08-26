@@ -89,15 +89,16 @@ export default {
     },
   },
   async mounted() {
-    console.log("The key is: " + this.$route.query.user_id);
-    var usrId = this.$route.query.user_id.toString();
-    this.walletAddress = this.$route.query.user_id;
-    this.userName = "@" + usrId.substring(0, 6);
-    console.log("userName = ", this.userName);
+    // console.log("The key is: " + this.$route.query.user_id);
+    // var usrId = this.$route.query.user_id.toString();
+    // this.walletAddress = this.$route.query.user_id;
+    // this.userName = "@" + usrId.substring(0, 6);
+    // console.log("userName = ", this.userName);
     var username = localStorage.getItem("username");
 
+    console.log("usrname-----", username);
     console.log("authId------", username);
-    if (username != null && username.length > 0)
+    if (username != null) {
       await axios
         .post("https://gem.chinadigitaltimes.net/api/getUser", {
           username: username,
@@ -108,6 +109,7 @@ export default {
           console.log("githubName--githubName---", this.githubName);
         })
         .catch((error) => console.log(error));
+    }
   },
 };
 </script>
