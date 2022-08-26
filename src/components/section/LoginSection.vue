@@ -169,7 +169,7 @@ export default {
     },
     lightning: function () {
       this.$router.replace({
-        path: "/api",
+        path: "/api/login",
       });
     },
     connect: function () {
