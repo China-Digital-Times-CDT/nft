@@ -124,6 +124,12 @@ const routes = [
     component: () => import('../pages/SettingsBoard.vue'),
     props: true
   },
+  {
+    path: '/logout',
+    name: 'Logout',
+    component: () => import('../pages/Logout.vue'),
+    props: true
+  },
 ];
 
 const router = createRouter({

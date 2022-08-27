@@ -388,7 +388,7 @@ let SectionData = {
           {
             id: 3,
             title: 'Log out',
-            path: '/api/logout'
+            path: '/logout'
           },
         ]
       }
