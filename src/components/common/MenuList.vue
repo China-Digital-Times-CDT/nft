@@ -25,7 +25,7 @@
         >{{ $t("headerData.menuList3.title") }}</router-link
       >
     </li>
-    <li v-if="this.authId.length == 0" class="menu-item">
+    <li v-if="this.publickey.length == 0" class="menu-item">
       <!-- <a href="#" class="menu-link menu-toggle">{{
         SectionData.headerData.menuList4.title
       }}</a> -->
@@ -35,7 +35,7 @@
         >{{ $t("headerData.menuList4.title") }}</router-link
       >
     </li>
-    <li v-if="this.authId.length > 0" class="menu-item has-sub">
+    <li v-if="this.publickey.length > 0" class="menu-item has-sub">
       <a href="#" class="menu-link menu-toggle">{{
         $tm("headerData.menuList5.title")
       }}</a>
@@ -82,6 +82,7 @@ export default {
       SectionData,
       authId: "",
       languageArray: ["en", "ja"],
+      publickey: "",
     };
   },
   computed: {
@@ -104,6 +105,7 @@ export default {
     console.log("this-authId---m", this.authId);
     var lang = localStorage.getItem("lang");
     this.$i18n.locale = lang;
+    this.publickey = localStorage.getItem("publickey");
   },
   methods: {
     menuClick: function (title) {

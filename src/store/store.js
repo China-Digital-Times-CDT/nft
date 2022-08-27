@@ -388,10 +388,11 @@ let SectionData = {
           {
             id: 3,
             title: 'Log out',
-            path: '/'
+            path: '/api/logout'
           },
         ]
       }
+
     },
     // Hero btn data
     btnDataFour: [
