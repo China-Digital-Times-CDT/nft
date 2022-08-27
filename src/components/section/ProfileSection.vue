@@ -74,6 +74,9 @@ export default {
       walletAddress: null,
       githubName: "",
       userName: "",
+      email: "",
+      tokenAmount: 0,
+      shares: 0,
     };
   },
   methods: {
@@ -87,29 +90,45 @@ export default {
         })
         .catch((error) => console.log(error));
     },
-  },
-  async mounted() {
-    // console.log("The key is: " + this.$route.query.user_id);
-    // var usrId = this.$route.query.user_id.toString();
-    // this.walletAddress = this.$route.query.user_id;
-    // this.userName = "@" + usrId.substring(0, 6);
-    // console.log("userName = ", this.userName);
-    var username = localStorage.getItem("username");
-
-    console.log("usrname-----", username);
-    console.log("authId------", username);
-    if (username != null && username != undefined) {
+    async addNewUser() {
       await axios
-        .post("https://gem.chinadigitaltimes.net/api/getUser", {
-          username: username,
+        .post("https://gem.chinadigitaltimes.net/api/user_add", {
+          username: this.userName,
+          email: this.email,
+          tokenAmount: this.tokenAmount,
+          shares: this.shares,
+          github_id: this.githubName,
+          public_key: this.walletAddress,
         })
         .then((response) => {
-          console.log("api--response---", response.data);
-          this.githubName = response.data[0].username;
-          console.log("githubName--githubName---", this.githubName);
+          console.log("added new user", response.data);
         })
         .catch((error) => console.log(error));
-    }
+    },
+  },
+  async mounted() {
+    console.log("The key is: " + this.$route.query.user_id);
+    var usrId = this.$route.query.user_id.toString();
+    this.walletAddress = this.$route.query.user_id;
+    this.userName = "@" + usrId.substring(0, 6);
+    console.log("userName = ", this.userName);
+    // var username = localStorage.getItem("username");
+
+    // console.log("usrname-----", username);
+    // console.log("authId------", username);
+    // if (username != null && username != undefined) {
+    //   await axios
+    //     .post("https://gem.chinadigitaltimes.net/api/getUser", {
+    //       username: username,
+    //     })
+    //     .then((response) => {
+    //       console.log("api--response---", response.data);
+    //       this.githubName = response.data[0].username;
+    //       console.log("githubName--githubName---", this.githubName);
+    //     })
+    //     .catch((error) => console.log(error));
+    // }
+    this.addNewUser();
   },
 };
 </script>

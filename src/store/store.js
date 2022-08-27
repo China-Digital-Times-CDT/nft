@@ -357,7 +357,7 @@ let SectionData = {
       },
       menuList4: {
         title: 'Login',
-        path: '/login'
+        path: '/lightning-login'
 
         // navList: [
         //   {
