@@ -119,7 +119,7 @@ export default {
         })
         .then((response) => {
           console.log("api--response---", response.data);
-          this.githubName = response.data[0].username;
+          // this.githubName = response.data[0].username;
           console.log("githubName--githubName---", this.githubName);
           if (response.data.length > 0) {
             this.walletAddress = response.data[0].public_key;
