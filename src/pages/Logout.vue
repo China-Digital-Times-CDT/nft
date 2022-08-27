@@ -33,6 +33,11 @@ export default {
       .get("https://gem.chinadigitaltimes.net/api/logout")
       .then((response) => {
         console.log("api--response---logout", response.data);
+        localStorage.setItem("publickkey", "");
+
+        this.$router.replace({
+          path: "/",
+        });
       })
       .catch((error) => console.log(error));
   },
