@@ -109,26 +109,30 @@ export default {
   async mounted() {
     console.log("The key is: " + this.$route.query.user_id);
     var usrId = this.$route.query.user_id.toString();
-    this.walletAddress = this.$route.query.user_id;
-    this.userName = "@" + usrId.substring(0, 6);
-    console.log("userName = ", this.userName);
+
     // var username = localStorage.getItem("username");
 
-    // console.log("usrname-----", username);
-    // console.log("authId------", username);
-    // if (username != null && username != undefined) {
-    //   await axios
-    //     .post("https://gem.chinadigitaltimes.net/api/getUser", {
-    //       username: username,
-    //     })
-    //     .then((response) => {
-    //       console.log("api--response---", response.data);
-    //       this.githubName = response.data[0].username;
-    //       console.log("githubName--githubName---", this.githubName);
-    //     })
-    //     .catch((error) => console.log(error));
-    // }
-    this.addNewUser();
+    if (usrId != null && usrId != undefined) {
+      await axios
+        .post("https://gem.chinadigitaltimes.net/api/getUser", {
+          public_key: usrId,
+        })
+        .then((response) => {
+          console.log("api--response---", response.data);
+          this.githubName = response.data[0].username;
+          console.log("githubName--githubName---", this.githubName);
+          if (response.data.length > 0) {
+            this.walletAddress = response.data[0].public_key;
+            this.userName = response.data[0].username;
+          } else {
+            this.walletAddress = this.$route.query.user_id;
+            this.userName = "@" + usrId.substring(0, 6);
+            console.log("userName = ", this.userName);
+            this.addNewUser();
+          }
+        })
+        .catch((error) => console.log(error));
+    }
   },
 };
 </script>
