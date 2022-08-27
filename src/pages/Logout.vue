@@ -30,7 +30,7 @@ export default {
 
   async mounted() {
     await axios
-      .get("https://gem.chinadigitaltimes.net/api/log-out")
+      .get("https://gem.chinadigitaltimes.net/api/logout")
       .then((response) => {
         console.log("api--response---logout", response.data);
       })
