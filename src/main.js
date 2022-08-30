@@ -83,8 +83,8 @@ import LogoLink from './components/common/LogoLink.vue';
 import ProfileSection from './components/section/ProfileSection.vue';
 import WalletSection from './components/section/WalletSection.vue';
 import CollectionSection from './components/section/CollectionSection.vue';
-import InvitationsSection from './components/section/InvitationsSection.vue';
 import SettingsSection from './components/section/SettingsSection.vue';
+import InvoiceStatus from './components/common/InvoiceStatus.js';
 
 // Global page components register
 app.component('HeaderMain', HeaderMain);
@@ -106,8 +106,8 @@ app.component('LogoLink', LogoLink)
 app.component('ProfileSection', ProfileSection)
 app.component('WalletSection', WalletSection)
 app.component('CollectionSection', CollectionSection)
-app.component('InvitationsSection', InvitationsSection)
 app.component('SettingsSection', SettingsSection)
+app.component('InvoiceStatus', InvoiceStatus)
 
 // vue app
 app.use(router).mount('#app')
