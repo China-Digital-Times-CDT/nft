@@ -119,7 +119,7 @@
         <InvoiceStatus status="waiting for you" />
       </div>
       <div v-if="this.paid">
-        <InvoiceStatus :status="'Deposited' + this.amount + 'Satosis'" />
+        <InvoiceStatus :status="'Deposited  ' + this.amount + '  Satosis'" />
       </div>
     </div>
     <!-- end user-panel-title-box -->
