@@ -259,10 +259,11 @@ export default {
         })
         .then((response) => {
           console.log("api--response---update--user", response.data);
-          // this.invoiceValue = null;
+          this.invoiceValue = null;
           this.update_user();
           this.$router.replace({
             path: "/wallet",
+            query: { type: "fund" },
           });
         })
         .catch((error) => console.log(error));
