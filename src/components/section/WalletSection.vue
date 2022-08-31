@@ -31,7 +31,7 @@
             type="text"
             id="displayUserName"
             class="form-control form-control-s1"
-            value="user name"
+            v-model="this.balance"
           />
         </div>
         <div class="col-lg-3">
@@ -147,15 +147,32 @@ export default {
       payment_status: "",
       statusShedule: null,
       paid: false,
+      balance: 0,
     };
   },
   components: {
     QrcodeVue,
     InvoiceStatus,
   },
-  mounted() {
+  async mounted() {
     // if (this.invoiceValue)
     //   this.statusShedule = setInterval(this.getPStatus, 10000);
+    let pKey = localStorage.getItem("publickey");
+    if (pKey) {
+      await axios
+        .post("https://gem.chinadigitaltimes.net/api/getUser", {
+          public_key: pKey,
+        })
+        .then((response) => {
+          console.log("api--response---", response.data);
+          // this.githubName = response.data[0].username;
+          console.log("githubName--githubName---", this.githubName);
+          if (response.data.length > 0) {
+            this.balance = response.data[0].amount;
+          }
+        })
+        .catch((error) => console.log(error));
+    }
   },
   methods: {
     deposit: function () {
@@ -202,6 +219,7 @@ export default {
         })
         .then((response) => {
           console.log("api--history---response---", response.data);
+          this.get_wallet_history();
         })
         .catch((error) => console.log(error));
     },
@@ -259,7 +277,6 @@ export default {
             this.paid = true;
 
             this.add_history();
-            this.get_wallet_history();
             // console.log(
             //   "payment_successed----",
             //   this.$route.query.amount.toString()
