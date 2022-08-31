@@ -205,6 +205,38 @@ export default {
         })
         .catch((error) => console.log(error));
     },
+    get_wallet_history: async function () {
+      let pKey = localStorage.getItem("publickey");
+      var totalAmount = 0;
+
+      await axios
+        .post("https://gem.chinadigitaltimes.net/api/getWalletHistory", {
+          public_key: pKey,
+        })
+        .then((response) => {
+          console.log("api--all--history---response---", response.data);
+          for (var i = 0; i < response.data.length; i++) {
+            if (response.data[i].deposited)
+              totalAmount = totalAmount + response.data[i].amount;
+            else totalAmount = totalAmount - response.data[i].amount;
+          }
+          console.log("totalAmount---", totalAmount);
+          this.updateUserWithAmount(totalAmount);
+        })
+        .catch((error) => console.log(error));
+    },
+    async updateUserWithAmount(tokenAmount) {
+      let pKey = localStorage.getItem("publickey");
+      await axios
+        .post("https://gem.chinadigitaltimes.net/api/updateUserWithAmount", {
+          public_key: pKey,
+          tokenAmount: tokenAmount,
+        })
+        .then((response) => {
+          console.log("api--response---update--user", response.data);
+        })
+        .catch((error) => console.log(error));
+    },
     async getPStatus() {
       console.log("getstatus-----");
       await axios
@@ -227,6 +259,7 @@ export default {
             this.paid = true;
 
             this.add_history();
+            this.get_wallet_history();
             // console.log(
             //   "payment_successed----",
             //   this.$route.query.amount.toString()
