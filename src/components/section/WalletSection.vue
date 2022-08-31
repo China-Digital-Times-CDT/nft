@@ -4,7 +4,8 @@
       class="user-panel-title-box"
       v-if="
         this.$route.query.type != 'fund' &&
-        !this.$route.query.type != 'withdraw'
+        !this.$route.query.type != 'withdraw' &&
+        this.invoiceValue == null
       "
     >
       <div class="row mt-5">
@@ -255,6 +256,7 @@ export default {
         })
         .then((response) => {
           console.log("api--response---update--user", response.data);
+          this.invoiceValue = null;
         })
         .catch((error) => console.log(error));
     },
@@ -280,7 +282,6 @@ export default {
             this.paid = true;
 
             this.add_history();
-            this.invoiceValue = null;
             // console.log(
             //   "payment_successed----",
             //   this.$route.query.amount.toString()
