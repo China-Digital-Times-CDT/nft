@@ -158,27 +158,30 @@ export default {
   async mounted() {
     // if (this.invoiceValue)
     //   this.statusShedule = setInterval(this.getPStatus, 10000);
-    let pKey = localStorage.getItem("publickey");
-    if (pKey) {
-      await axios
-        .post("https://gem.chinadigitaltimes.net/api/getUser", {
-          public_key: pKey,
-        })
-        .then((response) => {
-          console.log("api--response---", response.data);
-          // this.githubName = response.data[0].username;
-          console.log(
-            "githubName--githubName--111-",
-            response.data[0].tokenAmount
-          );
-          if (response.data.length > 0) {
-            this.balance = response.data[0].tokenAmount;
-          }
-        })
-        .catch((error) => console.log(error));
-    }
+    this.update_user();
   },
   methods: {
+    update_user: async function () {
+      let pKey = localStorage.getItem("publickey");
+      if (pKey) {
+        await axios
+          .post("https://gem.chinadigitaltimes.net/api/getUser", {
+            public_key: pKey,
+          })
+          .then((response) => {
+            console.log("api--response---", response.data);
+            // this.githubName = response.data[0].username;
+            console.log(
+              "githubName--githubName--111-",
+              response.data[0].tokenAmount
+            );
+            if (response.data.length > 0) {
+              this.balance = response.data[0].tokenAmount;
+            }
+          })
+          .catch((error) => console.log(error));
+      }
+    },
     deposit: function () {
       this.$router.replace({
         path: "/wallet",
@@ -257,6 +260,7 @@ export default {
         .then((response) => {
           console.log("api--response---update--user", response.data);
           this.invoiceValue = null;
+          this.update_user();
         })
         .catch((error) => console.log(error));
     },
