@@ -125,7 +125,7 @@
     </div>
     <div
       class="user-panel-title-box"
-      v-if="this.$route.query.type == 'withdraw'"
+      v-if="this.$route.query.type === 'withdraw'"
     >
       <div class="row mt-5">
         <div class="col-lg-2 mt-2">
@@ -136,7 +136,7 @@
           <input
             type="text"
             class="form-control form-control-s1"
-            placeholder="Amount"
+            placeholder="withdraw Invoice"
             v-model="this.withdrawInvoice"
           />
         </div>
