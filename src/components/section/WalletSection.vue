@@ -166,7 +166,7 @@ export default {
         .then((response) => {
           console.log("api--response---", response.data);
           // this.githubName = response.data[0].username;
-          console.log("githubName--githubName---", this.githubName);
+          console.log("githubName--githubName---", response.data[0].amount);
           if (response.data.length > 0) {
             this.balance = response.data[0].amount;
           }
@@ -277,6 +277,7 @@ export default {
             this.paid = true;
 
             this.add_history();
+            this.invoiceValue = null;
             // console.log(
             //   "payment_successed----",
             //   this.$route.query.amount.toString()
