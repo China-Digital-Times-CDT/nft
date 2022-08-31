@@ -123,6 +123,34 @@
         <InvoiceStatus :status="'Deposited  ' + this.amount + '  Satosis'" />
       </div>
     </div>
+    <div
+      class="user-panel-title-box"
+      v-if="this.$route.query.type == 'withdraw'"
+    >
+      <div class="row mt-5">
+        <div class="col-lg-2 mt-2">
+          <label for="displayName" class="form-label">Invoice</label>
+        </div>
+        <!-- end col -->
+        <div class="col-lg-7">
+          <input
+            type="text"
+            class="form-control form-control-s1"
+            placeholder="Amount"
+            v-model="this.withdrawInvoice"
+          />
+        </div>
+      </div>
+      <div>
+        <button
+          class="btn btn-primary mt-5"
+          type="button"
+          @click.prevent="sendPayment"
+        >
+          Withdraw
+        </button>
+      </div>
+    </div>
     <!-- end user-panel-title-box -->
 
     <!-- end profile-setting-panel-wrap-->
@@ -149,6 +177,7 @@ export default {
       statusShedule: null,
       paid: false,
       balance: 0,
+      withdrawInvoice: null,
     };
   },
   components: {
@@ -161,6 +190,38 @@ export default {
     this.update_user();
   },
   methods: {
+    add_withdraw_history: async function () {
+      let pKey = localStorage.getItem("publickey");
+
+      await axios
+        .post("https://gem.chinadigitaltimes.net/api/addWalletHistory", {
+          // amount: this.amount,
+          public_key: pKey,
+          deposited: false,
+          withInvoice: this.withdrawInvoice,
+        })
+        .then((response) => {
+          console.log("api--history---response---", response.data);
+          this.get_wallet_history();
+        })
+        .catch((error) => console.log(error));
+    },
+    sendPayment: async function () {
+      let pKey = localStorage.getItem("publickey");
+      if (pKey) {
+        await axios
+          .post("https://gem.chinadigitaltimes.net/api/sendPayment", {
+            payment_request: this.withdrawInvoice,
+          })
+          .then((response) => {
+            console.log("api--response---withdraw", response.data);
+            if (response.data.state == "SUCCEEDED") {
+              this.add_withdraw_history();
+            }
+          })
+          .catch((error) => console.log(error));
+      }
+    },
     update_user: async function () {
       let pKey = localStorage.getItem("publickey");
       if (pKey) {
@@ -215,14 +276,14 @@ export default {
 
       navigator.clipboard.writeText(this.invoiceValue);
     },
-    add_history: async function () {
+    add_history: async function (deposited) {
       let pKey = localStorage.getItem("publickey");
 
       await axios
         .post("https://gem.chinadigitaltimes.net/api/addWalletHistory", {
           amount: this.amount,
           public_key: pKey,
-          deposited: true,
+          deposited: deposited,
         })
         .then((response) => {
           console.log("api--history---response---", response.data);
@@ -260,6 +321,7 @@ export default {
         .then((response) => {
           console.log("api--response---update--user", response.data);
           this.invoiceValue = null;
+          this.amount = 0;
           this.update_user();
           this.$router.replace({
             path: "/wallet",
@@ -289,7 +351,7 @@ export default {
             clearInterval(this.statusShedule);
             this.paid = true;
 
-            this.add_history();
+            this.add_history(true);
             // console.log(
             //   "payment_successed----",
             //   this.$route.query.amount.toString()
