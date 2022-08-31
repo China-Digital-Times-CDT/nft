@@ -166,9 +166,12 @@ export default {
         .then((response) => {
           console.log("api--response---", response.data);
           // this.githubName = response.data[0].username;
-          console.log("githubName--githubName---", response.data[0].amount);
+          console.log(
+            "githubName--githubName--111-",
+            response.data[0].tokenAmount
+          );
           if (response.data.length > 0) {
-            this.balance = response.data[0].amount;
+            this.balance = response.data[0].tokenAmount;
           }
         })
         .catch((error) => console.log(error));
