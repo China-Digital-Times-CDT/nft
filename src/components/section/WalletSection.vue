@@ -4,7 +4,7 @@
       class="user-panel-title-box"
       v-if="
         this.$route.query.type != 'fund' &&
-        !this.$route.query.type != 'withdraw' &&
+        this.$route.query.type != 'withdraw' &&
         this.invoiceValue == null
       "
     >
@@ -127,12 +127,12 @@
       class="user-panel-title-box"
       v-if="this.$route.query.type === 'withdraw'"
     >
-      <div class="row mt-5">
+      <div class="row mt-3">
         <div class="col-lg-2 mt-2">
           <label for="displayName" class="form-label">Invoice</label>
         </div>
         <!-- end col -->
-        <div class="col-lg-7">
+        <div class="col-lg-9">
           <input
             type="text"
             class="form-control form-control-s1"
@@ -149,6 +149,9 @@
         >
           Withdraw
         </button>
+      </div>
+      <div v-if="this.withdraw_status">
+        <InvoiceStatus :status="'Sent  ' + this.amount + ' Sats'" />
       </div>
     </div>
     <!-- end user-panel-title-box -->
@@ -178,6 +181,8 @@ export default {
       paid: false,
       balance: 0,
       withdrawInvoice: null,
+      withdraw_status: false,
+      withdrawAmount: 0,
     };
   },
   components: {
@@ -201,7 +206,8 @@ export default {
           withInvoice: this.withdrawInvoice,
         })
         .then((response) => {
-          console.log("api--history---response---", response.data);
+          console.log("api--history---withdraw-----response---", response.data);
+          this.withdrawAmount = response.data;
           this.get_wallet_history();
         })
         .catch((error) => console.log(error));
@@ -217,6 +223,8 @@ export default {
             console.log("api--response---withdraw", response.data);
             if (response.data.state == "SUCCEEDED") {
               this.add_withdraw_history();
+              this.withdrawInvoice = null;
+              this.withdraw_status = true;
             }
           })
           .catch((error) => console.log(error));
@@ -323,10 +331,10 @@ export default {
           this.invoiceValue = null;
           this.amount = 0;
           this.update_user();
-          this.$router.replace({
-            path: "/wallet",
-            query: { type: "fund" },
-          });
+          // this.$router.replace({
+          //   path: "/wallet",
+          //   query: { type: "fund" },
+          // });
         })
         .catch((error) => console.log(error));
     },

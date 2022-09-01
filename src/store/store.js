@@ -378,7 +378,7 @@ let SectionData = {
           {
             id: 1,
             title: 'My wallet*',
-            path: '/dashboard'
+            path: '/mainboard'
           },
           {
             id: 2,

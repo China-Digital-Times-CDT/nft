@@ -8,7 +8,7 @@
     <div class="text-center">
       <div class="text-center w-full my-4">
         <h3>
-          <h3 class="my-4">You are now known as:</h3>
+          <!-- <h3 class="my-4">You are now known as:</h3> -->
 
           <p>{{ this.$route.query.user_id }}</p>
         </h3>
