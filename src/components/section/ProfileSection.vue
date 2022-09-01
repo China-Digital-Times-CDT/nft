@@ -107,6 +107,9 @@ export default {
     },
   },
   async mounted() {
+    let pKey = localStorage.getItem("publickey");
+    this.userName = "@" + pKey.substring(0, 6);
+
     console.log("The key is: " + this.$route.query.user_id);
     var usrId = this.$route.query.user_id.toString();
 
