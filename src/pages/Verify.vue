@@ -61,9 +61,12 @@ export default {
   methods: {
     async updateUserWithGithub() {
       console.log("github_oid--------", this.userName);
+      let pKey = localStorage.getItem("publickey");
+
       await axios
         .post("https://gem.chinadigitaltimes.net/api/updateUserWithGithub", {
           github_id: this.userName,
+          public_key: pKey,
         })
         .then((response) => {
           console.log("updated github user", response.data);
