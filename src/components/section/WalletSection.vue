@@ -207,7 +207,7 @@ export default {
         })
         .then((response) => {
           console.log("api--history---withdraw-----response---", response.data);
-          this.withdrawAmount = response.data;
+          this.withdrawAmount = response.data.amount;
           this.get_wallet_history();
         })
         .catch((error) => console.log(error));
