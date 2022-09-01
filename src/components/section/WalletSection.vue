@@ -151,7 +151,7 @@
         </button>
       </div>
       <div v-if="this.withdraw_status">
-        <InvoiceStatus :status="'Sent  ' + this.amount + ' Sats'" />
+        <InvoiceStatus :status="'Sent  ' + this.withdrawAmount + ' Sats'" />
       </div>
     </div>
     <!-- end user-panel-title-box -->
