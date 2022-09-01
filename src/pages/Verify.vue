@@ -51,10 +51,7 @@ export default {
             this.userName = response.data.name;
             this.email = response.data.email;
             localStorage.setItem("username", this.userName);
-            this.addNewUser();
-            this.$router.replace({
-              path: "/mainboard",
-            });
+            this.updateUserWithGithub();
           })
           .catch((error) => console.log(error));
       })
@@ -62,16 +59,17 @@ export default {
   },
 
   methods: {
-    async addNewUser() {
+    async updateUserWithGithub() {
+      console.log("github_oid--------", this.userName);
       await axios
-        .post("https://gem.chinadigitaltimes.net/api/addUserManual", {
-          username: this.userName,
-          email: this.email,
-          tokenAmount: this.tokenAmount,
-          shares: this.shares,
+        .post("https://gem.chinadigitaltimes.net/api/updateUserWithGithub", {
+          github_id: this.userName,
         })
         .then((response) => {
-          console.log("added new user", response.data);
+          console.log("updated github user", response.data);
+          this.$router.replace({
+            path: "/mainboard",
+          });
         })
         .catch((error) => console.log(error));
     },
