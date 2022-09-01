@@ -60,7 +60,9 @@ export default {
 
   async mounted() {
     console.log("The key is: " + this.$route.query.user_id);
-    localStorage.setItem("publickey", this.$route.query.user_id);
+    let pKey = localStorage.getItem("publickey");
+    if (pKey.length == 0)
+      localStorage.setItem("publickey", this.$route.query.user_id);
     // location.reload();
     window.onload = function () {
       if (!window.location.hash) {
