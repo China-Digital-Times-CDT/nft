@@ -42,11 +42,17 @@
         <div class="col-lg-4">
           <button class="btn btn-primary" type="button">Email</button>
         </div>
+        <div class="col-lg-2">
+          <label for="displayName" class="form-label">{{
+            this.githubMame
+          }}</label>
+        </div>
         <div class="col-lg-4">
           <button
             class="btn btn-primary"
             type="button"
             @click.prevent="connect()"
+            :disabled="this.githubMame.length > 0"
           >
             Github
           </button>
@@ -77,6 +83,7 @@ export default {
       email: "",
       tokenAmount: 0,
       shares: 0,
+      githubMame: "",
     };
   },
   methods: {
@@ -109,6 +116,7 @@ export default {
   async mounted() {
     let pKey = localStorage.getItem("publickey");
     this.userName = "@" + pKey.substring(0, 6);
+    this.githubMame = localStorage.getItem("username");
 
     console.log("The key is: " + this.$route.query.user_id);
     var usrId = this.$route.query.user_id.toString();

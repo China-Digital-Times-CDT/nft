@@ -48,7 +48,9 @@ export default {
           )
           .then((response) => {
             console.log("api--response---mainboard", response.data);
-            this.userName = response.data.name;
+            this.userName = response.data.login;
+            console.log("api--response--github-login", this.userName);
+
             this.email = response.data.email;
             localStorage.setItem("username", this.userName);
             this.updateUserWithGithub();
