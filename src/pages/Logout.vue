@@ -29,16 +29,21 @@ export default {
   },
 
   async mounted() {
+    localStorage.setItem("publickey", "");
+
+    this.$router.replace({
+      path: "/",
+    });
     await axios
       .get("https://gem.chinadigitaltimes.net/api/logout")
       .then((response) => {
         console.log("response----", response);
         console.log("api--response---logout", response.data);
-        localStorage.setItem("publickey", "");
+        // localStorage.setItem("publickey", "");
 
-        this.$router.replace({
-          path: "/",
-        });
+        // this.$router.replace({
+        //   path: "/",
+        // });
       })
       .catch((error) => console.log(error));
   },
