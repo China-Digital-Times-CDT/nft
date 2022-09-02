@@ -81,6 +81,20 @@
           />
         </div>
       </div>
+      <div class="row mt-5">
+        <div class="col-lg-2 mt-2">
+          <label for="displayName" class="form-label">Description</label>
+        </div>
+        <!-- end col -->
+        <div class="col-lg-7">
+          <input
+            type="text"
+            class="form-control form-control-s1"
+            placeholder="Description"
+            v-model="this.description"
+          />
+        </div>
+      </div>
       <div>
         <button
           class="btn btn-primary mt-5"
@@ -183,6 +197,7 @@ export default {
       withdrawInvoice: null,
       withdraw_status: false,
       withdrawAmount: 0,
+      description: "",
     };
   },
   components: {
@@ -267,7 +282,7 @@ export default {
       await axios
         .post("https://gem.chinadigitaltimes.net/api/create-invoice", {
           amount: this.amount,
-          description: "",
+          description: this.description,
         })
         .then((response) => {
           console.log("api--response---", response.data.payment_request);
@@ -331,10 +346,9 @@ export default {
           this.invoiceValue = null;
           this.amount = 0;
           this.update_user();
-          // this.$router.replace({
-          //   path: "/wallet",
-          //   query: { type: "fund" },
-          // });
+          this.$router.replace({
+            path: "/wallet",
+          });
         })
         .catch((error) => console.log(error));
     },
