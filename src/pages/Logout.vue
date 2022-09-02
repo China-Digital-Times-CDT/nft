@@ -32,6 +32,7 @@ export default {
     await axios
       .get("https://gem.chinadigitaltimes.net/api/logout")
       .then((response) => {
+        console.log("response----", response);
         console.log("api--response---logout", response.data);
         localStorage.setItem("publickey", "");
 
