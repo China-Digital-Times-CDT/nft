@@ -42,7 +42,7 @@
         <div class="col-lg-4">
           <button class="btn btn-primary" type="button">Email</button>
         </div>
-        <div class="col-lg-2">
+        <div class="col-lg-2" v-if="this.githubMame != null">
           <label for="displayName" class="form-label">{{
             this.githubMame
           }}</label>
@@ -52,7 +52,7 @@
             class="btn btn-primary"
             type="button"
             @click.prevent="connect()"
-            :disabled="this.githubMame.length > 0"
+            :disabled="this.githubMame == null"
           >
             Github
           </button>
