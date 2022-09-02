@@ -164,6 +164,9 @@
           Withdraw
         </button>
       </div>
+      <div v-if="!this.withdraw_status">
+        <InvoiceStatus status="Pending now" />
+      </div>
       <div v-if="this.withdraw_status">
         <InvoiceStatus :status="'Sent  ' + this.withdrawAmount + ' Sats'" />
       </div>
