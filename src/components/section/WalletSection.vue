@@ -155,6 +155,9 @@
           />
         </div>
       </div>
+      <div v-if="!this.withdraw_status && this.withdrawFlag">
+        <InvoiceStatus status="Pending now" />
+      </div>
       <div>
         <button
           class="btn btn-primary mt-5"
@@ -164,9 +167,7 @@
           Withdraw
         </button>
       </div>
-      <div v-if="!this.withdraw_status">
-        <InvoiceStatus status="Pending now" />
-      </div>
+
       <div v-if="this.withdraw_status">
         <InvoiceStatus :status="'Sent  ' + this.withdrawAmount + ' Sats'" />
       </div>
@@ -201,6 +202,7 @@ export default {
       withdraw_status: false,
       withdrawAmount: 0,
       description: "",
+      withdrawFlag: false,
     };
   },
   components: {
@@ -231,6 +233,7 @@ export default {
         .catch((error) => console.log(error));
     },
     sendPayment: async function () {
+      this.withdrawFlag = true;
       let pKey = localStorage.getItem("publickey");
       if (pKey) {
         await axios
@@ -349,9 +352,10 @@ export default {
           this.invoiceValue = null;
           this.amount = 0;
           this.update_user();
-          this.$router.replace({
-            path: "/wallet",
-          });
+          setTimeout(() => this.$router.replace({ path: "/wallet" }), 3000);
+          // this.$router.replace({
+          //   path: "/wallet",
+          // });
         })
         .catch((error) => console.log(error));
     },
