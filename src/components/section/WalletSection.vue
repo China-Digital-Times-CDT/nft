@@ -355,6 +355,8 @@ export default {
           this.paid = false;
           this.withdrawFlag = false;
           this.update_user();
+          this.description = "";
+
           setTimeout(() => this.$router.replace({ path: "/wallet" }), 3000);
           // this.$router.replace({
           //   path: "/wallet",
